@@ -18,8 +18,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Appbar />
-          {children}
+          <div className="bg-white dark:bg-slate-900">
+            <Appbar />
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>
