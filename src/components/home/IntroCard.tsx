@@ -1,19 +1,27 @@
 import React from "react";
-
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 type Props = {};
 
 const IntroCard = (props: Props) => {
   return (
-    <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
+    <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex ">
       <div className="bg-white dark:bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl w-full">
-        <div className="w-full">
-          <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-            Hello, I am Mike Hoang
-          </h1>
+        <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+          Hello, I am{" "}
+          <span className="text-slate-900 dark:text-white"> Mike Hoang</span>
+        </h1>
 
-          <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">Software Developer</h2>
-        </div>
-        <h3 className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
+        <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight transition-colors first:mt-0 mt-4">
+          Software Developer
+        </h2>
+        <h3 className="mt-5 text-base font-medium tracking-tight">
           Writes Upside-Down
         </h3>
         <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
