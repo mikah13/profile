@@ -11,6 +11,7 @@ import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import FordThumb from "@/assets/images/fordheritagevault.png";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { SiJavascript, SiTailwindcss } from "react-icons/si";
 type Props = {};
 
 const Projects = (props: Props) => {
@@ -21,7 +22,7 @@ const Projects = (props: Props) => {
     >
       Projects
       <div className="flex flex-row">
-        <Card className="w-1/2 min-h-min shadow-xl">
+        <Card className="w-1/2 min-h-min shadow-xl cursor-pointer">
           <CardHeader>
             <CardTitle>Ford Heritage Vault</CardTitle>
             <CardDescription>Work Project</CardDescription>
@@ -34,9 +35,21 @@ const Projects = (props: Props) => {
                 className="rounded-md object-cover"
               />
             </AspectRatio>
+            <div>
+              <p>
+                An all-new online database from Ford Archive with over 15,000
+                images and brochures
+              </p>
+            </div>
+            <div className="flex space-x-2 text-4xl my-4">
+              {" "}
+              <SiJavascript className="text-[#F7DF1E]" />
+              <SiTailwindcss className="text-[#06B6D4]" />
+            </div>
 
             <Separator className="my-4 dark:bg-white" />
-            <div className="flex flex-row h-3 items-center text-sm space-x-4">
+
+            <div className="flex flex-row h-3 items-center justify-evenly text-sm space-x-4">
               <a
                 href="/"
                 className="flex items-center gap-x-2 dark:text-purple-300 text-violet-700  font-bold text-primary underline underline-offset-4 hover:text-pink-500 dark:hover:text-pink-500"
@@ -51,8 +64,8 @@ const Projects = (props: Props) => {
                 Visit Site
               </a>
             </div>
+            <Separator className="mt-4 dark:bg-white" />
           </CardContent>
-          <CardFooter></CardFooter>
         </Card>
       </div>
     </section>

@@ -37,7 +37,7 @@ const SOCIAL_MEDIA_LINKS: LINKS[] = [
     icon: AiOutlineMail,
   },
 ];
-const IntroCard = (props: Props) => {
+const AboutMe = (props: Props) => {
   return (
     <section id="about-me" className="flex flex-col justify-center">
       <div className="drop-shadow-2xl z-10 max-w-5xl w-full items-center justify-between text-sm lg:flex">
@@ -108,4 +108,4 @@ const IntroCard = (props: Props) => {
   );
 };
 
-export default IntroCard;
+export default AboutMe;
