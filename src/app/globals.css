@@ -29,7 +29,6 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -53,7 +52,7 @@ body {
     --ring: 262.1 83.3% 57.8%;
     --radius: 0.5rem;
   }
- 
+
   .dark {
     --background: 224 71.4% 4.1%;
     --foreground: 210 20% 98%;
@@ -96,4 +95,9 @@ body {
     background-color: rgb(109, 40, 217);
     width: 100%;
   }
+}
+
+#about-me,
+#projects {
+  min-height: calc(100vh - 60px);
 }

@@ -22,9 +22,9 @@ const Appbar = (props: Props) => {
                 Projects
               </Link>
 
-              <Link className="flex items-center" href="/">
+              {/* <Link className="flex items-center" href="/">
                 Contact Me
-              </Link>
+              </Link> */}
               <ModeToggle />
             </nav>
           </div>
