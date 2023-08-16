@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { AiFillLinkedin, AiOutlineGithub, AiOutlineMail } from "react-icons/ai";
 import { Separator } from "@/components/ui/separator";
+import { FaLocationDot } from "react-icons/fa6";
 type Props = {};
 type LINKS = {
   link: string;
@@ -44,7 +45,12 @@ const IntroCard = (props: Props) => {
         <h2 className="scroll-m-20  pb-2 text-2xl font-semibold tracking-tight transition-colors first:mt-0 mt-4">
           Software Developer
         </h2>
-
+        <div className="flex items-center text-lg space-x-1">
+          <span className="text-rose-500">
+            <FaLocationDot />
+          </span>
+          <p> Vancouver, B.C</p>
+        </div>
         <p className="mt-5 text-lg font-medium tracking-tight">
           With several years of experience in building{" "}
           <strong className="font-bold underline">
