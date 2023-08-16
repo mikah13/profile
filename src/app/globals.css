@@ -7,6 +7,9 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -25,6 +28,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
 
 @layer base {
   :root {
@@ -47,9 +51,9 @@ body {
     --border: 220 13% 91%;
     --input: 220 13% 91%;
     --ring: 262.1 83.3% 57.8%;
-    --radius: 0.75rem;
+    --radius: 0.5rem;
   }
-
+ 
   .dark {
     --background: 224 71.4% 4.1%;
     --foreground: 210 20% 98%;
@@ -70,5 +74,26 @@ body {
     --border: 215 27.9% 16.9%;
     --input: 215 27.9% 16.9%;
     --ring: 263.4 70% 50.4%;
+  }
+}
+
+.progressMainWrapper {
+  height: 3px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+}
+
+.progressMainStyle {
+  height: 3px;
+  width: 15%;
+  animation: progress 1s linear;
+}
+@keyframes progress {
+  to {
+    background-color: rgb(109, 40, 217);
+    width: 100%;
   }
 }

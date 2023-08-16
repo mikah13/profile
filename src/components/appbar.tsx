@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { ModeToggle } from "./modeToggle";
+import { ModeToggle } from "./mode-toggle";
 type Props = {};
 
 const Appbar = (props: Props) => {
