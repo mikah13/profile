@@ -70,27 +70,29 @@ const ProjectCard = (props: Props) => {
           </div>
         )}
 
-        <Separator className="my-2 dark:bg-white" />
-
-        <div className="flex flex-row h-4 items-center justify-evenly text-sm space-x-4 ">
-          <a
-            href={sourceURL}
-            target="_blank"
-            className="flex items-center gap-x-2 dark:text-purple-300 text-violet-700  font-bold  underline underline-offset-4 hover:text-pink-500 dark:hover:text-pink-500"
-          >
-            <HiCode /> Source Code
-          </a>
-          <Separator orientation="vertical" className=" dark:bg-white h-full" />
-          <a
-            href={siteURL}
-            target="_blank"
-            className="flex items-center gap-x-2 dark:text-purple-300 text-violet-700  font-bold  underline underline-offset-4 hover:text-pink-500 dark:hover:text-pink-500"
-          >
-            <HiExternalLink />
-            Visit Site
-          </a>
-        </div>
-        <Separator className="mt-2 dark:bg-white" />
+          <Separator className="my-2 dark:bg-white" />
+          <div className="flex flex-row h-4 items-center justify-evenly text-sm space-x-4 ">
+            <a
+              href={sourceURL}
+              target="_blank"
+              className="flex items-center gap-x-2 dark:text-purple-300 text-violet-700  font-bold  underline underline-offset-4 hover:text-pink-500 dark:hover:text-pink-500"
+            >
+              <HiCode /> Source Code
+            </a>
+            <Separator
+              orientation="vertical"
+              className=" dark:bg-white h-full"
+            />
+            <a
+              href={siteURL}
+              target="_blank"
+              className="flex items-center gap-x-2 dark:text-purple-300 text-violet-700  font-bold  underline underline-offset-4 hover:text-pink-500 dark:hover:text-pink-500"
+            >
+              <HiExternalLink />
+              Visit Site
+            </a>
+          </div>
+          <Separator className="my-2 dark:bg-white" />
       </CardContent>
     </Card>
   );
