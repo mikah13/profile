@@ -1,13 +1,6 @@
 "use client";
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+
 import { Button } from "@/components/ui/button";
 import { ChevronsDown } from "lucide-react";
 import { AiFillLinkedin, AiOutlineGithub, AiOutlineMail } from "react-icons/ai";
@@ -51,7 +44,7 @@ const AboutMe = (props: Props) => {
             </span>
             👋
           </h1>
-          <h2 className="scroll-m-20  pb-2 text-2xl font-semibold tracking-tight transition-colors first:mt-0 mt-4">
+          <h2 className="scroll-m-20  mb-2 text-2xl font-semibold tracking-tight transition-colors first:mt-0 mt-4">
             Software Developer
           </h2>
           <div className="flex items-center text-lg space-x-1">
@@ -77,7 +70,7 @@ const AboutMe = (props: Props) => {
           <div className="flex h-3 items-center space-x-4 text-sm">
             {SOCIAL_MEDIA_LINKS.map((link, index) => {
               return (
-                <>
+                <div key={index}>
                   {index !== 0 && (
                     <Separator
                       orientation="vertical"
@@ -91,7 +84,7 @@ const AboutMe = (props: Props) => {
                     <span className="text-2xl ">{<link.icon />}</span>
                     <span className="hidden lg:block">{link.label}</span>
                   </a>
-                </>
+                </div>
               );
             })}
           </div>
