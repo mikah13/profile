@@ -15,17 +15,17 @@ type LINKS = {
 };
 const SOCIAL_MEDIA_LINKS: LINKS[] = [
   {
-    link: "",
+    link: "https://www.linkedin.com/in/mike-hoang-2907/",
     label: "LinkedIn",
     icon: AiFillLinkedin,
   },
   {
-    link: "",
+    link: "https://github.com/mikah13",
     label: "GitHub",
     icon: AiOutlineGithub,
   },
   {
-    link: "",
+    link: "mailto:anhminhhoang13@gmail.com",
     label: "Email",
     icon: AiOutlineMail,
   },
@@ -78,7 +78,8 @@ const AboutMe = (props: Props) => {
                     />
                   )}
                   <a
-                    href="/"
+                    href={link.link}
+                    target="_blank"
                     className="flex items-center gap-x-2 dark:text-purple-300 text-violet-700  font-bold text-primary underline underline-offset-4 hover:text-pink-500 dark:hover:text-pink-500"
                   >
                     <span className="text-2xl ">{<link.icon />}</span>

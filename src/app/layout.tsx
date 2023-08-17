@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import Appbar from "@/components/appbar";
 import ScrollProgress from "@/components/scroll-progress";
+import Footer from "@/components/footer";
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,6 +24,7 @@ export default function RootLayout({
             <ScrollProgress />
             <Appbar />
             {children}
+            <Footer />
           </div>
         </ThemeProvider>
       </body>

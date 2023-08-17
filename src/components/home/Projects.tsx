@@ -103,7 +103,7 @@ const Projects = (props: Props) => {
       id="projects"
       className="flex flex-col justify-center  w-full  max-w-[1500px]"
     >
-      <h2 className="scroll-m-20  mb-2 text-2xl font-semibold tracking-tight transition-colors  mt-[100px] text-center">
+      <h2 className="scroll-m-20 mb-8 text-4xl font-semibold tracking-tight transition-colors  mt-[100px] text-center">
         Projects
       </h2>
       <div className=" grid grid-cols-1 md:grid-cols-2 gap-24">

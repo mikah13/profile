@@ -1,6 +1,9 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 import { ModeToggle } from "./mode-toggle";
+import { scrollTo } from "@/lib/utils";
+import { Button } from "./ui/button";
 type Props = {};
 
 const Appbar = (props: Props) => {
@@ -13,14 +16,22 @@ const Appbar = (props: Props) => {
           </div>
 
           <div className="relative hidden lg:flex items-center ml-auto">
-            <nav className="flex space-x-8 font-semibold">
-              <Link className="flex items-center" href="/">
+            <nav className="flex space-x-8 ">
+              <Button
+                variant="link"
+                className="flex items-center font-bold dark:text-white"
+                onClick={(_) => scrollTo("#about-me")}
+              >
                 About
-              </Link>
+              </Button>
 
-              <Link className="flex items-center" href="/">
+              <Button
+                variant="link"
+                className="flex items-center font-bold dark:text-white"
+                onClick={(_) => scrollTo("#projects")}
+              >
                 Projects
-              </Link>
+              </Button>
 
               {/* <Link className="flex items-center" href="/">
                 Contact Me

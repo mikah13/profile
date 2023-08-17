@@ -39,7 +39,7 @@ const ProjectCard = (props: Props) => {
     stack,
   } = props.data;
   return (
-    <Card className="w-full min-h-min shadow-xl cursor-pointer bg-slate-100 dark:bg-black px-2 ">
+    <Card className="w-full min-h-min shadow-2xl cursor-pointer bg-slate-100 dark:bg-black px-2 ">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{subtitle}</CardDescription>
