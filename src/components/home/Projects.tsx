@@ -18,7 +18,7 @@ const PROJECTS_ARRAY = [
     description:
       "An all-new online database from Ford Archive with over 15,000 images and brochures",
     sourceURL: "",
-    siteURL: "fordheritagevault.com",
+    siteURL: "https://fordheritagevault.com",
     imageURL: "/images/fordheritagevault.png",
     imageAltText: "Ford Heritage Vault Thumbnail",
     stack: [
@@ -38,7 +38,7 @@ const PROJECTS_ARRAY = [
     description:
       "An online database for City of Surrey with a Content Management System",
     sourceURL: "",
-    siteURL: "surrey.minisisinc.com",
+    siteURL: "https://surrey.minisisinc.com",
     imageURL: "/images/surrey.png",
     imageAltText: "Surrey Online Heritage Search Thumbnail",
     stack: [
@@ -81,7 +81,7 @@ const PROJECTS_ARRAY = [
     subtitle: "Personal project",
     description:
       "A side project to help people to decide which programming language to learn",
-    sourceURL: "",
+    sourceURL: "https://github.com/mikah13/language-picker",
     siteURL: "https://mikah13.github.io/language-picker/",
     imageURL: "/images/languagepicker.png",
     imageAltText: "Language Picker Thumbnail",
