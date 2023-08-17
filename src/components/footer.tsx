@@ -10,7 +10,7 @@ const Footer = (props: Props) => {
           Built by{" "}
           <a
             target="_blank"
-            className="cursor-pointer dark:textF-purple-300 text-violet-600  font-bold  underline underline-offset-4 hover:text-pink-500 dark:hover:text-pink-500"
+            className="cursor-pointer dark:text-purple-300 text-violet-600  font-bold  underline underline-offset-4 hover:text-pink-500 dark:hover:text-pink-500"
           >
             Mike Hoang
           </a>

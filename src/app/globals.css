@@ -10,6 +10,11 @@
 html {
   scroll-behavior: smooth;
 }
+::selection {
+  background: rgb(109, 40, 217);
+  color: #fff;
+  text-shadow: none;
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
