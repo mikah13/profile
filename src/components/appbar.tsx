@@ -9,15 +9,6 @@ import Image from "next/image";
 type Props = {};
 
 const Appbar = (props: Props) => {
-  const router = useRouter();
-  const linkHandler = (section: string) => {
-    const element = document.querySelector(section);
-    if (element) {
-      scrollTo(section);
-    } else {
-      router.push(`/${section}`, { scroll: false });
-    }
-  };
   return (
     <div className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 supports-backdrop-blur:bg-white/60 dark:bg-transparent text-slate-900 dark:text-white">
       <div className="max-w-8xl mx-auto">
@@ -35,22 +26,24 @@ const Appbar = (props: Props) => {
 
           <div className="relative hidden lg:flex items-center ml-auto">
             <nav className="flex space-x-8 ">
-              <Button
-                variant="link"
+              <Link
+                href="/#about-me"
                 className="flex items-center font-bold dark:text-white"
-                onClick={(_) => scrollTo("#about-me")}
               >
                 About
-              </Button>
-
-              <Button
-                variant="link"
+              </Link>
+              <Link
+                href="/#projects"
                 className="flex items-center font-bold dark:text-white"
-                onClick={(_) => scrollTo("#projects")}
               >
                 Projects
-              </Button>
-
+              </Link>
+              <Link
+                href="/posts"
+                className="flex items-center font-bold dark:text-white"
+              >
+                Blog
+              </Link>
               <ModeToggle />
             </nav>
           </div>
