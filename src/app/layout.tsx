@@ -20,10 +20,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="bg-white dark:bg-slate-900">
+          <div className="bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-400">
             <ScrollProgress />
             <Appbar />
-            {children}
+            <div>{children}</div>
             <Footer />
           </div>
         </ThemeProvider>

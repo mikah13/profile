@@ -28,19 +28,19 @@ const Appbar = (props: Props) => {
             <nav className="flex space-x-8 ">
               <Link
                 href="/#about-me"
-                className="flex items-center font-bold dark:text-white"
+                className="flex items-center font-bold dark:text-white hover:underline"
               >
                 About
               </Link>
               <Link
                 href="/#projects"
-                className="flex items-center font-bold dark:text-white"
+                className="flex items-center font-bold dark:text-white hover:underline"
               >
                 Projects
               </Link>
               <Link
                 href="/posts"
-                className="flex items-center font-bold dark:text-white"
+                className="flex items-center font-bold dark:text-white hover:underline"
               >
                 Blog
               </Link>
