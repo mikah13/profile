@@ -1,4 +1,5 @@
 import React from "react";
+import PostCard from "./_components/PostCard";
 
 type Props = {};
 
@@ -17,6 +18,13 @@ const Posts = (props: Props) => {
       <p className="font-medium tracking-tight transition-colors first:mt-0 mt-4">
         A place for me to document my coding journey.
       </p>
+
+      <div id="postcard-wrapper">
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+      </div>
     </main>
   );
 };

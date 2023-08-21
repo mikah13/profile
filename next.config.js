@@ -7,6 +7,11 @@ const nextConfig = {
                 hostname: 'media.giphy.com',
                 port: '',
             },
+            {
+                protocol: 'https',
+                hostname: 'images.unsplash.com',
+
+            }
         ],
     },
 }
