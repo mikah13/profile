@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-
+import { useRouter } from "next/router";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -15,4 +15,5 @@ export function scrollTo(querySelector: string) {
     // 👇 Will scroll smoothly to the top of the next section
     element.scrollIntoView({ behavior: "smooth" });
   }
+  return false;
 }
