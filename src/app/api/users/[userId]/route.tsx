@@ -12,6 +12,7 @@ export async function GET(
       id: userId,
     },
   });
+  
   if (user.length > 0) {
     return NextResponse.json(user);
   }

@@ -10,9 +10,15 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-type Props = {};
 
+import { Post } from "../../../lib/types";
+type Props = {
+  post: Post;
+  key: number;
+};
 const PostCard = (props: Props) => {
+  const { post } = props;
+  const { title, content, authorId, createdAt, likes } = post;
   return (
     <div className="relative flex justify-between space-x-5 min-h-[400px] ">
       <div className="relative w-full flex md:hidden">

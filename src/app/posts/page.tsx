@@ -1,25 +1,9 @@
 import PostCard from "./_components/PostCard";
-import { GetStaticProps, GetServerSideProps } from "next";
-import { PrismaClient } from "@prisma/client";
+import { getAllPosts } from "./loaders";
+type Props = {};
 
-const prisma = new PrismaClient();
-
-type Props = {
-  id: string;
-  title: string;
-  content: string;
-  published: boolean;
-  likes: number;
-  thumbnail: string;
-};
-export const getServerSideProps: GetServerSideProps = async () => {
-  const feed = await prisma.user.findMany();
-  console.log(feed);
-  return { props: { feed } };
-};
-
-const Posts = (props: Props) => {
-  console.log(props);
+const Posts = async (props: Props) => {
+  const posts = await getAllPosts();
   return (
     <main
       id="posts"
@@ -36,10 +20,9 @@ const Posts = (props: Props) => {
       </p>
 
       <div id="postcard-wrapper" className="my-10 flex space-y-12 flex-col">
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
+        {posts.map((post, index) => (
+          <PostCard post={post} key={index} />
+        ))}
       </div>
     </main>
   );
