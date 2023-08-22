@@ -1,13 +1,12 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-
 export async function GET() {
-  const posts = await prisma.post.findMany({
+  const users = await prisma.user.findMany({
     take: 10,
     skip: 0,
     orderBy: {
       ["createdAt"]: "desc",
     },
   });
-  return NextResponse.json(posts);
+  return NextResponse.json(users);
 }
