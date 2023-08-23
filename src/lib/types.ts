@@ -7,9 +7,7 @@ export type Post = {
   updatedAt: Date;
   likes: number;
   authorId: string;
-  author: Post;
-  thumbnail: string;
-  categories: Category[] | undefined;
+  thumbnail: string | null;
 };
 
 export type Category = {

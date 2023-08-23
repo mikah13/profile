@@ -1,105 +1,106 @@
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider     = "mysql"
-    url          = env("DATABASE_URL")
-    relationMode = "prisma"
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model Post {
-    id         String     @id @default(cuid())
-    title      String
-    content    String?
-    published  Boolean    @default(false)
-    authorId   String?
-    createdAt  DateTime   @default(now())
-    updatedAt  DateTime   @updatedAt
-    likes      Int        @default(0)
-    thumbnail  String?
-    author     User?      @relation(fields: [authorId], references: [id])
-    categories Category[]
+  id         String     @id @default(cuid())
+  title      String
+  content    String?
+  published  Boolean    @default(false)
+  authorId   String
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  likes      Int        @default(0)
+  thumbnail  String?
+  author     User?      @relation(fields: [authorId], references: [id])
+  categories Category[]
 }
 
 model Category {
-    id    Int    @id @default(autoincrement())
-    name  String
-    posts Post[]
+  id    Int    @id @default(autoincrement())
+  name  String
+  posts Post[]
 }
 
 model Profile {
-    id     Int     @id @default(autoincrement())
-    bio    String
-    userId String  @unique
-    avatar String?
-    user   User    @relation(fields: [userId], references: [id])
+  id     Int     @id @default(autoincrement())
+  bio    String
+  userId String  @unique
+  avatar String?
+  user   User    @relation(fields: [userId], references: [id])
 }
 
 model User {
-    id        String    @id @default(cuid())
-    name      String?
-    email     String?   @unique
-    image         String?
-    createdAt DateTime  @default(now()) @map("created_at")
-    updatedAt DateTime  @updatedAt @map("updated_at")
-    role      Role      @default(USER)
-    posts     Post[]
-    profile   Profile?
-    Account   Account[]
-    Session   Session[]
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+  role          Role      @default(USER)
+  image         String?
+  emailVerified DateTime? @map("email_verified")
+  posts         Post[]
+  profile       Profile?
+  Account       Account[]
+  Session       Session[]
 
-    @@map("users")
+  @@map("users")
 }
 
 model Account {
-    id                 String  @id @default(cuid())
-    userId             String  @map("user_id")
-    type               String
-    provider           String
-    providerAccountId  String  @map("provider_account_id")
-    refresh_token      String?
-    access_token       String?
-    expires_at         Int?
-    token_type         String?
-    scope              String?
-    id_token           String?
-    session_state      String?
-    oauth_token_secret String?
-    oauth_token        String?
+  id                String  @id @default(cuid())
+  userId            String  @map("user_id")
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-    @@unique([provider, providerAccountId])
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
 }
 
 model Session {
-    id           String   @id @default(cuid())
-    sessionToken String   @unique @map("session_token")
-    userId       String   @map("user_id")
-    expires      DateTime
-    user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id           String   @id @default(cuid())
+  sessionToken String   @unique @map("session_token")
+  userId       String   @map("user_id")
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
 }
 
 model VerificationToken {
-    id         Int      @id @default(autoincrement())
-    identifier String
-    token      String   @unique
-    expires    DateTime
+  identifier String
+  token      String   @unique
+  expires    DateTime
 
-    @@unique([identifier, token])
+  @@unique([identifier, token])
+  @@map("verification_tokens")
 }
 
 model CategoryToPost {
-    A Int
-    B String
+  A Int
+  B String
 
-    @@unique([A, B], map: "_CategoryToPost_AB_unique")
-    @@index([B], map: "_CategoryToPost_B_index")
-    @@map("_CategoryToPost")
+  @@unique([A, B], map: "_CategoryToPost_AB_unique")
+  @@index([B], map: "_CategoryToPost_B_index")
+  @@map("_CategoryToPost")
 }
 
 enum Role {
-    USER
-    ADMIN
+  USER
+  ADMIN
 }

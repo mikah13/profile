@@ -2,18 +2,10 @@ import NextAuth, { AuthOptions, DefaultSession } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
-import type { UserRole } from "@prisma/client";
-declare module "next-auth" {
-  interface Session extends DefaultSession {
-    user: {
-      id: string;
-      role: UserRole;
-    } & DefaultSession["user"];
-  }
-}
 
 export const nextAuthOptions = {
   adapter: PrismaAdapter(prisma),
+
   session: {
     strategy: "jwt",
   },

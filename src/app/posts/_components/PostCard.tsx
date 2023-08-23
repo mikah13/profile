@@ -21,7 +21,7 @@ const PostCard = async (props: Props) => {
   const { post } = props;
   const { title, content, authorId, createdAt, likes } = post;
   const user = await getUserById(authorId);
-  const { name } = user;
+
   return (
     <div className="relative flex justify-between space-x-5 min-h-[400px] ">
       <div className="relative w-full flex md:hidden">
@@ -38,11 +38,11 @@ const PostCard = async (props: Props) => {
               <div className="flex flex-col">
                 <span>date</span>
                 <div className="flex flex-row items-center space-x-2">
-                  <Avatar className="w-6 h-6">
+                  {/* <Avatar className="w-6 h-6">
                     <AvatarImage src="https://github.com/shadcn.png" />
-                    <AvatarFallback>{name}</AvatarFallback>
+                    <AvatarFallback>{user.name}</AvatarFallback>
                   </Avatar>
-                  <span>{name}</span>
+                  <span>{name}</span> */}
                 </div>
               </div>
 
@@ -89,7 +89,7 @@ const PostCard = async (props: Props) => {
 
               <div className="flex flex-col">
                 {" "}
-                <p>{name}</p>
+                {/* <p>{name}</p> */}
                 <p>Author Description</p>
               </div>
             </div>
