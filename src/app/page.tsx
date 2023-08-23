@@ -2,7 +2,6 @@ import Image from "next/image";
 import { ModeToggle } from "@/components/mode-toggle";
 import AboutMe from "./_components/AboutMe";
 import Projects from "./_components/Projects";
-import prisma from "../lib/prisma";
 export default async function Home({
   params,
 }: {

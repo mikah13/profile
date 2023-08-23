@@ -6,7 +6,23 @@ export type Post = {
   createdAt: Date;
   updatedAt: Date;
   likes: number;
-  authorId: string | null;
-  thumbnail: string | null;
+  authorId: string;
+  author: Post;
+  thumbnail: string;
+  categories: Category[] | undefined;
 };
 
+export type Category = {
+  id: number;
+  name: string;
+  posts: Post[];
+};
+
+export type User = {
+  id: string;
+  name: string;
+  email: string;
+  createdAt: Date;
+  updatedAt: Date;
+  posts: Post[];
+};

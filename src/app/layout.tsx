@@ -7,6 +7,7 @@ import Appbar from "@/components/appbar";
 import ScrollProgress from "@/components/scroll-progress";
 import Footer from "@/components/footer";
 const inter = Inter({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
   title: "Mike Hoang",
   description: "Mike Hoang - Software Developer",

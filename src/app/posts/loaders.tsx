@@ -21,3 +21,10 @@ export async function getAllPosts() {
   });
   return posts;
 }
+
+export async function getUserById(userId: string) {
+  const user = await prisma.user.findFirst({
+    where: { id: userId },
+  });
+  return user;
+}
