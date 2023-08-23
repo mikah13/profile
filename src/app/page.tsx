@@ -1,11 +1,14 @@
 import Image from "next/image";
 import { ModeToggle } from "@/components/mode-toggle";
-import AboutMe from "@/components/home/AboutMe";
-import Projects from "@/components/home/Projects";
-
-export default function Home() {
+import AboutMe from "./_components/AboutMe";
+import Projects from "./_components/Projects";
+export default async function Home({
+  params,
+}: {
+  params: { user: string };
+}): Promise<JSX.Element> {
   return (
-    <main className="flex font-mono min-h-screen flex-col items-center justify-start px-4 pt-0 md:px-12 lg:px-24 antialiased text-slate-500 dark:text-slate-400 ">
+    <main className="flex font-mono min-h-screen flex-col items-center justify-start px-4 pt-0 md:px-12 lg:px-24 antialiase">
       <AboutMe />
       <Projects />
     </main>

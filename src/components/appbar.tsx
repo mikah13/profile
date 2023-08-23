@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import { usePathname, useRouter } from "next/navigation";
+import React, { useEffect } from "react";
 import { ModeToggle } from "./mode-toggle";
 import { scrollTo } from "@/lib/utils";
 import { Button } from "./ui/button";
@@ -14,7 +15,6 @@ const Appbar = (props: Props) => {
         <div className="flex py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10 mx-4 lg:mx-0">
           <div className="rounded relative flex items-center px-2 py-1 bg-violet-400">
             <Link href="/">
-              {" "}
               <Image
                 width={150}
                 height={80}
@@ -26,25 +26,24 @@ const Appbar = (props: Props) => {
 
           <div className="relative hidden lg:flex items-center ml-auto">
             <nav className="flex space-x-8 ">
-              <Button
-                variant="link"
-                className="flex items-center font-bold dark:text-white"
-                onClick={(_) => scrollTo("#about-me")}
+              <Link
+                href="/#about-me"
+                className="flex items-center font-bold dark:text-white hover:underline"
               >
                 About
-              </Button>
-
-              <Button
-                variant="link"
-                className="flex items-center font-bold dark:text-white"
-                onClick={(_) => scrollTo("#projects")}
+              </Link>
+              <Link
+                href="/#projects"
+                className="flex items-center font-bold dark:text-white hover:underline"
               >
                 Projects
-              </Button>
-
-              {/* <Link className="flex items-center" href="/">
-                Contact Me
-              </Link> */}
+              </Link>
+              <Link
+                href="/posts"
+                className="flex items-center font-bold dark:text-white hover:underline"
+              >
+                Blog
+              </Link>
               <ModeToggle />
             </nav>
           </div>
