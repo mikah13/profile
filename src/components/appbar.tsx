@@ -25,7 +25,7 @@ const Appbar = (props: Props) => {
               />
             </Link>
           </div>
-    
+
           <div className="relative hidden lg:flex items-center ml-auto">
             <nav className="flex space-x-8 ">
               <Link
