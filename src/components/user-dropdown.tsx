@@ -39,10 +39,10 @@ const UserDropdown = ({
             height={26}
             width={26}
           />
-          <p className="truncate">{user.name}</p>
+          <p className="truncate font-bold">{user.name}</p>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="drop-shadow-xl">
         <DropdownMenuItem
           className="hover:cursor-pointer"
           onClick={(_) => {
@@ -62,7 +62,11 @@ const UserDropdown = ({
       </DropdownMenuContent>
     </DropdownMenu>
   ) : (
-    <Button variant="outline" className="font-bold" onClick={() => signIn()}>
+    <Button
+      variant="outline"
+      className="font-bold"
+      onClick={() => signIn("github", { callbackUrl: "/dashboard" })}
+    >
       Sign in
     </Button>
   );
