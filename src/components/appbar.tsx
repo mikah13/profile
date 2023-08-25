@@ -1,16 +1,16 @@
-"use client";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { ModeToggle } from "./mode-toggle";
 import { scrollTo } from "@/lib/utils";
 import Image from "next/image";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { Button } from "./ui/button";
+import UserDropdown from "./user-dropdown";
+import { getCurrentUser } from "@/lib/session";
 type Props = {};
 
-const Appbar = (props: Props) => {
-  const pathname = usePathname();
-  const { data: session } = useSession();
+const Appbar = async (props: Props) => {
+  const user = await getCurrentUser();
   return (
     <div className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 supports-backdrop-blur:bg-white/60 dark:bg-transparent text-slate-900 dark:text-white">
       <div className="max-w-8xl mx-auto">
@@ -48,16 +48,7 @@ const Appbar = (props: Props) => {
               </Link>
 
               <ModeToggle />
-              {session && (
-                <Link href="#" onClick={() => signOut()} className="btn-signin">
-                  Sign out
-                </Link>
-              )}
-              {!session && (
-                <Link href="#" onClick={() => signIn()} className="btn-signin">
-                  Sign in
-                </Link>
-              )}
+              <UserDropdown user={user} />
             </nav>
           </div>
         </div>
