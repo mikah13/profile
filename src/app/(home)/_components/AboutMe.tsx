@@ -34,9 +34,9 @@ const AboutMe = (props: Props) => {
   return (
     <section id="about-me" className="flex flex-col justify-center">
       <div className="drop-shadow-2xl z-10 max-w-5xl w-full items-center justify-between text-sm lg:flex">
-        <div className="bg-white dark:bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl w-full">
+        <div className="bg-white dark:bg-zinc-800 rounded-lg px-6 py-8 ring-1 ring-zinc-900/5 shadow-xl w-full">
           {/* Introduction  */}
-          <h1 className="prose prose-slate scroll-m-20 text-4xl lg:text-5xl font-extrabold tracking-tight ">
+          <h1 className="prose prose-zinc scroll-m-20 text-4xl lg:text-5xl font-extrabold tracking-tight ">
             Hello, I am
             <span className="text-violet-900 dark:text-white">
               {" "}

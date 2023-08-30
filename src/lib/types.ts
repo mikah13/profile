@@ -1,3 +1,5 @@
+import { Icons } from "@/lib/icons";
+
 export type Post = {
   id: string;
   title: string;
@@ -7,9 +9,7 @@ export type Post = {
   updatedAt: Date;
   likes: number;
   authorId: string;
-  author: Post;
-  thumbnail: string;
-  categories: Category[] | undefined;
+  thumbnail: string | null;
 };
 
 export type Category = {
@@ -25,4 +25,15 @@ export type User = {
   createdAt: Date;
   updatedAt: Date;
   posts: Post[];
+};
+
+export type AppBarLink = {
+  href: string;
+  label: string;
+};
+
+export type DashboardSidebarLink = {
+  icon?: keyof typeof Icons;
+  href: string;
+  label: string;
 };

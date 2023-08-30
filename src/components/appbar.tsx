@@ -1,52 +1,49 @@
-"use client";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { ModeToggle } from "./mode-toggle";
-import { scrollTo } from "@/lib/utils";
-import Image from "next/image";
-import { signOut, useSession } from "next-auth/react";
-type Props = {};
 
-const Appbar = (props: Props) => {
-  const pathname = usePathname();
-  const { data: session, status } = useSession();
+import UserDropdown from "./user-dropdown";
+import { getCurrentUser } from "@/lib/session";
+import { AppBarLink } from "@/lib/types";
+import NotificationBox from "@/components/notification-box";
+
+const Appbar = async ({ dashboard = false, links }: { dashboard?: boolean, links?: AppBarLink[] }) => {
+  const user = await getCurrentUser();
   return (
-    <div className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 supports-backdrop-blur:bg-white/60 dark:bg-transparent text-slate-900 dark:text-white">
+    <div className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-zinc-900/10 dark:border-zinc-50/[0.06] bg-white/95 supports-backdrop-blur:bg-white/60 dark:bg-transparent text-zinc-900 dark:text-white">
       <div className="max-w-8xl mx-auto">
-        <div className="flex py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10 mx-4 lg:mx-0">
-          <div className="rounded relative flex items-center px-2 py-1 bg-violet-400">
+        <div className="flex py-4 border-b border-zinc-900/10 lg:px-8 lg:border-0 dark:border-zinc-300/10 mx-4 lg:mx-0">
+          <div className="rounded relative flex items-center px-2 py-1 rubik-font">
             <Link href="/">
-              <Image
+              {/* <Image
                 width={150}
                 height={80}
                 src="/images/logo.png"
                 alt="logo"
-              />
+              /> */}
+              {/* mike-hoang-dev */}
             </Link>
           </div>
 
           <div className="relative hidden lg:flex items-center ml-auto">
             <nav className="flex space-x-8 ">
-              <Link
-                href="/#about-me"
-                className="flex items-center font-bold dark:text-white hover:underline"
-              >
-                About
-              </Link>
-              <Link
-                href="/#projects"
-                className="flex items-center font-bold dark:text-white hover:underline"
-              >
-                Projects
-              </Link>
-              <Link
-                href="/posts"
-                className="flex items-center font-bold dark:text-white hover:underline"
-              >
-                Blog
-              </Link>
-              <ModeToggle />
+              {links && links.map((link, index) => {
+                return <Link
+                  key={index}
+                  href={link.href}
+                  className="flex items-center font-bold dark:text-white hover:underline"
+                >
+                  {link.label}
+                </Link>
+              })}
+
+              <div className="flex flex-row space-x-2">
+                {dashboard && <NotificationBox />}
+                <ModeToggle />
+              </div>
+
+
+              <UserDropdown user={user} />
             </nav>
           </div>
         </div>

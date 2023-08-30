@@ -2,18 +2,25 @@ import NextAuth, { AuthOptions, DefaultSession } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
-import type { UserRole } from "@prisma/client";
+import type { Role } from "@prisma/client";
 declare module "next-auth" {
   interface Session extends DefaultSession {
     user: {
       id: string;
-      role: UserRole;
+      role: Role;
     } & DefaultSession["user"];
   }
 }
 
+declare module "next-auth/jwt" {
+  interface JWT {
+    role: Role;
+    id: string;
+  }
+}
 export const nextAuthOptions = {
   adapter: PrismaAdapter(prisma),
+
   session: {
     strategy: "jwt",
   },
@@ -26,16 +33,38 @@ export const nextAuthOptions = {
     // ...add more providers here
   ],
   callbacks: {
-    async jwt({ token, account }) {
-      // Persist the OAuth access_token to the token right after signin
-      if (account) {
-        token.accessToken = account.access_token;
+    async jwt({ token, user }) {
+      const dbUser = await prisma.user.findFirst({
+        where: {
+          email: token.email,
+        },
+      });
+
+      if (!dbUser) {
+        if (user) {
+          token.id = user.id;
+        }
+        return token;
       }
-      return token;
+
+      return {
+        id: dbUser.id,
+        name: dbUser.name,
+        email: dbUser.email,
+        role: dbUser.role,
+        picture: dbUser.image,
+      };
     },
-    async session({ session, token, user }) {
-      // Send properties to the client, like an access_token from a provider.
-      // session.accessToken = token.accessToken;
+    async session({ token, session }) {
+      console.log;
+      if (token) {
+        session.user.id = token.id;
+        session.user.name = token.name;
+        session.user.email = token.email;
+        session.user.role = token.role;
+        session.user.image = token.picture;
+      }
+
       return session;
     },
   },

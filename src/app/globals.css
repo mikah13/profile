@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap");
+
+@import "material-icons/iconfont/material-icons.css";
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -19,6 +22,9 @@ a {
   color: #fff;
   text-shadow: none;
 }
+.rubik-font {
+  font-family: "Rubik Iso", cursive;
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -36,6 +42,34 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.progressMainWrapper {
+  height: 3px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+}
+
+.progressMainStyle {
+  height: 3px;
+  width: 15%;
+  animation: progress 1s linear;
+}
+@keyframes progress {
+  to {
+    background-color: rgb(109, 40, 217);
+    width: 100%;
+  }
+}
+
+#about-me,
+#projects,
+#posts {
+  min-height: 100vh;
+  scroll-margin-top: 80px;
 }
 
 @layer base {
@@ -83,32 +117,4 @@ body {
     --input: 215 27.9% 16.9%;
     --ring: 263.4 70% 50.4%;
   }
-}
-
-.progressMainWrapper {
-  height: 3px;
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  width: 100%;
-}
-
-.progressMainStyle {
-  height: 3px;
-  width: 15%;
-  animation: progress 1s linear;
-}
-@keyframes progress {
-  to {
-    background-color: rgb(109, 40, 217);
-    width: 100%;
-  }
-}
-
-#about-me,
-#projects,
-#posts {
-  min-height: 100vh;
-  scroll-margin-top: 80px;
 }
