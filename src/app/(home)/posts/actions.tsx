@@ -17,6 +17,7 @@ export async function getAllPosts() {
   const posts = await prisma.post.findMany({
     take: 50,
     skip: 0,
+    where: { published: true },
     orderBy: {
       ["createdAt"]: "desc",
     },

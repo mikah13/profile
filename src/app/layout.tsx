@@ -26,8 +26,8 @@ export default function RootLayout({
           <div className="bg-zinc-50 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-400">
             <ScrollProgress />
             {children}
+            <Toaster />
           </div>
-          <Toaster />
         </ContextProvider>
       </body>
     </html>

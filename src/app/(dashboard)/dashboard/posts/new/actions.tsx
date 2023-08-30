@@ -4,6 +4,14 @@ import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/session";
 
 
+
+/**
+ * This function creates a new post
+ * based on the current user
+ * 
+ * @param param0 
+ * @returns 
+ */
 export async function createNewPost({
     title,
     content,
@@ -26,4 +34,19 @@ export async function createNewPost({
         },
     })
     return post;
+}
+
+export async function getAllDraftPosts() {
+    const user = await getCurrentUser();
+
+    if (!user) throw new UnauthorizedError();
+
+    const posts = await prisma.post.findMany({
+        where: { authorId: user.id, published: false },
+        orderBy: {
+            ["updatedAt"]: "desc"
+        }
+    })
+
+    return posts
 }
