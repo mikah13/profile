@@ -35,6 +35,7 @@ import {
   CircleDashed,
   CircleDot,
   XSquare,
+  LayoutDashboard
 } from "lucide-react";
 
 import Image from "next/image";
@@ -83,6 +84,7 @@ export const Icons = {
   spinner: Loader2,
   // cross: Cross2Icon,
   // check: CheckIcon,
+  dashboard: LayoutDashboard,
   snippet: SquareDashedBottomCode,
   race: Car,
   eye: Eye,

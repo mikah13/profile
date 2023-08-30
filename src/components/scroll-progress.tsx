@@ -30,7 +30,7 @@ const ScrollProgress = (props: Props) => {
   }, []);
 
   return (
-    <div className="progressMainWrapper bg-white dark:bg-slate-900">
+    <div className="progressMainWrapper bg-white dark:bg-zinc-900">
       <div
         className="progressMainStyle bg-violet-700 "
         style={{ width: `${scrollTop}%` }}

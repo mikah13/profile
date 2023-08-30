@@ -14,7 +14,7 @@ const DashboardSidebar = ({ links }: { links: DashboardSidebarLink[] }) => {
     const pathname = usePathname();
 
     const isActivePath = (path: string) => {
-        return pathname.indexOf(path) !== -1
+        return pathname.endsWith(path)
     }
 
     if (!links?.length) return null;

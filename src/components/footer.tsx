@@ -6,7 +6,7 @@ const Footer = (props: Props) => {
   return (
     <footer className="w-full border-t h-48 mt-40 container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
       <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-        <p className="text-black dark:text-slate-200">
+        <p className="text-black dark:text-zinc-200">
           Built by{" "}
           <a
             target="_blank"

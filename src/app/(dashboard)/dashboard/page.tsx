@@ -7,8 +7,7 @@ import { redirect } from "next/navigation";
 type Props = {};
 
 const Dashboard = async (props: Props) => {
-  const user = await getCurrentUser();
-  if (!user) redirect("/auth");
+
   return <div>Dashboard</div>;
 };
 

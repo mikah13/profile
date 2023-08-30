@@ -12,7 +12,7 @@ import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 import { Post } from "@/lib/types";
-import { getUserById } from "../loaders";
+import { getUserById } from "../actions";
 type Props = {
   post: Post;
   key: number;
@@ -33,7 +33,7 @@ const PostCard = async (props: Props) => {
             className="rounded-md object-cover"
           />
 
-          <div className="bg-gradient-to-b from-transparent to-slate-900 h-full w-full relative top">
+          <div className="bg-gradient-to-b from-transparent to-zinc-900 h-full w-full relative top">
             <div className="text-white absolute bottom-4 px-4">
               <div className="flex flex-col">
                 <span>date</span>

@@ -18,6 +18,11 @@ export const NAV_BAR_LINKS: AppBarLink[] = [
 export const DASHBOARD_SIDEBAR_LINKS: DashboardSidebarLink[] = [
   {
     icon: "keyboard",
+    href: "/dashboard/admin",
+    label: "Admin",
+  },
+  {
+    icon: "keyboard",
     href: "/dashboard/posts",
     label: "Posts",
   },

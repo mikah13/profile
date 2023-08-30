@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { FaSignOutAlt } from "react-icons/fa";
+import { Icons } from "@/lib/icons";
 const UserDropdown = ({
   user,
 }: {
@@ -49,7 +50,7 @@ const UserDropdown = ({
             router.push("/dashboard", { scroll: false });
           }}
         >
-          Dashboard
+          <Icons.dashboard className="w-4 h-4 mr-2" /> Dashboard
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem

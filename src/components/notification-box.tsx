@@ -9,7 +9,7 @@ function NotificationBox({ }: Props) {
             <Button
                 variant="outline"
                 size="icon">
-                <Bell />
+                <Bell className="h-[1.2rem] w-[1.2rem] text-violet-700 dark:text-white" />
             </Button>
         </div>
     )
