@@ -4,10 +4,9 @@ import { SessionProvider } from "next-auth/react";
 import { AppProps } from "next/app";
 type Props = {};
 
-const Posts = async ({ Component, pageProps }: AppProps) => {
+const Posts = async (props: Props) => {
   const posts = await getAllPosts();
   return (
-    // <SessionProvider session={pageProps.session}>
     <main
       id="posts"
       className="max-w-[1500px] my-0 mx-auto flex font-mono min-h-screen flex-col px-4 md:px-12 lg:px-24 antialiased pt-12"
@@ -28,7 +27,6 @@ const Posts = async ({ Component, pageProps }: AppProps) => {
         ))}
       </div>
     </main>
-    // </SessionProvider>
   );
 };
 
