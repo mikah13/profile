@@ -36,13 +36,18 @@ export async function createNewPost({
     return post;
 }
 
-export async function getAllDraftPosts() {
+/**
+ * This function returns all the draft posts
+ * of the current user
+ * @returns 
+ */
+export async function getAllPostsByUserId(userId: string) {
     const user = await getCurrentUser();
 
     if (!user) throw new UnauthorizedError();
 
     const posts = await prisma.post.findMany({
-        where: { authorId: user.id, published: false },
+        where: { authorId: userId, },
         orderBy: {
             ["updatedAt"]: "desc"
         }
