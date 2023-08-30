@@ -44,7 +44,6 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-
 .progressMainWrapper {
   height: 3px;
   position: sticky;
@@ -73,9 +72,6 @@ body {
   scroll-margin-top: 80px;
 }
 
-
-
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -99,7 +95,7 @@ body {
     --ring: 262.1 83.3% 57.8%;
     --radius: 0.5rem;
   }
- 
+
   .dark {
     --background: 224 71.4% 4.1%;
     --foreground: 210 20% 98%;

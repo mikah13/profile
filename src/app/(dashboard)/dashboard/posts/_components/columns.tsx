@@ -32,7 +32,9 @@ export const columns: ColumnDef<Post>[] = [
         accessorKey: "published",
         header: "Status",
         cell: ({ row }) => {
-            return <div className=" font-bold">{row.getValue('title')}</div>
+            let isPublished = row.getValue('published');
+            
+            return <div className=" font-bold">{row.getValue('published') }</div>
         },
     },
     {
