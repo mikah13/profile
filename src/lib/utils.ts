@@ -17,3 +17,20 @@ export function scrollTo(querySelector: string) {
   }
   return false;
 }
+
+/**
+ * Function to format the data
+ * Day of week, MMM, DD, YYYY
+ * @param date
+ * @returns
+ */
+export function formatDate(date: Date) {
+  let options: any = {
+    // weekday: "long",
+    // year: "numeric",
+    // month: "long",
+    // day: "numeric",
+  };
+  let n = date.toLocaleDateString("en-GB", options);
+  return n;
+}
