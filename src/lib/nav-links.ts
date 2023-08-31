@@ -26,11 +26,11 @@ export const DASHBOARD_SIDEBAR_LINKS: DashboardSidebarLink[] = [
     href: "/dashboard/posts",
     label: "Posts",
   },
-  {
-    icon: "keyboard",
-    href: "/dashboard/drafts",
-    label: "Drafts",
-  },
+  // {
+  //   icon: "keyboard",
+  //   href: "/dashboard/drafts",
+  //   label: "Drafts",
+  // },
   {
     icon: "keyboard",
     href: "/dashboard/posts/new",

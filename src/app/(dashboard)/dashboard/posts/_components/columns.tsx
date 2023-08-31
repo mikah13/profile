@@ -117,7 +117,7 @@ export const columns: ColumnDef<Post>[] = [
     //         )
     //     },
     // },
-  
+
     // {
     //     accessorKey: 'createdAt',
     //     header: ({ column }) => (
@@ -183,6 +183,7 @@ export const columns: ColumnDef<Post>[] = [
             </div>
         }
     },
+   
     {
         id: "actions",
         header: () => (
