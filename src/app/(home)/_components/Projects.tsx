@@ -102,13 +102,15 @@ const Projects = (props: Props) => {
     <section
       id="projects"
       className="flex flex-col justify-center relative  w-full  max-w-[1500px]"
+      data-aos="fade-up"
+      data-aos-duration="600"
     >
       <h2 className="my-8 text-4xl font-bold tracking-tight transition-colors text-center">
         Projects
       </h2>
       <div className=" grid grid-cols-1 md:grid-cols-2 gap-24">
         {PROJECTS_ARRAY.map((project, i) => (
-          <ProjectCard data={project} key={i} />
+          <ProjectCard data={project} index={i} key={i} />
         ))}
       </div>
     </section>

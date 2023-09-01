@@ -31,7 +31,7 @@ const Appbar = async ({ dashboard = false, links }: { dashboard?: boolean, links
                 return <Link
                   key={index}
                   href={link.href}
-                  className="flex items-center font-bold dark:text-white hover:underline"
+                  className="relative flex items-center font-bold dark:text-white  animated-link after:bg-violet-400"
                 >
                   {link.label}
                 </Link>

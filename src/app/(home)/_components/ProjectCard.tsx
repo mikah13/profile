@@ -12,6 +12,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { HiExternalLink, HiCode } from "react-icons/hi";
 import { cn } from "@/lib/utils";
 type Props = {
+  index: number,
   data: {
     title: string;
     subtitle: string;
@@ -38,8 +39,12 @@ const ProjectCard = (props: Props) => {
     imageAltText,
     stack,
   } = props.data;
+  const { index } = props;
   return (
-    <div className="transition-container hover:shadow-lg bg-introCard bg-50% p-1 animate-[gradient] rounded-xl hover:shadow-indigo-500/50">
+    <div
+      className="transition-container hover:shadow-lg bg-introCard bg-50% p-1 animate-[gradient] rounded-xl hover:shadow-indigo-500/50"
+      data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+      data-aos-offset="300">
       <Card className="w-full min-h-min h-full shadow-2xl cursor-pointer bg-zinc-100  dark:bg-black px-2 ">
         <CardHeader>
           <CardTitle>{title}</CardTitle>
