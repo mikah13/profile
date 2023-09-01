@@ -102,8 +102,7 @@ const Projects = (props: Props) => {
     <section
       id="projects"
       className="flex flex-col justify-center relative  w-full  max-w-[1500px]"
-      data-aos="fade-up"
-      data-aos-duration="600"
+    
     >
       <h2 className="my-8 text-4xl font-bold tracking-tight transition-colors text-center">
         Projects
