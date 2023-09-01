@@ -101,7 +101,7 @@ const Projects = (props: Props) => {
   return (
     <section
       id="projects"
-      className="flex flex-col justify-center  w-full  max-w-[1500px]"
+      className="flex flex-col justify-center relative  w-full  max-w-[1500px]"
     >
       <h2 className="my-8 text-4xl font-bold tracking-tight transition-colors text-center">
         Projects

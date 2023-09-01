@@ -32,13 +32,13 @@ const SOCIAL_MEDIA_LINKS: LINKS[] = [
 ];
 const AboutMe = (props: Props) => {
   return (
-    <section id="about-me" className="flex flex-col justify-center">
+    <section id="about-me" className="flex flex-col justify-center relative">
       <div className="drop-shadow-2xl z-10 max-w-5xl w-full items-center justify-between text-sm lg:flex">
         <div className="bg-white dark:bg-zinc-800 rounded-lg px-6 py-8 ring-1 ring-zinc-900/5 shadow-xl w-full">
           {/* Introduction  */}
           <h1 className="prose prose-zinc scroll-m-20 text-4xl lg:text-5xl font-extrabold tracking-tight ">
             Hello, I am
-            <span className="text-violet-900 dark:text-white">
+            <span className="text-violet-900  dark:text-violet-300">
               {" "}
               Mike Hoang{" "}
             </span>
@@ -91,14 +91,14 @@ const AboutMe = (props: Props) => {
           </div>
           {/* Social Media Links */}
         </div>
-      </div>
-      <div id="cta" className="text-center">
+      </div >
+      <div id="cta" className="text-center" >
         <Button onClick={(_) => scrollTo("#projects")} className="mt-10 ">
           <ChevronsDown strokeWidth={2.25} className="mr-2 h-4 w-4" />
           <span>Explore !!!</span>
         </Button>
       </div>
-    </section>
+    </section >
   );
 };
 
