@@ -35,7 +35,8 @@ import {
   CircleDashed,
   CircleDot,
   XSquare,
-  LayoutDashboard
+  LayoutDashboard,
+  Home
 } from "lucide-react";
 
 import Image from "next/image";
@@ -62,6 +63,7 @@ export const Icons = {
   // sun: SunIcon,
   // moon: MoonIcon,
   // github: GitHubLogoIcon,
+  home:Home,
   laptop: Laptop,
   logout: LogOut,
   settings: Settings,

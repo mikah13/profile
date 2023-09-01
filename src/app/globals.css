@@ -118,3 +118,36 @@ body {
     --ring: 263.4 70% 50.4%;
   }
 }
+.transition-container {
+  background-image: linear-gradient(
+    115deg,
+    rgb(79, 207, 112),
+    rgb(250, 214, 72),
+    rgb(167, 103, 229),
+    rgb(18, 188, 254),
+    rgb(68, 206, 123)
+  );
+  background-size: 50% 100%;
+}
+
+.transition-container:hover {
+  animation: gradient 1s linear infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 25%;
+  }
+  25% {
+    background-position: 25% 50%;
+  }
+  50% {
+    background-position: 50% 75%;
+  }
+  75% {
+    background-position: 75% 100%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}

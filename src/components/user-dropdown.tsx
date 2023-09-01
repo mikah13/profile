@@ -47,6 +47,14 @@ const UserDropdown = ({
         <DropdownMenuItem
           className="hover:cursor-pointer"
           onClick={(_) => {
+            router.push("/", { scroll: false });
+          }}
+        >
+          <Icons.home className="w-4 h-4 mr-2" /> Homepage
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className="hover:cursor-pointer"
+          onClick={(_) => {
             router.push("/dashboard", { scroll: false });
           }}
         >
