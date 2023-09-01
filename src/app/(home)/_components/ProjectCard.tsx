@@ -43,7 +43,7 @@ const ProjectCard = (props: Props) => {
   return (
     <div
       className="transition-container hover:shadow-lg bg-introCard bg-50% p-1 animate-[gradient] rounded-xl hover:shadow-indigo-500/50"
-      data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+      data-aos={index % 2 === 0 ? "zoom-in" : "zoom-in"}
       data-aos-offset="300">
       <Card className="w-full min-h-min h-full shadow-2xl cursor-pointer bg-zinc-100  dark:bg-black px-2 ">
         <CardHeader>
