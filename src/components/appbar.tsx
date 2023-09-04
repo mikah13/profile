@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { ModeToggle } from "./mode-toggle";
-
+import Image from 'next/image';
 import UserDropdown from "./user-dropdown";
 import { getCurrentUser } from "@/lib/session";
 import { AppBarLink } from "@/lib/types";
@@ -15,12 +15,12 @@ const Appbar = async ({ dashboard = false, links }: { dashboard?: boolean, links
         <div className="flex py-4 border-b border-zinc-900/10 lg:px-8 lg:border-0 dark:border-zinc-300/10 mx-4 lg:mx-0">
           <div className="rounded relative flex items-center px-2 py-1 rubik-font">
             <Link href="/">
-              {/* <Image
-                width={150}
-                height={80}
+              <Image
+                width={40}
+                height={40}
                 src="/images/logo.png"
                 alt="logo"
-              /> */}
+              />
               {/* mike-hoang-dev */}
             </Link>
           </div>
