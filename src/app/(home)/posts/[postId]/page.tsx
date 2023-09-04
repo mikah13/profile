@@ -24,7 +24,7 @@ const PageView = async ({ params }: { params: { postId: string } }) => {
     PageView
 
     <article className="content">
-      <ReactMarkdown>{post.content}</ReactMarkdown>
+      {/* <ReactMarkdown>{post.content}</ReactMarkdown> */}
       {/* <div dangerouslySetInnerHTML={{ __html: post.content }} /> */}
     </article>
 
