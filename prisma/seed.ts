@@ -17,7 +17,7 @@ async function main() {
       posts: {
         create: {
           title: "Check out Prisma with Next.js",
-          content: "https://www.prisma.io/nextjs",
+          content: Buffer.from("https://www.prisma.io/nextjs"),
           published: true,
         },
       },
@@ -41,7 +41,7 @@ async function main() {
       posts: {
         create: {
           title: "My First Post",
-          content: "https://www.prisma.io/nextjs",
+          content: Buffer.from("https://www.prisma.io/nextjs"),
           published: true,
         },
       },
