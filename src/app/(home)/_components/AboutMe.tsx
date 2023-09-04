@@ -3,7 +3,7 @@ import React from "react";
 
 import { Button } from "@/components/ui/button";
 import { ChevronsDown } from "lucide-react";
-import { AiFillLinkedin, AiOutlineGithub, AiOutlineMail } from "react-icons/ai";
+import { AiFillLinkedin, AiOutlineGithub, AiOutlineMail, AiOutlineFileText } from "react-icons/ai";
 import { Separator } from "@/components/ui/separator";
 import { FaLocationDot } from "react-icons/fa6";
 import { scrollTo } from "@/lib/utils";
@@ -29,7 +29,14 @@ const SOCIAL_MEDIA_LINKS: LINKS[] = [
     label: "Email",
     icon: AiOutlineMail,
   },
+  {
+    link: "https://silver-arluene-38.tiiny.site/",
+    label: "Resume",
+    icon: AiOutlineFileText
+  }
 ];
+
+
 const AboutMe = (props: Props) => {
   return (
     <section id="about-me" className="flex flex-col justify-center relative">

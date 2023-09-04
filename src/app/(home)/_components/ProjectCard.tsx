@@ -42,12 +42,12 @@ const ProjectCard = (props: Props) => {
   const { index } = props;
   return (
     <div
-      className="transition-container hover:shadow-lg bg-introCard bg-50% p-1 animate-[gradient] rounded-xl hover:shadow-indigo-500/50"
+      className="transition-container hover:shadow-2xl bg-introCard bg-50% p-1 animate-[gradient] rounded-xl hover:shadow-indigo-500/50"
     >
       <Card className="w-full min-h-min h-full shadow-2xl cursor-pointer bg-zinc-100  dark:bg-black px-2 ">
         <CardHeader>
           <CardTitle>{title}</CardTitle>
-          <CardDescription>{subtitle}</CardDescription>
+          {/* <CardDescription>{subtitle}</CardDescription> */}
         </CardHeader>
         <CardContent className="flex flex-col w-full">
           <AspectRatio ratio={16 / 9}>
@@ -81,7 +81,7 @@ const ProjectCard = (props: Props) => {
               href={sourceURL}
               target="_blank"
               className={cn(
-                "flex items-center gap-x-2    font-bold underline underline-offset-4 hover:text-pink-500 dark:hover:text-pink-500",
+                "flex items-center gap-x-2 font-bold underline underline-offset-4 hover:text-pink-500 dark:hover:text-pink-500",
                 sourceURL !== ""
                   ? "text-violet-700 dark:text-purple-300 "
                   : "text-stone-300 dark:text-stone-700 pointer-events-none"
