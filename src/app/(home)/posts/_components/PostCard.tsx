@@ -10,25 +10,30 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-
+import { FaUserLarge } from "react-icons/fa6";
 import { Post } from "@/lib/types";
 import { getUserById } from "../actions";
+import { formatDate } from "@/lib/utils";
 type Props = {
   post: Post;
   key: number;
 };
 const PostCard = async (props: Props) => {
   const { post } = props;
-  const { title, content, authorId, createdAt, likes } = post;
+  const { title, content, authorId, createdAt, likes, thumbnail } = post;
   const user = await getUserById(authorId);
+  const placeholder = "https://images.unsplash.com/photo-1523800503107-5bc3ba2a6f81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1780&q=80";
+  const imageUrl = user?.image ?? '/images/user.png';
+  const authorName = user?.name;
 
   return (
-    <div className="relative flex justify-between space-x-5 min-h-[400px] ">
+    <div className="relative flex justify-between space-x-5">
+      {/* Mobile View */}
       <div className="relative w-full flex md:hidden">
         <AspectRatio ratio={16 / 9} className="w-full absolute">
           <Image
-            src="https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80"
-            alt="Photo by Drew Beamer"
+            src={thumbnail ? thumbnail : placeholder}
+            alt={title}
             fill
             className="rounded-md object-cover"
           />
@@ -53,12 +58,15 @@ const PostCard = async (props: Props) => {
           </div>
         </AspectRatio>
       </div>
+      {/* Mobile View */}
 
+
+      {/* Desktop View  */}
       <div className="flex-none w-64 h-64 hidden md:flex">
         <AspectRatio ratio={1 / 1} className=" w-full shadow-sm">
           <Image
-            src="https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80"
-            alt="Photo by Drew Beamer"
+            src={thumbnail ? thumbnail : placeholder}
+            alt={title}
             fill
             className="rounded-md object-cover"
           />
@@ -69,8 +77,8 @@ const PostCard = async (props: Props) => {
         <Card className="border-0 shadow-sm w-full">
           <CardHeader>
             <div className="flex flex-row">
-              <p>{createdAt.toDateString()}</p>
-              <Badge variant="secondary">Secondary</Badge>
+              <p>{formatDate(createdAt)}</p>
+              {/* <Badge variant="secondary">Secondary</Badge> */}
             </div>
           </CardHeader>
           <CardContent>
@@ -81,21 +89,20 @@ const PostCard = async (props: Props) => {
           </CardContent>
 
           <CardFooter>
-            <div className="flex flex-row">
+            <div className="flex flex-row gap-x-2 items-center">
               <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>CN</AvatarFallback>
+                <AvatarImage src={imageUrl} />
+                <AvatarFallback>{authorName}</AvatarFallback>
               </Avatar>
 
-              <div className="flex flex-col">
-                {" "}
-                {/* <p>{name}</p> */}
-                <p>Author Description</p>
+              <div className="flex flex-col ">
+                <p>{authorName}</p>
               </div>
             </div>
           </CardFooter>
         </Card>
       </div>
+      {/* Desktop View  */}
     </div>
   );
 };

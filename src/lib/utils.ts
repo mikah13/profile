@@ -26,11 +26,16 @@ export function scrollTo(querySelector: string) {
  */
 export function formatDate(date: Date) {
   let options: any = {
-    // weekday: "long",
-    // year: "numeric",
-    // month: "long",
-    // day: "numeric",
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   };
   let n = date.toLocaleDateString("en-GB", options);
   return n;
+}
+
+
+export function getInitials(name:string) {
+  
 }
