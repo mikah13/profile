@@ -23,9 +23,9 @@ const Posts = async (props: Props) => {
       </p>
 
       <div id="postcard-wrapper" className="my-10 flex space-y-12 flex-col">
-        {/* {posts.map((post, index) => (
+        {posts.map((post, index) => (
           <PostCard post={post} key={index} />
-        ))} */}
+        ))}
       </div>
     </main>
   );

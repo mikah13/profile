@@ -78,7 +78,7 @@ const ProjectCard = (props: Props) => {
           <Separator className="my-2 dark:bg-white" />
           <div className="flex flex-row h-4 items-center justify-evenly text-sm space-x-4 ">
             <a
-              href={sourceURL}
+              href={sourceURL === "" ? "#" : sourceURL}
               target="_blank"
               className={cn(
                 "flex items-center gap-x-2 font-bold underline underline-offset-4 hover:text-pink-500 dark:hover:text-pink-500",
