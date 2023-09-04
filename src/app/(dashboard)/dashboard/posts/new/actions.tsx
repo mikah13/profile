@@ -27,7 +27,7 @@ export async function createNewPost({
     const post = await prisma.post.create({
         data: {
             title: title,
-            content: Buffer.from(content),
+            content: content,
             published: !draft,
             authorId: user.id,
 
