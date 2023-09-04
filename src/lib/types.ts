@@ -3,7 +3,7 @@ import { Icons } from "@/lib/icons";
 export type Post = {
   id: string;
   title: string;
-  content: string | null;
+  content: string;
   published: boolean;
   createdAt: Date;
   updatedAt: Date;

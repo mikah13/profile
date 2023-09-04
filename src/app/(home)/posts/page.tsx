@@ -6,6 +6,7 @@ type Props = {};
 
 const Posts = async (props: Props) => {
   const posts = await getAllPosts();
+
   return (
     <main
       id="posts"

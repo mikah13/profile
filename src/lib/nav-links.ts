@@ -9,10 +9,10 @@ export const NAV_BAR_LINKS: AppBarLink[] = [
     href: "/#projects",
     label: "Projects",
   },
-  {
-    href: "/posts",
-    label: "Blog",
-  },
+  // {
+  //   href: "/posts",
+  //   label: "Blog",
+  // },
 ];
 
 export const DASHBOARD_SIDEBAR_LINKS: DashboardSidebarLink[] = [
