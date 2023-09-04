@@ -14,7 +14,7 @@ const Post = z.object({
 
 
 export async function getAllPosts() {
-const posts = await prisma.post.findMany({
+  const posts = await prisma.post.findMany({
     take: 50,
     skip: 0,
     where: { published: true },
@@ -23,6 +23,13 @@ const posts = await prisma.post.findMany({
     },
   });
   return posts;
+}
+
+export async function getPostById(id: string) {
+  const user = await prisma.post.findFirst({
+    where: { id: id },
+  });
+  return user;
 }
 
 export async function getUserById(userId: string) {

@@ -46,6 +46,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.4",
     "react-icons": "^4.10.1",
+    "react-markdown": "^8.0.7",
     "slate": "^0.94.1",
     "slate-history": "^0.93.0",
     "slate-react": "^0.98.2",

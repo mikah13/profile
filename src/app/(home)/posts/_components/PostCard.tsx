@@ -14,13 +14,15 @@ import { FaUserLarge } from "react-icons/fa6";
 import { Post } from "@/lib/types";
 import { getUserById } from "../actions";
 import { formatDate } from "@/lib/utils";
+import Link from "next/link";
 type Props = {
   post: Post;
   key: number;
 };
 const PostCard = async (props: Props) => {
   const { post } = props;
-  const { title, content, authorId, createdAt, likes, thumbnail } = post;
+  const { id, title, content, authorId, createdAt, likes, thumbnail } = post;
+  console.log(post);
   const user = await getUserById(authorId);
   const placeholder = "https://images.unsplash.com/photo-1523800503107-5bc3ba2a6f81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1780&q=80";
   const imageUrl = user?.image ?? '/images/user.png';
@@ -82,19 +84,21 @@ const PostCard = async (props: Props) => {
             </div>
           </CardHeader>
           <CardContent>
-            <h2>{title}</h2>
-            <p>{content}</p>
+
+            <h2 className="font-extrabold text-2xl ">
+              <Link className="dark:text-purple-300 text-violet-700  font-bold text-primary hover:underline hover:underline-offset-4 hover:text-pink-500 dark:hover:text-pink-500" href={`/posts/${id}`}>{title}</Link></h2>
+            <p className="my-6">{content}</p>
             <Separator />
           </CardContent>
 
           <CardFooter>
-            <div className="flex flex-row gap-x-2 items-center">
+            <div className="flex flex-row gap-x-3 items-center">
               <Avatar>
                 <AvatarImage src={imageUrl} />
                 <AvatarFallback>{authorName}</AvatarFallback>
               </Avatar>
 
-              <div className="flex flex-col ">
+              <div className="flex flex-col font-bold ">
                 <p>{authorName}</p>
               </div>
             </div>
