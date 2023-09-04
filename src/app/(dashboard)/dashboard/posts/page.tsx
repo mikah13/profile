@@ -21,7 +21,7 @@ const DashboardPosts = async (props: Props) => {
 
     return (
         <div>
-            <DataTable columns={columns} data={posts} />
+            {/* <DataTable columns={columns} data={posts} /> */}
         </div>
     )
 }
