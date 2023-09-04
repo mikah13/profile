@@ -83,7 +83,6 @@ const PostCard = async (props: Props) => {
           </CardHeader>
           <CardContent>
             <h2>{title}</h2>
-
             <p>{content}</p>
             <Separator />
           </CardContent>

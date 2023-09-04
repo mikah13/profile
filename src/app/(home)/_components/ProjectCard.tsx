@@ -64,7 +64,7 @@ const ProjectCard = (props: Props) => {
           </div>
 
           {stack && (
-            <div className="flex space-x-2 text-4xl my-2">
+            <div className="flex space-x-2 text-4xl my-1">
               {stack.map((Icon, index) => {
                 return (
                   <>
