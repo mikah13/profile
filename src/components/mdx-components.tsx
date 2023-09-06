@@ -94,10 +94,12 @@ const components = {
     img: ({
         className,
         alt,
+        // No Image if the source is not available
+        src = "https://images.unsplash.com/photo-1623018035782-b269248df916",
         ...props
     }: React.ImgHTMLAttributes<HTMLImageElement>) => (
         // eslint-disable-next-line @next/next/no-img-element
-        <img className={cn("rounded-md border", className)} alt={alt} {...props} />
+        <Image className={cn("rounded-md border", className)} fill alt={alt || "No caption"} src={src} />
     ),
     hr: ({ ...props }) => <hr className="my-4 md:my-8" {...props} />,
     table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
@@ -138,16 +140,15 @@ const components = {
             {...props}
         />
     ),
-    code: ({ className, ...props }: React.HTMLAttributes<HTMLPreElement>) => (
+    code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
         <code
             className={cn(
-                "relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm",
+                "relative rounded  px-[0.3rem] py-[0.2rem] font-mono text-sm",
                 className
             )}
             {...props}
         />
     ),
-    Image,
     Callout,
     Card: MdxCard,
 }

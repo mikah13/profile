@@ -42,9 +42,9 @@ const ProjectCard = (props: Props) => {
   const { index } = props;
   return (
     <div
-      className="transition-container hover:shadow-2xl bg-introCard bg-50% p-1 animate-[gradient] rounded-xl hover:shadow-indigo-500/50"
+      className=" max-w-[400px] mx-auto transition-container hover:shadow-2xl bg-introCard bg-50% p-1 animate-[gradient] rounded-xl hover:shadow-indigo-500/50"
     >
-      <Card className="w-full min-h-min h-full shadow-2xl cursor-pointer bg-zinc-100  dark:bg-black px-2 ">
+      <Card className="w-full  min-h-min h-full shadow-2xl cursor-pointer bg-zinc-100  dark:bg-black px-2 ">
         <CardHeader>
           <CardTitle>{title}</CardTitle>
           {/* <CardDescription>{subtitle}</CardDescription> */}
