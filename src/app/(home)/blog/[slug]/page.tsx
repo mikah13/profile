@@ -13,7 +13,7 @@ async function getDocFromParams(slug: string) {
     const doc = allPosts.find(post => post.slugAsParams === slug);
 
     if (!doc) {
-        notFound
+        notFound()
     }
 
     return doc;
@@ -31,7 +31,7 @@ const Blog = async ({ params }: Props) => {
         <div>
 
 
-            <Mdx code={doc?.body.code || " "} />
+            <Mdx code={doc.body.code} />
         </div>
     )
 }
