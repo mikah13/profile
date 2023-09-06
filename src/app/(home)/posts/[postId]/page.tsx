@@ -10,7 +10,6 @@ type Props = {};
 
 const PageView = async ({ params }: { params: { postId: string } }) => {
   const post = await getPostById(params.postId);
-  console.log(post);
 
 
   if (!post) {
@@ -25,7 +24,7 @@ const PageView = async ({ params }: { params: { postId: string } }) => {
 
     <article className="content">
       {/* <ReactMarkdown>{post.content}</ReactMarkdown> */}
-      {/* <div dangerouslySetInnerHTML={{ __html: post.content }} /> */}
+      <div dangerouslySetInnerHTML={{ __html: post.content }} />
     </article>
 
   </div>;

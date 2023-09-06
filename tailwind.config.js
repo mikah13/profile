@@ -22,25 +22,7 @@ module.exports = {
       animation: {
         gradient: 'gradient 0.75s linear infinite',
       },
-      keyframes: {
-        gradient: {
-          '0%': {
-            backgroundPosition: "0% 25%"
-          },
-          '25%': {
-            backgroundPosition: "25% 50%"
-          },
-          '50%': {
-            backgroundPosition: "50% 75%"
-          },
-          '75%': {
-            backgroundPosition: "75% 100%"
-          },
-          '100%': {
-            backgroundPosition: "100% 0%"
-          }
-        }
-      },
+
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -85,6 +67,23 @@ module.exports = {
         introCard: "linear-gradient( 115deg, rgb(79, 207, 112), rgb(250, 214, 72), rgb(167, 103, 229), rgb(18, 188, 254), rgb(68, 206, 123) )"
       },
       keyframes: {
+        gradient: {
+          '0%': {
+            backgroundPosition: "0% 25%"
+          },
+          '25%': {
+            backgroundPosition: "25% 50%"
+          },
+          '50%': {
+            backgroundPosition: "50% 75%"
+          },
+          '75%': {
+            backgroundPosition: "75% 100%"
+          },
+          '100%': {
+            backgroundPosition: "100% 0%"
+          }
+        },
         "accordion-down": {
           from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -100,5 +99,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography'),],
 }

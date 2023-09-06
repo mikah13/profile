@@ -11,7 +11,7 @@ datasource db {
 model Post {
   id         String     @id @default(cuid())
   title      String
-  content    String
+  content    String     @db.VarChar(15000)
   published  Boolean    @default(false)
   authorId   String
   createdAt  DateTime   @default(now())
