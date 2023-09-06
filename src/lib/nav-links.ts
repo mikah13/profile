@@ -10,7 +10,7 @@ export const NAV_BAR_LINKS: AppBarLink[] = [
     label: "Projects",
   },
   {
-    href: "/posts",
+    href: "/blog",
     label: "Blog",
   },
 ];

@@ -61,7 +61,7 @@ const components = {
             {...props}
         />
     ),
-    a: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
         <a
             className={cn("font-medium underline underline-offset-4", className)}
             {...props}
@@ -73,16 +73,16 @@ const components = {
             {...props}
         />
     ),
-    ul: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
         <ul className={cn("my-6 ml-6 list-disc", className)} {...props} />
     ),
-    ol: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
         <ol className={cn("my-6 ml-6 list-decimal", className)} {...props} />
     ),
-    li: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    li: ({ className, ...props }: React.HTMLAttributes<HTMLLIElement>) => (
         <li className={cn("mt-2", className)} {...props} />
     ),
-    blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLQuoteElement>) => (
         <blockquote
             className={cn(
                 "mt-6 border-l-2 pl-6 italic [&>*]:text-muted-foreground",
@@ -129,7 +129,7 @@ const components = {
             {...props}
         />
     ),
-    pre: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    pre: ({ className, ...props }: React.HTMLAttributes<HTMLPreElement>) => (
         <pre
             className={cn(
                 "mb-4 mt-6 overflow-x-auto rounded-lg border bg-black py-4",
@@ -138,7 +138,7 @@ const components = {
             {...props}
         />
     ),
-    code: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    code: ({ className, ...props }: React.HTMLAttributes<HTMLPreElement>) => (
         <code
             className={cn(
                 "relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm",

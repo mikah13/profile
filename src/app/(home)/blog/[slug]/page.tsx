@@ -2,6 +2,7 @@ import React from 'react'
 import { allPosts } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 import { Mdx } from '@/components/mdx-components'
+import "@/styles/mdx.css"
 type Props = {
     params: {
         slug: string
