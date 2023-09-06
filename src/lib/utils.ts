@@ -24,7 +24,8 @@ export function scrollTo(querySelector: string) {
  * @param date
  * @returns
  */
-export function formatDate(date: Date) {
+export function formatDate(input: string | number) {
+  const date = new Date(input);
   let options: any = {
     month: "long",
     day: "numeric",
@@ -34,7 +35,4 @@ export function formatDate(date: Date) {
   return n;
 }
 
-
-export function getInitials(name:string) {
-  
-}
+export function getInitials(name: string) {}
