@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { Post } from "@/lib/types"
-import { ColumnDef, createTable } from "@tanstack/react-table"
-import { MoreHorizontal } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Post } from "@/lib/types";
+import { ColumnDef, createTable } from "@tanstack/react-table";
+import { MoreHorizontal } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,15 +11,15 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Checkbox } from "@/components/ui/checkbox"
-import { DataTableColumnHeader } from "./data-table-column-header"
-import Image from "next/image"
-import { AspectRatio } from "@/components/ui/aspect-ratio"
-const MAX_CONTENT_VALUE_LENGTH = 250
-import { CircleIcon } from "@radix-ui/react-icons"
-import { getUserById } from "@/app/(home)/posts/actions"
-import { formatDate } from "@/lib/utils"
+} from "@/components/ui/dropdown-menu";
+import { Checkbox } from "@/components/ui/checkbox";
+import { DataTableColumnHeader } from "./data-table-column-header";
+import Image from "next/image";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+const MAX_CONTENT_VALUE_LENGTH = 250;
+import { CircleIcon } from "@radix-ui/react-icons";
+import { getUserById } from "@/app/(home)/posts/actions";
+import { formatDate } from "@/lib/utils";
 export const columns: ColumnDef<Post>[] = [
   {
     id: "select",
@@ -48,9 +48,9 @@ export const columns: ColumnDef<Post>[] = [
       <DataTableColumnHeader column={column} title="Title" />
     ),
     cell: ({ row }) => {
-      const title = row.getValue("title") as string
-      const content = row.getValue("content") as string
-      const thumbnail = row.getValue("thumbnail") as string
+      const title = row.getValue("title") as string;
+      const content = row.getValue("content") as string;
+      const thumbnail = row.getValue("thumbnail") as string;
       return (
         <div className="flex flex-row space-x-2">
           <div className="w-24">
@@ -75,7 +75,7 @@ export const columns: ColumnDef<Post>[] = [
             </span>
           </div>
         </div>
-      )
+      );
     },
   },
   {
@@ -139,12 +139,12 @@ export const columns: ColumnDef<Post>[] = [
       <DataTableColumnHeader column={column} title="Updated" />
     ),
     cell: ({ row }) => {
-      const createdAt = row.getValue("updatedAt") as Date
+      const createdAt = row.getValue("updatedAt") as Date;
       return (
         <div className="flex flex-col">
-          <span className="">{formatDate(createdAt)}</span>
+          <span className="">{formatDate(createdAt.toString())}</span>
         </div>
-      )
+      );
     },
   },
   {
@@ -153,7 +153,7 @@ export const columns: ColumnDef<Post>[] = [
       <DataTableColumnHeader column={column} title="Status" />
     ),
     cell: ({ row }) => {
-      const published = row.getValue("published")
+      const published = row.getValue("published");
       return (
         <div className="flex w-[100px]">
           <div className="flex flex-row items-center space-x-1">
@@ -166,10 +166,10 @@ export const columns: ColumnDef<Post>[] = [
             <span>{published ? "Published" : "Draft"}</span>
           </div>
         </div>
-      )
+      );
     },
     filterFn: (row, id, value) => {
-      return value.includes(row.getValue(id))
+      return value.includes(row.getValue(id));
     },
   },
   {
@@ -179,12 +179,12 @@ export const columns: ColumnDef<Post>[] = [
     ),
 
     cell: ({ row }) => {
-      const likes = row.getValue("likes") as number
+      const likes = row.getValue("likes") as number;
       return (
         <div className="flex flex-col">
           <span className="">{likes}</span>
         </div>
-      )
+      );
     },
   },
 
@@ -208,7 +208,7 @@ export const columns: ColumnDef<Post>[] = [
             <DropdownMenuItem>Delete </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      )
+      );
     },
   },
-]
+];
