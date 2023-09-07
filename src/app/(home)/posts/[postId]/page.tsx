@@ -1,30 +1,9 @@
-import React from "react"
-import Markdown from "markdown-to-jsx"
-import { getPostById } from "../actions"
-import ReactMarkdown from "react-markdown"
-import { remark } from "remark"
-import html from "remark-html"
-type Props = {}
+import React from "react";
 
-const PageView = async ({ params }: { params: { postId: string } }) => {
-  const post = await getPostById(params.postId)
+type Props = {};
 
-  if (!post) {
-    return null
-  }
-  // const processedContent = await remark()
-  //   .use(html)
-  //   .process(post.content);
-  // const contentHtml = processedContent.toString();
-  return (
-    <div>
-      PageView
-      <article className="content">
-        {/* <ReactMarkdown>{post.content}</ReactMarkdown> */}
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
-      </article>
-    </div>
-  )
+function page({}: Props) {
+  return <div>page</div>;
 }
 
-export default PageView
+export default page;

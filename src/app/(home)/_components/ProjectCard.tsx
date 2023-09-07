@@ -94,9 +94,7 @@ const ProjectCard = (props: Props) => {
               <div className="my-1 flex space-x-2 text-2xl">
                 {stack.map((Icon, index) => {
                   return (
-                    <>
-                      <Icon.component className={cn(Icon.color)} key={index} />
-                    </>
+                    <Icon.component className={cn(Icon.color)} key={index} />
                   );
                 })}
               </div>
