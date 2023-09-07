@@ -1,5 +1,7 @@
+import { withContentlayer } from "next-contentlayer";
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = withContentlayer({
   experimental: {
     serverActions: true,
   },
@@ -24,6 +26,6 @@ const nextConfig = {
       },
     ],
   },
-}
+});
 
-module.exports = nextConfig
+export default nextConfig;
