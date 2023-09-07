@@ -16,7 +16,7 @@ const PROJECTS_ARRAY = [
     title: "Ford Heritage Vault",
     subtitle: "Work project",
     description:
-      "An all-new online database from Ford Archive with over 15,000 images and brochures",
+      "A full-stack web application for Ford Archive with over 15,000 images and brochures",
     sourceURL: "",
     siteURL: "https://fordheritagevault.com",
     imageURL: "/images/fordheritagevault.png",
@@ -33,10 +33,10 @@ const PROJECTS_ARRAY = [
     ],
   },
   {
-    title: "Surrey Online Heritage Search",
+    title: "Surrey Online Search",
     subtitle: "Work project",
     description:
-      "An online database for City of Surrey with a Content Management System",
+      "A full-stack web application and Content Management System for City of Surrey",
     sourceURL: "",
     siteURL: "https://surrey.minisisinc.com",
     imageURL: "/images/surrey.png",
@@ -60,7 +60,7 @@ const PROJECTS_ARRAY = [
     title: "Archives of Ontario",
     subtitle: "Work project",
     description:
-      "An online database search and management for the Archives of Ontario",
+      "A front-end web application and database management for the Archives of Ontario",
     sourceURL: "",
     siteURL: "https://aims.archives.gov.on.ca/",
     imageURL: "/images/archivesontario.png",
@@ -76,38 +76,38 @@ const PROJECTS_ARRAY = [
       },
     ],
   },
-  {
-    title: "Language Picker",
-    subtitle: "Personal project",
-    description:
-      "A side project to help people to decide which programming language to learn",
-    sourceURL: "https://github.com/mikah13/language-picker",
-    siteURL: "https://mikah13.github.io/language-picker/",
-    imageURL: "/images/languagepicker.png",
-    imageAltText: "Language Picker Thumbnail",
-    stack: [
-      {
-        color: "text-[#61DAFB]",
-        component: SiReact,
-      },
-      {
-        color: "text-[#339933]",
-        component: SiNodedotjs,
-      },
-    ],
-  },
+  // {
+  //   title: "Language Picker",
+  //   subtitle: "Personal project",
+  //   description:
+  //     "A side project to help people to decide which programming language to learn",
+  //   sourceURL: "https://github.com/mikah13/language-picker",
+  //   siteURL: "https://mikah13.github.io/language-picker/",
+  //   imageURL: "/images/languagepicker.png",
+  //   imageAltText: "Language Picker Thumbnail",
+  //   stack: [
+  //     {
+  //       color: "text-[#61DAFB]",
+  //       component: SiReact,
+  //     },
+  //     {
+  //       color: "text-[#339933]",
+  //       component: SiNodedotjs,
+  //     },
+  //   ],
+  // },
 ];
 const Projects = (props: Props) => {
   return (
     <section
       id="projects"
-      className="flex flex-col justify-center relative  w-full  max-w-[1500px]"
+      className="flex flex-col  relative  w-full  max-w-[1500px]"
 
     >
-      <h2 className="my-8 text-4xl font-bold tracking-tight transition-colors text-center">
+      <h2 className="my-8 text-5xl font-bold tracking-tight transition-colors text-center">
         Projects
       </h2>
-      <div className=" grid grid-cols-1 md:grid-cols-2 gap-16">
+      <div className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {PROJECTS_ARRAY.map((project, i) => (
           <ProjectCard data={project} index={i} key={i} />
         ))}

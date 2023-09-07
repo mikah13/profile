@@ -27,7 +27,7 @@ export default async function BlogPage() {
             Repeat.
           </h1>
           <p className="text-xl text-muted-foreground font-medium ">
-            A place for me to document my coding journey.
+            A place for me to share my coding journey.
           </p>
         </div>
       </div>
