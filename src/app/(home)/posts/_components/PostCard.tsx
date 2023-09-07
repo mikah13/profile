@@ -73,7 +73,7 @@ const PostCard = async (props: Props) => {
         <Card className="w-full border-0 shadow-sm">
           <CardHeader>
             <div className="flex flex-row">
-              <p>{formatDate(createdAt)}</p>
+              <p>{formatDate(createdAt.toString())}</p>
               {/* <Badge variant="secondary">Secondary</Badge> */}
             </div>
           </CardHeader>
