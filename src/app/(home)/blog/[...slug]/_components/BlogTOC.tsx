@@ -31,7 +31,7 @@ export function BlogTOC({ toc }: TocProps) {
 
   return mounted ? (
     <div className="space-y-2">
-      <p className="font-medium">On This Page</p>
+      <p className="text-xl font-medium">On this page</p>
       <Tree tree={toc} activeItem={activeHeading} />
     </div>
   ) : null
