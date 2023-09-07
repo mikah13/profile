@@ -1,21 +1,20 @@
-import Image from "next/image"
-import Link from "next/link"
-import { allPosts } from "contentlayer/generated"
-import { compareDesc } from "date-fns"
+import Image from "next/image";
+import Link from "next/link";
+import { allPosts } from "contentlayer/generated";
+import { compareDesc } from "date-fns";
 
-import "@/styles/mdx.css"
-import { formatDate } from "@/lib/utils"
+import { formatDate } from "@/lib/utils";
 
 export const metadata = {
   title: "Blog",
-}
+};
 
 export default async function BlogPage() {
   const posts = allPosts
     .filter((post) => post.published)
     .sort((a, b) => {
-      return compareDesc(new Date(a.date), new Date(b.date))
-    })
+      return compareDesc(new Date(a.date), new Date(b.date));
+    });
 
   return (
     <main id="blog" className="container max-w-4xl py-6 font-mono lg:py-10">
@@ -68,5 +67,5 @@ export default async function BlogPage() {
         <p>No posts published.</p>
       )}
     </main>
-  )
+  );
 }

@@ -157,10 +157,10 @@ a {
 }
 
 [data-rehype-pretty-code-fragment] code {
-  @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-1 text-sm text-black;
+  @apply grid min-w-full break-words rounded-none border-0 bg-transparent text-sm text-black;
   counter-reset: line;
 }
-[data-rehype-pretty-code-fragment] .line {
+[data-rehype-pretty-code-fragment] code span[data-line] {
   @apply px-4 py-1;
 }
 [data-rehype-pretty-code-fragment] [data-line-numbers] > .line::before {
