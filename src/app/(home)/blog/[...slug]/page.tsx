@@ -1,41 +1,43 @@
-import React from "react";
-import { allPosts, allAuthors } from "contentlayer/generated";
-import { notFound } from "next/navigation";
-import { Mdx } from "@/components/mdx-components";
-import { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
-import { cn, formatDate } from "@/lib/utils";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { buttonVariants } from "@/components/ui/button";
-import AuthorCard from "./_components/AuthorCard";
+import React from "react"
+import { allPosts, allAuthors } from "contentlayer/generated"
+import { notFound } from "next/navigation"
+import { Mdx } from "@/components/mdx-components"
+import { Metadata } from "next"
+import Link from "next/link"
+import { cn, formatDate } from "@/lib/utils"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import { buttonVariants } from "@/components/ui/button"
+import { getTableOfContents } from "@/lib/toc"
+import BlogHeader from "./_components/BlogHeader"
+import BlogFooter from "./_components/BlogFooter"
+import { BlogTOC } from "./_components/BlogTOC"
 
 interface PostPageProps {
   params: {
-    slug: string[];
-  };
+    slug: string[]
+  }
 }
 async function getPostFromParams(params: PostPageProps["params"]) {
-  const slug = params?.slug?.join("/");
-  const post = allPosts.find((post) => post.slugAsParams === slug);
+  const slug = params?.slug?.join("/")
+  const post = allPosts.find((post) => post.slugAsParams === slug)
 
   if (!post) {
-    null;
+    null
   }
 
-  return post;
+  return post
 }
 
 export async function generateMetadata({
   params,
 }: PostPageProps): Promise<Metadata> {
-  const post = await getPostFromParams(params);
+  const post = await getPostFromParams(params)
 
   if (!post) {
-    return {};
+    return {}
   }
 
-  const url = process.env.NEXT_PUBLIC_APP_URL;
+  const url = process.env.NEXT_PUBLIC_APP_URL
 
   return {
     title: post.title,
@@ -49,7 +51,7 @@ export async function generateMetadata({
       type: "article",
       url: `${url}/blog/${post.slug}`,
     },
-  };
+  }
 }
 
 export async function generateStaticParams(): Promise<
@@ -57,69 +59,67 @@ export async function generateStaticParams(): Promise<
 > {
   return allPosts.map((post) => ({
     slug: post.slugAsParams.split("/"),
-  }));
+  }))
 }
 
 const Blog = async ({ params }: PostPageProps) => {
-  const post = await getPostFromParams(params);
+  const post = await getPostFromParams(params)
 
   if (!post) {
-    notFound();
+    notFound()
   }
+
+  const toc = await getTableOfContents(post.body.raw)
   const authors = post.authors.map((author) =>
-    allAuthors.find(({ slug }) => slug === `/authors/${author}`),
-  );
+    allAuthors.find(({ slug }) => slug === `/authors/${author}`)
+  )
 
   return (
-    <article className="container relative max-w-3xl py-6 font-mono lg:py-10">
-      <Link
+    <article className="relative gap-4 xl:mt-6 xl:grid xl:grid-cols-7">
+      <div className="col-span-1 text-center">
+        <Link
+          href="/blog"
+          className={cn(buttonVariants({ variant: "ghost" }), "")}
+        >
+          <ChevronLeft className="mr-2 h-4 w-4" />
+          See all posts
+        </Link>
+      </div>
+
+      <div className="col-span-4 mx-auto w-full min-w-0 px-6 lg:px-4">
+        <BlogHeader
+          image={post.image}
+          date={post.date}
+          title={post.title}
+          authors={authors}
+        />
+
+        <Mdx code={post.body.code} />
+
+        <hr className="mt-12" />
+        <BlogFooter />
+      </div>
+
+      <div className="col-span-2 hidden text-sm xl:block">
+        <div className="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-10">
+          <BlogTOC toc={toc} />
+        </div>
+      </div>
+      {/* <Link
         href="/blog"
         className={cn(
           buttonVariants({ variant: "ghost" }),
-          "absolute left-[-200px] top-14 hidden xl:inline-flex",
+          "absolute left-[-200px] top-14 hidden xl:inline-flex"
         )}
       >
         <ChevronLeft className="mr-2 h-4 w-4" />
         See all posts
       </Link>
-      <div>
-        {post.date && (
-          <time
-            dateTime={post.date}
-            className="block text-sm text-muted-foreground"
-          >
-            Published on {formatDate(post.date)}
-          </time>
-        )}
-        <h1 className="font-heading mt-2 inline-block text-4xl font-extrabold leading-tight text-violet-800 dark:text-violet-400  lg:text-5xl">
-          {post.title}
-        </h1>
-        {authors?.length ? (
-          <div className="mt-4 flex space-x-4">
-            <AuthorCard authors={authors} />
-          </div>
-        ) : null}
-      </div>
-      {post.image && (
-        <Image
-          src={post.image}
-          alt={post.title}
-          width={720}
-          height={405}
-          className="my-8 rounded-md border bg-muted transition-colors"
-          priority
-        />
-      )}
-      <Mdx code={post.body.code} />
-      <hr className="mt-12" />
-      <div className="flex justify-center py-6 lg:py-10">
-        <Link href="/blog" className={cn(buttonVariants({ variant: "ghost" }))}>
-          <ChevronLeft className="mr-2 h-4 w-4" />
-          See all posts
-        </Link>
-      </div>
+      <div className="absolute right-[-200px] top-14  hidden text-sm xl:block ">
+        <div className="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-10"></div>
+      </div> */}
     </article>
-  );
-};
+  )
+}
 
-export default Blog;
+export default Blog

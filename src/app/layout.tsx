@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn("min-h-screen", inter.className)}>
         <ContextProvider>
-          <div className="bg-zinc-50 text-zinc-700 dark:bg-zinc-900 dark:text-zinc-400">
+          <div className=" text-zinc-700  dark:text-zinc-400">
             <ScrollProgress />
             {children}
             <Toaster />
