@@ -101,13 +101,12 @@ const Projects = (props: Props) => {
   return (
     <section
       id="projects"
-      className="flex flex-col  relative  w-full  max-w-[1500px]"
-
+      className="relative flex  w-full  max-w-[1500px]  flex-col "
     >
-      <h2 className="my-8 text-5xl font-bold tracking-tight transition-colors text-center">
+      <h2 className="my-8 text-center text-5xl font-bold tracking-tight transition-colors">
         Projects
       </h2>
-      <div className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
         {PROJECTS_ARRAY.map((project, i) => (
           <ProjectCard data={project} index={i} key={i} />
         ))}

@@ -1,11 +1,11 @@
-"use client";
-import { useRouter } from "next/navigation";
+"use client"
+import { useRouter } from "next/navigation"
 
-import React from "react";
-import Image from "next/image";
-import type { User } from "next-auth";
-import { Role } from "@prisma/client";
-import { signOut, signIn } from "next-auth/react";
+import React from "react"
+import Image from "next/image"
+import type { User } from "next-auth"
+import { Role } from "@prisma/client"
+import { signOut, signIn } from "next-auth/react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,25 +13,25 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
-import { FaSignOutAlt } from "react-icons/fa";
-import { Icons } from "@/lib/icons";
+} from "@/components/ui/dropdown-menu"
+import { Button } from "@/components/ui/button"
+import { FaSignOutAlt } from "react-icons/fa"
+import { Icons } from "@/lib/icons"
 const UserDropdown = ({
   user,
 }: {
   user?: User & {
-    role: Role;
-    id: string;
-  };
+    role: Role
+    id: string
+  }
 }) => {
-  const router = useRouter();
+  const router = useRouter()
   return user ? (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
           variant="ghost"
-          className="flex h-full gap-1 bg-opacity-0 lg:px-2 hover:bg-opacity-2 max-w-48"
+          className="hover:bg-opacity-2 max-w-48 flex h-full gap-1 bg-opacity-0 lg:px-2"
         >
           <Image
             className="rounded-full"
@@ -47,25 +47,25 @@ const UserDropdown = ({
         <DropdownMenuItem
           className="hover:cursor-pointer"
           onClick={(_) => {
-            router.push("/", { scroll: false });
+            router.push("/", { scroll: false })
           }}
         >
-          <Icons.home className="w-4 h-4 mr-2" /> Homepage
+          <Icons.home className="mr-2 h-4 w-4" /> Homepage
         </DropdownMenuItem>
         <DropdownMenuItem
           className="hover:cursor-pointer"
           onClick={(_) => {
-            router.push("/dashboard", { scroll: false });
+            router.push("/dashboard", { scroll: false })
           }}
         >
-          <Icons.dashboard className="w-4 h-4 mr-2" /> Dashboard
+          <Icons.dashboard className="mr-2 h-4 w-4" /> Dashboard
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem
-          className="text-red-500 focus:text-white focus:bg-destructive hover:cursor-pointer"
+          className="text-red-500 hover:cursor-pointer focus:bg-destructive focus:text-white"
           onClick={() => signOut()}
         >
-          <FaSignOutAlt className="w-4 h-4 mr-2" />
+          <FaSignOutAlt className="mr-2 h-4 w-4" />
           <span>Logout</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
@@ -78,7 +78,7 @@ const UserDropdown = ({
     >
       Sign in
     </Button>
-  );
-};
+  )
+}
 
-export default UserDropdown;
+export default UserDropdown

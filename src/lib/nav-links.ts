@@ -1,4 +1,4 @@
-import { AppBarLink, DashboardSidebarLink } from "@/lib/types";
+import { AppBarLink, DashboardSidebarLink } from "@/lib/types"
 
 export const NAV_BAR_LINKS: AppBarLink[] = [
   {
@@ -13,7 +13,7 @@ export const NAV_BAR_LINKS: AppBarLink[] = [
     href: "/blog",
     label: "Blog",
   },
-];
+]
 
 export const DASHBOARD_SIDEBAR_LINKS: DashboardSidebarLink[] = [
   {
@@ -36,4 +36,4 @@ export const DASHBOARD_SIDEBAR_LINKS: DashboardSidebarLink[] = [
     href: "/dashboard/posts/new",
     label: "New Post",
   },
-];
+]

@@ -18,15 +18,15 @@ export default async function BlogPage() {
     })
 
   return (
-    <main id="blog" className="font-mono container max-w-4xl py-6 lg:py-10">
+    <main id="blog" className="container max-w-4xl py-6 font-mono lg:py-10">
       <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
         <div className="flex-1 space-y-4">
-          <h1 className="inline-block  font-extrabold  text-4xl tracking-tight lg:text-5xl">
+          <h1 className="inline-block  text-4xl  font-extrabold tracking-tight lg:text-5xl">
             Learn.{" "}
             <span className="text-violet-700 dark:text-violet-400">Share.</span>{" "}
             Repeat.
           </h1>
-          <p className="text-xl text-muted-foreground font-medium ">
+          <p className="text-xl font-medium text-muted-foreground ">
             A place for me to share my coding journey.
           </p>
         </div>

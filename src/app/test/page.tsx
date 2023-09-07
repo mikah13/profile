@@ -1,9 +1,9 @@
-import React from "react";
+import React from "react"
 
-type Props = {};
+type Props = {}
 
 const Test = (props: Props) => {
-  return <div>Hello World</div>;
-};
+  return <div>Hello World</div>
+}
 
-export default Test;
+export default Test

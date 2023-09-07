@@ -1,21 +1,21 @@
-import NextAuth, { AuthOptions, DefaultSession } from "next-auth";
-import GithubProvider from "next-auth/providers/github";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { prisma } from "@/lib/prisma";
-import type { Role } from "@prisma/client";
+import NextAuth, { AuthOptions, DefaultSession } from "next-auth"
+import GithubProvider from "next-auth/providers/github"
+import { PrismaAdapter } from "@next-auth/prisma-adapter"
+import { prisma } from "@/lib/prisma"
+import type { Role } from "@prisma/client"
 declare module "next-auth" {
   interface Session extends DefaultSession {
     user: {
-      id: string;
-      role: Role;
-    } & DefaultSession["user"];
+      id: string
+      role: Role
+    } & DefaultSession["user"]
   }
 }
 
 declare module "next-auth/jwt" {
   interface JWT {
-    role: Role;
-    id: string;
+    role: Role
+    id: string
   }
 }
 export const nextAuthOptions = {
@@ -38,13 +38,13 @@ export const nextAuthOptions = {
         where: {
           email: token.email,
         },
-      });
+      })
 
       if (!dbUser) {
         if (user) {
-          token.id = user.id;
+          token.id = user.id
         }
-        return token;
+        return token
       }
 
       return {
@@ -53,20 +53,20 @@ export const nextAuthOptions = {
         email: dbUser.email,
         role: dbUser.role,
         picture: dbUser.image,
-      };
+      }
     },
     async session({ token, session }) {
       if (token) {
-        session.user.id = token.id;
-        session.user.name = token.name;
-        session.user.email = token.email;
-        session.user.role = token.role;
-        session.user.image = token.picture;
+        session.user.id = token.id
+        session.user.name = token.name
+        session.user.email = token.email
+        session.user.role = token.role
+        session.user.image = token.picture
       }
 
-      return session;
+      return session
     },
   },
-} satisfies AuthOptions;
-const handler = NextAuth(nextAuthOptions);
-export { handler as GET, handler as POST };
+} satisfies AuthOptions
+const handler = NextAuth(nextAuthOptions)
+export { handler as GET, handler as POST }

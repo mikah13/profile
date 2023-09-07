@@ -1,8 +1,8 @@
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
-import { useRouter } from "next/router";
+import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+import { useRouter } from "next/router"
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return twMerge(clsx(inputs))
 }
 
 /**
@@ -10,12 +10,12 @@ export function cn(...inputs: ClassValue[]) {
  * @param querySelector
  */
 export function scrollTo(querySelector: string) {
-  const element = document.querySelector(querySelector);
+  const element = document.querySelector(querySelector)
   if (element) {
     // 👇 Will scroll smoothly to the top of the next section
-    element.scrollIntoView({ behavior: "smooth" });
+    element.scrollIntoView({ behavior: "smooth" })
   }
-  return false;
+  return false
 }
 
 /**
@@ -25,14 +25,14 @@ export function scrollTo(querySelector: string) {
  * @returns
  */
 export function formatDate(input: string | number) {
-  const date = new Date(input);
+  const date = new Date(input)
   let options: any = {
     month: "long",
     day: "numeric",
     year: "numeric",
-  };
-  let n = date.toLocaleDateString("en-US", options);
-  return n;
+  }
+  let n = date.toLocaleDateString("en-US", options)
+  return n
 }
 
 export function getInitials(name: string) {}

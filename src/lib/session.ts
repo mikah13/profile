@@ -1,12 +1,12 @@
-import { getServerSession } from "next-auth";
+import { getServerSession } from "next-auth"
 
-import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/route";
+import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/route"
 
 export function getSession() {
-  return getServerSession(nextAuthOptions);
+  return getServerSession(nextAuthOptions)
 }
 
 export async function getCurrentUser() {
-  const session = await getSession();
-  return session?.user;
+  const session = await getSession()
+  return session?.user
 }

@@ -1,4 +1,3 @@
-
 import {
   BarChart,
   ChevronDownSquareIcon,
@@ -36,12 +35,12 @@ import {
   CircleDot,
   XSquare,
   LayoutDashboard,
-  Home
-} from "lucide-react";
+  Home,
+} from "lucide-react"
 
-import Image from "next/image";
+import Image from "next/image"
 
-export type Icon = LucideIcon;
+export type Icon = LucideIcon
 
 export const Icons = {
   // TODO: replace me with an svg of the logo
@@ -49,8 +48,8 @@ export const Icons = {
     width,
     height,
   }: {
-    width: number | `${number}`;
-    height: number | `${number}`;
+    width: number | `${number}`
+    height: number | `${number}`
   }) => (
     <Image
       unoptimized
@@ -63,7 +62,7 @@ export const Icons = {
   // sun: SunIcon,
   // moon: MoonIcon,
   // github: GitHubLogoIcon,
-  home:Home,
+  home: Home,
   laptop: Laptop,
   logout: LogOut,
   settings: Settings,
@@ -101,4 +100,4 @@ export const Icons = {
 
   keyboard: Keyboard,
   crown: Crown,
-};
+}
