@@ -1,23 +1,24 @@
-"use client"
-import React from "react"
+"use client";
+import React from "react";
 
-import { Button } from "@/components/ui/button"
-import { ChevronsDown } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { ChevronsDown } from "lucide-react";
 import {
   AiFillLinkedin,
   AiOutlineGithub,
   AiOutlineMail,
   AiOutlineFileText,
-} from "react-icons/ai"
-import { Separator } from "@/components/ui/separator"
-import { FaLocationDot } from "react-icons/fa6"
-import { scrollTo } from "@/lib/utils"
-type Props = {}
+} from "react-icons/ai";
+import { Separator } from "@/components/ui/separator";
+import { FaLocationDot } from "react-icons/fa6";
+import { scrollTo } from "@/lib/utils";
+import { IconType } from "react-icons/lib";
+type Props = {};
 type LINKS = {
-  link: string
-  label: string
-  icon: string
-}
+  link: string;
+  label: string;
+  icon: IconType;
+};
 const SOCIAL_MEDIA_LINKS: LINKS[] = [
   {
     link: "https://www.linkedin.com/in/mike-hoang-2907/",
@@ -39,7 +40,7 @@ const SOCIAL_MEDIA_LINKS: LINKS[] = [
     label: "Resume",
     icon: AiOutlineFileText,
   },
-]
+];
 
 const AboutMe = (props: Props) => {
   return (
@@ -49,7 +50,7 @@ const AboutMe = (props: Props) => {
           {/* Introduction  */}
           <h1 className=" scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl ">
             Hello, I am
-            <span className="text-violet-900  dark:text-violet-300">
+            <span className="text-violet-800  dark:text-violet-400">
               {" "}
               Mike Hoang{" "}
             </span>
@@ -97,7 +98,7 @@ const AboutMe = (props: Props) => {
                     <span className="hidden lg:block">{link.label}</span>
                   </a>
                 </div>
-              )
+              );
             })}
           </div>
           {/* Social Media Links */}
@@ -110,7 +111,7 @@ const AboutMe = (props: Props) => {
         </Button>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default AboutMe
+export default AboutMe;
