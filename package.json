@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "npx prisma generate && npx contentlayer build -clearCache && next build",
+    "build": "npx prisma generate && npx contentlayer build --clearCache && next build",
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate"
