@@ -23,11 +23,11 @@ export default function RootLayout({
       <body className={cn("min-h-screen", inter.className)}>
         <ContextProvider>
           {/* <PageWrapper> */}
-            <div className=" text-zinc-700  dark:text-zinc-400">
-              <ScrollProgress />
-              {children}
-              <Toaster />
-            </div>
+          <div className=" text-zinc-700  dark:text-zinc-400">
+            <ScrollProgress />
+            {children}
+            <Toaster />
+          </div>
           {/* </PageWrapper> */}
         </ContextProvider>
       </body>

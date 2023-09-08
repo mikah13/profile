@@ -20,7 +20,7 @@ const PROJECTS_ARRAY = [
     title: "mike-hoang-dev",
     subtitle: "Personal project",
     description:
-      "My personal portfolio website,where I explore and experiment with cutting-edge technologies",
+      "My personal portfolio website, where I explore and experiment with new technologies",
     siteURL: "https://mike-hoang-dev.vercel.app/",
     sourceURL: "https://github.com/mikah13/profile",
     imageURL: "/images/personal.png",
@@ -52,7 +52,7 @@ const PROJECTS_ARRAY = [
     title: "Ford Heritage Vault",
     subtitle: "Work project",
     description:
-      "A full-stack web application for Ford Archive with over 15,000 images and brochures",
+      "A full-stack application for Ford Archive with over 15,000 images and brochures",
     sourceURL: "",
     siteURL: "https://fordheritagevault.com",
     imageURL: "/images/fordheritagevault.png",
@@ -118,6 +118,25 @@ const PROJECTS_ARRAY = [
     description:
       "A side project to help people to decide which programming language to learn",
     sourceURL: "https://github.com/mikah13/language-picker",
+    siteURL: "https://mikah13.github.io/language-picker/",
+    imageURL: "/images/languagepicker.png",
+    imageAltText: "Language Picker Thumbnail",
+    stack: [
+      {
+        color: "text-[#61DAFB]",
+        component: SiReact,
+      },
+      {
+        color: "text-[#339933]",
+        component: SiNodedotjs,
+      },
+    ],
+  },
+  {
+    title: "S-K-R-T-B-L-E",
+    subtitle: "Personal project",
+    description: "My own adapted implmentation of skribbl.io using Express.js and Web Socket",
+    sourceURL: "https://github.com/mikah13/S-k-r-t-b-l-e",
     siteURL: "https://mikah13.github.io/language-picker/",
     imageURL: "/images/languagepicker.png",
     imageAltText: "Language Picker Thumbnail",

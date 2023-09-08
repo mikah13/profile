@@ -8,6 +8,9 @@ module.exports = {
     "./src/**/*.{ts,tsx}",
   ],
   theme: {
+    fontFamily: {
+      mono: ["Source Code Pro", 'ui-monospace', 'monospace'],
+    },
     container: {
       center: true,
       padding: "2rem",

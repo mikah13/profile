@@ -64,7 +64,10 @@ const AboutMe = (props: Props) => {
             <p> Vancouver, B.C</p>
           </div>
           <p className="text-lg font-medium tracking-tight">
-            Full Stack Developer with a passion for creating innovative{" "}
+            <strong className="font-bold underline">
+              Full Stack Developer
+            </strong>{" "}
+            with a passion for creating innovative{" "}
             <strong className="font-bold underline">web applications</strong>.{" "}
             Well-versed in{" "}
             <strong className="font-bold underline"> React.js </strong> and{" "}
