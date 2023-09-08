@@ -7,9 +7,16 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypePrettyCode from "rehype-pretty-code"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
-
+import rehypePrism from "rehype-prism-plus"
+import { rehypeAccessibleEmojis } from "rehype-accessible-emojis"
+import readingTime from "reading-time"
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
+  readingTime: { type: "json", resolve: (doc) => readingTime(doc.body.raw) },
+  wordCount: {
+    type: "number",
+    resolve: (doc) => doc.body.raw.split(/\s+/gu).length,
+  },
   slug: {
     type: "string",
     resolve: (doc) => `/${doc._raw.flattenedPath}`,
@@ -112,6 +119,7 @@ export default makeSource({
       rehypeSlug,
       [
         rehypePrettyCode,
+
         {
           theme: "dracula",
           onVisitLine(node) {
@@ -132,6 +140,7 @@ export default makeSource({
       [
         rehypeAutolinkHeadings,
         {
+          behavior: "append",
           properties: {
             className: ["subheading-anchor"],
             ariaLabel: "Link to section",

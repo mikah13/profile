@@ -95,6 +95,7 @@ const Blog = async ({ params }: PostPageProps) => {
           date={post.date}
           title={post.title}
           authors={authors}
+          readingTime={post.readingTime?.text}
         />
 
         <Mdx code={post.body.code} />
