@@ -11,6 +11,8 @@ import { getTableOfContents } from "@/lib/toc"
 import BlogHeader from "./_components/BlogHeader"
 import BlogFooter from "./_components/BlogFooter"
 import { BlogTOC } from "./_components/BlogTOC"
+import BlogTag from "./_components/BlogTag"
+import { Separator } from "@/components/ui/separator"
 
 interface PostPageProps {
   params: {
@@ -71,8 +73,9 @@ const Blog = async ({ params }: PostPageProps) => {
 
   const toc = await getTableOfContents(post.body.raw)
   const authors = post.authors.map((author) =>
-    allAuthors.find(({ slug }) => slug === `/authors/${author}`)
+    allAuthors.find(({ slug }) => slug === `/author/${author}`)
   )
+  console.log(post)
 
   return (
     <article className="relative gap-4 xl:mt-6 xl:grid xl:grid-cols-7">
@@ -103,6 +106,7 @@ const Blog = async ({ params }: PostPageProps) => {
       <div className="col-span-2 hidden text-sm xl:block">
         <div className="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-10">
           <BlogTOC toc={toc} />
+          {post.tags ? <BlogTag tags={post.tags} /> : null}
         </div>
       </div>
       {/* <Link

@@ -1,21 +1,21 @@
-import React from "react";
-import { Author } from ".contentlayer/generated";
-import Link from "next/link";
-import Image from "next/image";
+import React from "react"
+import { Author } from ".contentlayer/generated"
+import Link from "next/link"
+import Image from "next/image"
 type Props = {
-  authors: (Author | undefined)[];
-};
+  authors: (Author | undefined)[]
+}
 
 const AuthorCard = (props: Props) => {
-  const { authors } = props;
+  const { authors } = props
   if (!authors) {
-    return null;
+    return null
   }
   return authors.map((author) =>
     author ? (
       <Link
         key={author._id}
-        href={`https://twitter.com/${author.twitter}`}
+        href={`https://github.com/${author.github}`}
         className="flex items-center space-x-2 text-sm"
       >
         <Image
@@ -27,11 +27,11 @@ const AuthorCard = (props: Props) => {
         />
         <div className="flex-1 text-left leading-tight">
           <p className="font-medium">{author.title}</p>
-          <p className="text-[12px] text-muted-foreground">@{author.twitter}</p>
+          <p className="text-[12px] text-muted-foreground">@{author.github}</p>
         </div>
       </Link>
-    ) : null,
-  );
-};
+    ) : null
+  )
+}
 
-export default AuthorCard;
+export default AuthorCard

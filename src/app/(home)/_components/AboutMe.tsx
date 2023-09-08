@@ -1,24 +1,24 @@
-"use client";
-import React from "react";
+"use client"
+import React from "react"
 
-import { Button } from "@/components/ui/button";
-import { ChevronsDown } from "lucide-react";
+import { Button } from "@/components/ui/button"
+import { ChevronsDown } from "lucide-react"
 import {
   AiFillLinkedin,
   AiOutlineGithub,
   AiOutlineMail,
   AiOutlineFileText,
-} from "react-icons/ai";
-import { Separator } from "@/components/ui/separator";
-import { FaLocationDot } from "react-icons/fa6";
-import { scrollTo } from "@/lib/utils";
-import { IconType } from "react-icons/lib";
-type Props = {};
+} from "react-icons/ai"
+import { Separator } from "@/components/ui/separator"
+import { FaLocationDot } from "react-icons/fa6"
+import { scrollTo } from "@/lib/utils"
+import { IconType } from "react-icons/lib"
+type Props = {}
 type LINKS = {
-  link: string;
-  label: string;
-  icon: IconType;
-};
+  link: string
+  label: string
+  icon: IconType
+}
 const SOCIAL_MEDIA_LINKS: LINKS[] = [
   {
     link: "https://www.linkedin.com/in/mike-hoang-2907/",
@@ -40,7 +40,7 @@ const SOCIAL_MEDIA_LINKS: LINKS[] = [
     label: "Resume",
     icon: AiOutlineFileText,
   },
-];
+]
 
 const AboutMe = (props: Props) => {
   return (
@@ -56,24 +56,20 @@ const AboutMe = (props: Props) => {
             </span>
             👋
           </h1>
-          <h2 className="mb-2  mt-4 scroll-m-20 text-2xl font-semibold tracking-tight transition-colors first:mt-0">
-            Software Developer
-          </h2>
-          <div className="flex items-center space-x-1 text-lg">
+
+          <div className="my-5 flex items-center space-x-1 text-lg">
             <span className="text-rose-500">
               <FaLocationDot />
             </span>
             <p> Vancouver, B.C</p>
           </div>
-          <p className="mt-5 text-lg font-medium tracking-tight">
-            With several years of experience in building{" "}
-            <strong className="font-bold underline">
-              large-scale applications
-            </strong>
-            , I always strive to make the complex seem{" "}
-            <strong className="font-bold underline">effortless</strong> and the
-            extraordinary feel{" "}
-            <strong className="font-bold underline">intuitive</strong>.
+          <p className="text-lg font-medium tracking-tight">
+            Full Stack Developer with a passion for creating innovative{" "}
+            <strong className="font-bold underline">web applications</strong>.{" "}
+            Well-versed in{" "}
+            <strong className="font-bold underline"> React.js </strong> and{" "}
+            <strong className="font-bold underline">TypeScript</strong>, I
+            always strive to make the complex seem effortless.
           </p>
           {/* Introduction  */}
 
@@ -98,7 +94,7 @@ const AboutMe = (props: Props) => {
                     <span className="hidden lg:block">{link.label}</span>
                   </a>
                 </div>
-              );
+              )
             })}
           </div>
           {/* Social Media Links */}
@@ -111,7 +107,7 @@ const AboutMe = (props: Props) => {
         </Button>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default AboutMe;
+export default AboutMe

@@ -1,8 +1,12 @@
-import { defineDocumentType, makeSource } from "contentlayer/source-files";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypePrettyCode from "rehype-pretty-code";
-import rehypeSlug from "rehype-slug";
-import remarkGfm from "remark-gfm";
+import {
+  defineDocumentType,
+  makeSource,
+  defineNestedType,
+} from "contentlayer/source-files"
+import rehypeAutolinkHeadings from "rehype-autolink-headings"
+import rehypePrettyCode from "rehype-pretty-code"
+import rehypeSlug from "rehype-slug"
+import remarkGfm from "remark-gfm"
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
@@ -14,8 +18,21 @@ const computedFields = {
     type: "string",
     resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
   },
-};
+}
 
+const Tag = defineNestedType(() => ({
+  name: "Tag",
+  fields: {
+    title: { type: "string", required: true },
+  },
+}))
+
+const Categories = defineNestedType(() => ({
+  name: "Categories",
+  fields: {
+    title: { type: "string", required: true },
+  },
+}))
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -41,22 +58,30 @@ export const Post = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
+    tags: {
+      type: "list",
+      of: Tag,
+    },
+    categories: {
+      type: "list",
+      of: Categories,
+    },
     authors: {
       // Reference types are not embedded.
       // Until this is fixed, we can use a simple list.
       // type: "reference",
       // of: Author,
       type: "list",
-      of: { type: "string" },
+      of: Author,
       required: true,
     },
   },
   computedFields,
-}));
+}))
 
 export const Author = defineDocumentType(() => ({
   name: "Author",
-  filePathPattern: `authors/**/*.mdx`,
+  filePathPattern: `author/**/*.mdx`,
   contentType: "mdx",
   fields: {
     title: {
@@ -70,13 +95,13 @@ export const Author = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
-    twitter: {
+    github: {
       type: "string",
       required: true,
     },
   },
   computedFields,
-}));
+}))
 
 export default makeSource({
   contentDirPath: "./src/content",
@@ -93,14 +118,14 @@ export default makeSource({
             // Prevent lines from collapsing in `display: grid` mode, and allow empty
             // lines to be copy/pasted
             if (node.children.length === 0) {
-              node.children = [{ type: "text", value: " " }];
+              node.children = [{ type: "text", value: " " }]
             }
           },
           onVisitHighlightedLine(node) {
-            node.properties.className.push("line--highlighted");
+            node.properties.className.push("line--highlighted")
           },
           onVisitHighlightedWord(node) {
-            node.properties.className = ["word--highlighted"];
+            node.properties.className = ["word--highlighted"]
           },
         },
       ],
@@ -115,4 +140,4 @@ export default makeSource({
       ],
     ],
   },
-});
+})

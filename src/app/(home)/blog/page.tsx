@@ -1,20 +1,21 @@
-import Image from "next/image";
-import Link from "next/link";
-import { allPosts } from "contentlayer/generated";
-import { compareDesc } from "date-fns";
+import Image from "next/image"
+import Link from "next/link"
+import { allPosts } from "contentlayer/generated"
+import { compareDesc } from "date-fns"
 
-import { formatDate } from "@/lib/utils";
+import { formatDate } from "@/lib/utils"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
 
 export const metadata = {
   title: "Blog",
-};
+}
 
 export default async function BlogPage() {
   const posts = allPosts
     .filter((post) => post.published)
     .sort((a, b) => {
-      return compareDesc(new Date(a.date), new Date(b.date));
-    });
+      return compareDesc(new Date(a.date), new Date(b.date))
+    })
 
   return (
     <main id="blog" className="container max-w-4xl py-6 font-mono lg:py-10">
@@ -39,14 +40,15 @@ export default async function BlogPage() {
               className="group relative flex flex-col space-y-2"
             >
               {post.image && (
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  width={804}
-                  height={452}
-                  className="rounded-md border bg-muted transition-colors"
-                  priority={index <= 1}
-                />
+                <AspectRatio ratio={16 / 9} className="w-full">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="rounded-md border bg-muted transition-colors"
+                    priority={index <= 1}
+                  />
+                </AspectRatio>
               )}
               <h2 className="text-2xl font-extrabold">{post.title}</h2>
               {post.description && (
@@ -67,5 +69,5 @@ export default async function BlogPage() {
         <p>No posts published.</p>
       )}
     </main>
-  );
+  )
 }
