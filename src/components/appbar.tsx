@@ -1,4 +1,3 @@
-
 import Link from "next/link"
 import React, { useEffect } from "react"
 import { ModeToggle } from "./mode-toggle"
@@ -7,7 +6,9 @@ import UserDropdown from "./user-dropdown"
 import { getCurrentUser } from "@/lib/session"
 import { AppBarLink } from "@/lib/types"
 import NotificationBox from "@/components/notification-box"
-import AppbarLink from './appbar-link'
+import AppbarLink from "./appbar-link"
+
+import MobileMenu from "./mobile-menu"
 const Appbar = async ({
   dashboard = false,
   links,
@@ -27,14 +28,11 @@ const Appbar = async ({
             </Link>
           </div>
 
-          <div className="relative ml-auto hidden items-center lg:flex">
+          <div className="relative ml-auto hidden items-center lg:flex ">
             <nav className="flex space-x-8 ">
-              
               {links &&
                 links.map((link, index) => {
-                  return (
-                    <AppbarLink link={link} key={index} />
-                  )
+                  return <AppbarLink link={link} key={index} />
                 })}
 
               <div className="flex flex-row space-x-2">
@@ -44,6 +42,10 @@ const Appbar = async ({
 
               <UserDropdown user={user} />
             </nav>
+          </div>
+
+          <div className="relative flex lg:hidden">
+            <MobileMenu />
           </div>
         </div>
       </div>

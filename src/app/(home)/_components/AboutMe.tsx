@@ -48,7 +48,7 @@ const AboutMe = (props: Props) => {
       <div className="z-10 w-full max-w-5xl items-center justify-between text-sm drop-shadow-2xl lg:flex">
         <div className="w-full rounded-lg bg-white px-6 py-8 shadow-xl ring-1 ring-zinc-900/5 dark:bg-zinc-800">
           {/* Introduction  */}
-          <h1 className=" scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl ">
+          <h1 className=" scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-5xl ">
             Hello, I am
             <span className="text-violet-800  dark:text-violet-400">
               {" "}
