@@ -48,14 +48,14 @@ const ProjectCard = (props: Props) => {
           {/* <CardDescription>{subtitle}</CardDescription> */}
         </CardHeader>
         <CardContent className="flex w-full flex-col pb-0">
-          <AspectRatio ratio={16 / 9}>
+          {/* <AspectRatio ratio={16 / 9}>
             <Image
               fill
               alt={imageAltText}
               src={imageURL}
               className="rounded-md object-cover"
             />
-          </AspectRatio>
+          </AspectRatio> */}
 
           <div>
             <Separator className="my-2 dark:bg-white" />
