@@ -21,7 +21,6 @@ function ProjectDescription({ data }: Props) {
   } = data
   return (
     <div>
-      <p className="my-2 text-sm">{description}</p>
       <div className="">
         {stack && (
           <div className="my-1 flex space-x-2 text-center text-2xl">
@@ -31,6 +30,7 @@ function ProjectDescription({ data }: Props) {
           </div>
         )}
       </div>
+      <p className="mt-2 h-[3.5rem] text-sm">{description}</p>
     </div>
   )
 }

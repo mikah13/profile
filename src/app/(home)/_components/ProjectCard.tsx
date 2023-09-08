@@ -42,7 +42,7 @@ const ProjectCard = (props: Props) => {
               <CardDescription>{subtitle}</CardDescription>
             </CardHeader>
           </SheetTrigger>
-          <CardContent className="flex w-full flex-col p-4">
+          <CardContent className="flex w-full flex-col px-4">
             <ProjectDescription data={props.data} />
           </CardContent>{" "}
           <CardFooter className="p-4 pt-0">
