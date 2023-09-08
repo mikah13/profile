@@ -1,24 +1,24 @@
-import React from 'react'
+import React from "react"
 import { Separator } from "@/components/ui/separator"
 import { HiExternalLink, HiCode } from "react-icons/hi"
-import { ProjectCardType } from '@/lib/types'
+import { ProjectCardType } from "@/lib/types"
 import { cn } from "@/lib/utils"
 
 type Props = {
-    data:ProjectCardType
+  data: ProjectCardType
 }
 
-function ProjectDescription({data}: Props) {
-      const {
-        title,
-        subtitle,
-        description,
-        sourceURL,
-        siteURL,
-        imageURL = "",
-        imageAltText,
-        stack,
-      } = data
+function ProjectDescription({ data }: Props) {
+  const {
+    title,
+    subtitle,
+    description,
+    sourceURL,
+    siteURL,
+    imageURL = "",
+    imageAltText,
+    stack,
+  } = data
   return (
     <div>
       {" "}
