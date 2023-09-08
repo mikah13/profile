@@ -2,9 +2,9 @@ import Image from "next/image"
 import Link from "next/link"
 import { allPosts } from "contentlayer/generated"
 import { compareDesc } from "date-fns"
-
 import { formatDate } from "@/lib/utils"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { Button } from "@/components/ui/button"
 
 export const metadata = {
   title: "Blog",
@@ -32,6 +32,7 @@ export default async function BlogPage() {
         </div>
       </div>
       <hr className="my-8" />
+    
       {posts?.length ? (
         <div className="grid gap-10 sm:grid-cols-2">
           {posts.map((post, index) => (

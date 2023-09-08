@@ -40,7 +40,7 @@ const UserDropdown = ({
             height={26}
             width={26}
           />
-          <p className="truncate font-bold">{user.name}</p>
+          {/* <p className="truncate font-bold">{user.name}</p> */}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="drop-shadow-xl">
