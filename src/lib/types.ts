@@ -1,5 +1,19 @@
 import { Icons } from "@/lib/icons"
 
+
+export type ProjectCardType = {
+  title: string
+  subtitle: string
+  description: string
+  sourceURL: string
+  siteURL: string
+  imageURL: string
+  imageAltText: string
+  stack?: {
+    color: string
+    component: any
+  }[]
+}
 export type Post = {
   id: string
   title: string
