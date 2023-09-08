@@ -10,7 +10,7 @@ const Posts = async (props: Props) => {
   return (
     <main
       id="posts"
-      className="mx-auto my-0 flex min-h-screen max-w-[1500px] flex-col px-4 pt-12 font-mono antialiased md:px-12 lg:px-24"
+      className="mx-auto my-0 flex min-h-screen max-w-[1500px] flex-col px-4 pt-12  antialiased md:px-12 lg:px-24"
     >
       <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl ">
         Learn.{" "}

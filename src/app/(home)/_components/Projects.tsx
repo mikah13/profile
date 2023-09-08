@@ -133,13 +133,13 @@ const PROJECTS_ARRAY = [
     ],
   },
   {
-    title: "S-K-R-T-B-L-E",
+    title: "Skrtble",
     subtitle: "Personal project",
     description: "My own adapted implmentation of skribbl.io using Express.js and Web Socket",
     sourceURL: "https://github.com/mikah13/S-k-r-t-b-l-e",
-    siteURL: "https://mikah13.github.io/language-picker/",
-    imageURL: "/images/languagepicker.png",
-    imageAltText: "Language Picker Thumbnail",
+    siteURL: "",
+    imageURL: "/images/skrtble.png",
+    imageAltText: "Skrtble  Thumbnail",
     stack: [
       {
         color: "text-[#61DAFB]",

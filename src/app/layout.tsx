@@ -1,12 +1,12 @@
 import "./global.css"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Inter, Source_Code_Pro } from "next/font/google"
 import ScrollProgress from "@/components/scroll-progress"
 import { cn } from "@/lib/utils"
 import { ContextProvider } from "@/components/context-provider"
 import { Toaster } from "@/components/ui/toaster"
 import { PageWrapper } from "@/components/page-wrapper"
-const inter = Inter({ subsets: ["latin"] })
+const scp = Source_Code_Pro({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Mike Hoang",
@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn("min-h-screen", inter.className)}>
+      <body className={cn("min-h-screen", scp.className)}>
         <ContextProvider>
           {/* <PageWrapper> */}
           <div className=" text-zinc-700  dark:text-zinc-400">
