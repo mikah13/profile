@@ -1,5 +1,5 @@
-import React from "react";
-import ProjectCard from "./ProjectCard";
+import React from "react"
+import ProjectCard from "./ProjectCard"
 
 import {
   SiJavascript,
@@ -8,10 +8,46 @@ import {
   SiMui,
   SiNodedotjs,
   SiBootstrap,
-} from "react-icons/si";
+  SiTypescript,
+  SiNextdotjs,
+  SiPrisma,
+  SiPlanetscale,
+} from "react-icons/si"
 
-type Props = {};
+type Props = {}
 const PROJECTS_ARRAY = [
+  {
+    title: "mike-hoang-dev",
+    subtitle: "Personal project",
+    description:
+      "My personal portfolio website,where I explore and experiment with cutting-edge technologies",
+    siteURL: "https://mike-hoang-dev.vercel.app/",
+    sourceURL: "https://github.com/mikah13/profile",
+    imageURL: "/images/personal.png",
+    imageAltText: "Mike Hoang Dev Thumbnail",
+    stack: [
+      {
+        color: "text-[#3178C6]",
+        component: SiTypescript,
+      },
+      {
+        color: "text-[#000000] dark:text-white",
+        component: SiNextdotjs,
+      },
+      {
+        color: "text-[#06B6D4]",
+        component: SiTailwindcss,
+      },
+      {
+        color: "text-[#2D3748] dark:text-[#7b93bd]",
+        component: SiPrisma,
+      },
+      {
+        color: "text-[#000000] dark:text-white",
+        component: SiPlanetscale,
+      },
+    ],
+  },
   {
     title: "Ford Heritage Vault",
     subtitle: "Work project",
@@ -76,27 +112,27 @@ const PROJECTS_ARRAY = [
       },
     ],
   },
-  // {
-  //   title: "Language Picker",
-  //   subtitle: "Personal project",
-  //   description:
-  //     "A side project to help people to decide which programming language to learn",
-  //   sourceURL: "https://github.com/mikah13/language-picker",
-  //   siteURL: "https://mikah13.github.io/language-picker/",
-  //   imageURL: "/images/languagepicker.png",
-  //   imageAltText: "Language Picker Thumbnail",
-  //   stack: [
-  //     {
-  //       color: "text-[#61DAFB]",
-  //       component: SiReact,
-  //     },
-  //     {
-  //       color: "text-[#339933]",
-  //       component: SiNodedotjs,
-  //     },
-  //   ],
-  // },
-];
+  {
+    title: "Language Picker",
+    subtitle: "Personal project",
+    description:
+      "A side project to help people to decide which programming language to learn",
+    sourceURL: "https://github.com/mikah13/language-picker",
+    siteURL: "https://mikah13.github.io/language-picker/",
+    imageURL: "/images/languagepicker.png",
+    imageAltText: "Language Picker Thumbnail",
+    stack: [
+      {
+        color: "text-[#61DAFB]",
+        component: SiReact,
+      },
+      {
+        color: "text-[#339933]",
+        component: SiNodedotjs,
+      },
+    ],
+  },
+]
 const Projects = (props: Props) => {
   return (
     <section
@@ -112,7 +148,7 @@ const Projects = (props: Props) => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects
