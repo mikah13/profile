@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 import { ContextProvider } from "@/components/context-provider"
 import { Toaster } from "@/components/ui/toaster"
 import { PageWrapper } from "@/components/page-wrapper"
+import { Analytics } from "@vercel/analytics/react"
 const scp = Source_Code_Pro({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function RootLayout({
           </div>
           {/* </PageWrapper> */}
         </ContextProvider>
+        <Analytics />
       </body>
     </html>
   )

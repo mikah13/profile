@@ -21,7 +21,7 @@ const Appbar = async ({
     <div className="supports-backdrop-blur:bg-white/60 sticky top-0 z-40 w-full flex-none bg-white/95 text-zinc-900 backdrop-blur transition-colors duration-500 dark:border-zinc-50/[0.06] dark:bg-transparent dark:text-white lg:z-50 lg:border-b lg:border-zinc-900/10">
       <div className="max-w-8xl mx-auto">
         <div className="mx-4 flex border-b border-zinc-900/10 py-4 dark:border-zinc-300/10 lg:mx-0 lg:border-0 lg:px-8">
-          <div className="rubik-font relative flex items-center rounded px-2 py-1">
+          <div className="relative flex items-center rounded px-2 py-1">
             <Link href="/">
               <Image width={40} height={40} src="/images/logo.png" alt="logo" />
               {/* mike-hoang-dev */}
@@ -44,7 +44,7 @@ const Appbar = async ({
             </nav>
           </div>
 
-          <div className="relative flex lg:hidden">
+          <div className="relative ml-auto  flex items-center lg:hidden">
             <MobileMenu />
           </div>
         </div>
