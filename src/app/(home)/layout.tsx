@@ -9,10 +9,10 @@ export default function HomeLayout({
   children: React.ReactNode
 }) {
   return (
-      <section>
-        <Appbar links={NAV_BAR_LINKS} />
-        {children}
-        <Footer />
-      </section>
+    <section>
+      <Appbar links={NAV_BAR_LINKS} />
+      {children}
+      <Footer />
+    </section>
   )
 }

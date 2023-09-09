@@ -48,7 +48,7 @@ const Appbar = async ({
           </div>
 
           <div className="relative ml-auto  flex items-center lg:hidden">
-            <MobileMenu />
+            <MobileMenu user={user} />
           </div>
         </div>
       </div>
