@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { motion, AnimatePresence, easeInOut } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { usePathname } from "next/navigation"
 export const PageWrapper = ({
   children,
@@ -15,21 +15,13 @@ export const PageWrapper = ({
     <AnimatePresence>
       <motion.div
         key={router}
-        initial="initialState"
-        animate="animateState"
-        exit="exitState"
+        initial={{ opacity: 0, y: 700 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{
-          duration: 1,
+          duration: 0.75,
+          ease: "linear",
         }}
-        variants={{
-          initialState: {
-            opacity: 0,
-          },
-          animateState: {
-            opacity: 1,
-          },
-          exitState: {},
-        }}
+      
         className={cn("min-h-screenHeightWithoutHeader", className)}
       >
         {children}

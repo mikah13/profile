@@ -7,6 +7,7 @@ import React, { useEffect } from "react"
 export default function Home() {
   return (
     <main className="antialiase flex min-h-screen flex-col items-center justify-start px-4 pt-0  md:px-12 lg:px-24">
+
       <AboutMe />
       <Projects />
     </main>

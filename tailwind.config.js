@@ -9,7 +9,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      mono: ["Source Code Pro", 'ui-monospace', 'monospace'],
+      mono: ["Source Code Pro", "ui-monospace", "monospace"],
     },
     container: {
       center: true,
@@ -19,6 +19,9 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: {
+        dark: "linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)]",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

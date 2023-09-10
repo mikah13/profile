@@ -1,7 +1,6 @@
 import { useEffect } from "react"
 import Appbar from "@/components/appbar"
 import Footer from "@/components/footer"
-import { NAV_BAR_LINKS } from "@/lib/nav-links"
 
 export default function HomeLayout({
   children,
@@ -10,7 +9,7 @@ export default function HomeLayout({
 }) {
   return (
     <section>
-      <Appbar links={NAV_BAR_LINKS} />
+      <Appbar />
       {children}
       <Footer />
     </section>

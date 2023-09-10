@@ -45,6 +45,7 @@ const SOCIAL_MEDIA_LINKS: LINKS[] = [
 const AboutMe = (props: Props) => {
   return (
     <section id="about-me" className="relative flex flex-col justify-center">
+      <div className="absolute left-0  h-full w-full  transform rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
       <div className="z-10 w-full max-w-5xl items-center justify-between text-sm drop-shadow-2xl lg:flex">
         <div className="w-full rounded-lg bg-white px-6 py-8 shadow-xl ring-1 ring-zinc-900/5 dark:bg-zinc-800">
           {/* Introduction  */}
