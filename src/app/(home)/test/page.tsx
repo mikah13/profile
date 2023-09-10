@@ -1,11 +1,34 @@
-import React from 'react'
+"use client"
+import React from "react"
 
+import { useChat } from "ai/react"
 type Props = {}
 
-const page = (props: Props) => {
+const TestPage = (props: Props) => {
+  const { messages, input, handleInputChange, handleSubmit } = useChat()
   return (
     <div>
-      <ol className="relative border-l border-gray-200 dark:border-gray-700">
+      <div className="stretch mx-auto flex w-full max-w-md flex-col py-24">
+        {messages.map((m) => (
+          <div key={m.id}>
+            {m.role === "user" ? "User: " : "AI: "}
+            {m.content}
+          </div>
+        ))}
+
+        <form onSubmit={handleSubmit}>
+          <label>
+            Say something...
+            <input
+              className="fixed bottom-0 mb-8 w-full max-w-md rounded border border-gray-300 p-2 shadow-xl"
+              value={input}
+              onChange={handleInputChange}
+            />
+          </label>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+      {/* <ol className="relative border-l border-gray-200 dark:border-gray-700">
         <li className="mb-10 ml-4">
           <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"></div>
           <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
@@ -15,7 +38,7 @@ const page = (props: Props) => {
             Application UI code in Tailwind CSS
           </h3>
           <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-            Get access to over 20+ pages including a dashboard layout, charts,
+            Get access to over 20+ TestPages including a dashboard layout, charts,
             kanban board, calendar, and pre-order E-commerce & Marketing pages.
           </p>
           <a
@@ -67,9 +90,9 @@ const page = (props: Props) => {
             built on top of Tailwind CSS.
           </p>
         </li>
-      </ol>
+      </ol> */}
     </div>
   )
 }
 
-export default page
+export default TestPage
