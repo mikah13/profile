@@ -29,7 +29,9 @@ const BlogSummary = async ({ content }: Props) => {
   return (
     <div className="my-4 space-y-4">
       <p className="text-xl font-medium">Blog Summary</p>
-      <Reader reader={reader} />
+      <div className="p-2">
+        <Reader reader={reader} />
+      </div>
     </div>
   )
 }

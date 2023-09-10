@@ -96,7 +96,7 @@ const Blog = async ({ params }: PostPageProps) => {
           authors={authors}
           readingTime={post.readingTime?.text}
         />
-
+        <BlogSummary content={post.body.raw.toString()} />
         <Mdx code={post.body.code} />
 
         <hr className="mt-12" />
@@ -107,7 +107,6 @@ const Blog = async ({ params }: PostPageProps) => {
         <div className="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-10">
           <BlogTOC toc={toc} />
           {post.tags ? <BlogTag tags={post.tags} /> : null}
-          <BlogSummary content={post.body.raw.toString()} />
         </div>
       </div>
       {/* <Link

@@ -26,12 +26,14 @@ const Appbar = async ({ dashboard = false }: { dashboard?: boolean }) => {
 
           <div className="relative hidden items-center lg:flex ">
             <nav className="flex space-x-5">
-              <div className="flex justify-between  space-x-5">
-                {links &&
-                  links.map((link, index) => {
-                    return <AppbarLink link={link} key={index} />
-                  })}
-              </div>
+              {!dashboard && (
+                <div className="flex justify-between  space-x-5">
+                  {links &&
+                    links.map((link, index) => {
+                      return <AppbarLink link={link} key={index} />
+                    })}
+                </div>
+              )}
 
               <div className="flex flex-row space-x-2">
                 {dashboard && <NotificationBox />}

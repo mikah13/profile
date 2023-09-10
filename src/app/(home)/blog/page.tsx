@@ -6,10 +6,13 @@ import { formatDate } from "@/lib/utils"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { Button } from "@/components/ui/button"
 import type { Metadata } from "next"
+import BlogSearchButton from "./[...slug]/_components/BlogSearchButton"
 export const metadata: Metadata = {
   title: "Mike Hoang | Blog",
   description: "Mike Hoang - Software Developer",
 }
+
+
 
 export default async function BlogPage() {
   const posts = allPosts
@@ -33,7 +36,7 @@ export default async function BlogPage() {
         </div>
       </div>
       <hr className="my-8" />
-    
+      <BlogSearchButton posts={posts} />
       {posts?.length ? (
         <div className="grid gap-10 sm:grid-cols-2">
           {posts.map((post, index) => (
