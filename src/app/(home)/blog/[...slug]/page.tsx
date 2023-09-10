@@ -13,7 +13,7 @@ import BlogFooter from "./_components/BlogFooter"
 import { BlogTOC } from "./_components/BlogTOC"
 import BlogTag from "./_components/BlogTag"
 import { Separator } from "@/components/ui/separator"
-
+import BlogSummary from "./_components/BlogSummary"
 interface PostPageProps {
   params: {
     slug: string[]
@@ -76,7 +76,6 @@ const Blog = async ({ params }: PostPageProps) => {
     allAuthors.find(({ slug }) => slug === `/author/${author}`)
   )
   console.log(post)
-
   return (
     <article className="relative gap-4 xl:mt-6 xl:grid xl:grid-cols-7">
       <div className="col-span-1 text-center">
@@ -108,6 +107,7 @@ const Blog = async ({ params }: PostPageProps) => {
         <div className="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-10">
           <BlogTOC toc={toc} />
           {post.tags ? <BlogTag tags={post.tags} /> : null}
+          <BlogSummary content={post.body.raw.toString()} />
         </div>
       </div>
       {/* <Link

@@ -5,9 +5,10 @@ import { compareDesc } from "date-fns"
 import { formatDate } from "@/lib/utils"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { Button } from "@/components/ui/button"
-
-export const metadata = {
-  title: "Blog",
+import type { Metadata } from "next"
+export const metadata: Metadata = {
+  title: "Mike Hoang | Blog",
+  description: "Mike Hoang - Software Developer",
 }
 
 export default async function BlogPage() {
