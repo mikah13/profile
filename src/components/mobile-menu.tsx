@@ -14,6 +14,10 @@ import {
 import type { User } from "next-auth"
 import { Role } from "@prisma/client"
 import Image from "next/image"
+import { Separator } from "@radix-ui/react-separator"
+import Link from "next/link"
+import { NAV_BAR_LINKS } from "@/lib/nav-links"
+import { signIn, signOut } from "next-auth/react"
 type Props = {
   user?: User & {
     role: Role
@@ -22,6 +26,7 @@ type Props = {
 }
 
 const MobileMenu = ({ user }: Props) => {
+  const links = NAV_BAR_LINKS
   return (
     <div>
       <Sheet>
@@ -31,12 +36,17 @@ const MobileMenu = ({ user }: Props) => {
           </Button>
         </SheetTrigger>
         <SheetContent side="bottom" className="h-screen">
-          <SheetHeader></SheetHeader>
+          <SheetHeader>
+            <Link href="/">
+              <Image width={40} height={40} src="/images/logo.png" alt="logo" />
+              {/* mike-hoang-dev */}
+            </Link>
+          </SheetHeader>
 
           <SheetDescription>
             {user ? (
-              <Button variant="ghost" className="h flex w-full justify-between">
-                <div>
+              <div className="h flex w-full justify-between px-0 py-2">
+                <div className="text-left">
                   <p className="truncate font-bold">{user.name}</p>
                   <p>{user.email}</p>
                 </div>
@@ -44,13 +54,29 @@ const MobileMenu = ({ user }: Props) => {
                   className="rounded-full"
                   src={user.image ?? ""}
                   alt="user avatar"
-                  height={26}
-                  width={26}
+                  objectFit="contain"
                 />
-              </Button>
-            ) : (
-              <Button variant="ghost"> Sign in</Button>
-            )}
+              </div>
+            ) : null}
+            <Separator />
+            <div className="flex flex-col space-y-3">
+              {links &&
+                links.map((link, index) => {
+                  return (
+                    <React.Fragment key={index}>
+                      <Link href={link.href}>{link.label}</Link>
+                      <Separator />
+                    </React.Fragment>
+                  )
+                })}
+            </div>
+            <Button
+              className="w-full"
+              variant="secondary"
+              onClick={() => (user ? signOut() : signIn())}
+            >
+              {user ? "Logout" : "Sign in"}
+            </Button>
           </SheetDescription>
         </SheetContent>
       </Sheet>
