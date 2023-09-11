@@ -60,6 +60,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.4",
     "react-icons": "^4.10.1",
+    "react-wrap-balancer": "^1.1.0",
     "reading-time": "^1.5.0",
     "rehype": "^13.0.1",
     "rehype-accessible-emojis": "^0.3.2",

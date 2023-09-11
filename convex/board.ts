@@ -11,8 +11,29 @@ export const createTask = mutation({
     // do something with `taskId`
   },
 })
+const DEFAULT_COLUMNS = ["To Do", "In Progress", "In Review", "Completed"]
+export const createBoardTemplate = mutation({
+  args: { title: v.string(), authorId: v.string() },
+  handler: async (ctx, args) => {
+    const board = await ctx.db.insert("boards", {
+      title: args.title,
+      authorId: args.authorId,
+      description: "New board"
+    })
 
+    DEFAULT_COLUMNS.forEach((title, i) => {
+      const newColumn = ctx.db.insert("columns", {
+        title: title,
+        boardId: board,
+        position: i,
+      })
+    })
 
+    return ctx.db.get(board);
+
+    // do something with `taskId`
+  },
+})
 
 export const get = query({
   args: {},

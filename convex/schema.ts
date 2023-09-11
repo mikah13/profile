@@ -5,6 +5,8 @@ export default defineSchema({
   boards: defineTable({
     title: v.string(),
     authorId: v.string(),
+    description: v.optional(v.string()),
+    bookmark: v.optional(v.boolean()),
   }),
   columns: defineTable({
     title: v.string(),
@@ -19,4 +21,9 @@ export default defineSchema({
     columnId: v.id("columns"),
     boardId: v.id("boards"),
   }),
+  tags: defineTable({
+    title: v.string(),
+    description: v.optional(v.string()),
+  }),
+  comments: defineTable({}),
 })
