@@ -33,7 +33,7 @@ const ProjectCard = (props: Props) => {
   } = props.data
   const { index } = props
   return (
-    <div className=" transition-container bg-introCard bg-50% mx-auto w-full max-w-[400px] animate-[gradient] rounded-xl p-[0.3rem] shadow-md shadow-indigo-500/50 hover:shadow-2xl hover:shadow-indigo-500/50">
+    <div className=" transition-container bg-introCard bg-50% relative mx-auto w-full max-w-[400px] animate-[gradient] rounded-xl p-[0.3rem] shadow-md shadow-indigo-500/50 hover:shadow-2xl hover:shadow-indigo-500/50">
       <Sheet>
         <Card className="h-full min-h-min w-full cursor-pointer bg-zinc-100  shadow-2xl dark:bg-black ">
           <SheetTrigger className="w-full text-left">

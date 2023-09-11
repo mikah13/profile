@@ -27,9 +27,9 @@ const BlogSummary = async ({ content }: Props) => {
   const reader = stream.getReader()
 
   return (
-    <div className="my-4 space-y-4">
-      <p className="text-xl font-medium">Blog Summary</p>
-      <div className="p-2">
+    <div className="my-12 space-y-4">
+      <p className="text-xl font-bold">Summary:</p>
+      <div className="py-2">
         <Reader reader={reader} />
       </div>
     </div>

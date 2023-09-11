@@ -45,7 +45,7 @@ const SOCIAL_MEDIA_LINKS: LINKS[] = [
 const AboutMe = (props: Props) => {
   return (
     <section id="about-me" className="relative flex flex-col justify-center">
-      <div className="absolute left-0  h-full w-full  transform rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
+      <div className="absolute left-0  h-full max-h-[600px] w-full  transform rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
       <div className="z-10 w-full max-w-5xl items-center justify-between text-sm drop-shadow-2xl lg:flex">
         <div className="w-full rounded-lg bg-white px-6 py-8 shadow-xl ring-1 ring-zinc-900/5 dark:bg-zinc-800">
           {/* Introduction  */}
@@ -104,8 +104,8 @@ const AboutMe = (props: Props) => {
           {/* Social Media Links */}
         </div>
       </div>
-      <div id="cta" className="text-center">
-        <Button onClick={(_) => scrollTo("#projects")} className="mt-10 ">
+      <div id="cta" className="text-center z-10">
+        <Button onClick={(_) => scrollTo("#projects")} className="mt-10">
           <ChevronsDown strokeWidth={2.25} className="mr-2 h-4 w-4" />
           <span>Explore !!!</span>
         </Button>
