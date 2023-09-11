@@ -22,7 +22,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@convex/_generated": ["./convex/_generated"],
+      "convex/_generated": ["./convex/_generated"],
       "contentlayer/generated": ["./.contentlayer/generated/"],
       "@vercel/analytics/react": ["./node_modules/@vercel/analytics/dist/react"]
     }

@@ -11,7 +11,10 @@ export const getColumnFromBoard = query({
   args: {
     boardId: v.string(),
   },
-  handler: async (ctx) => {
-    return await ctx.db.query("columns").collect()
+  handler: async (ctx, args) => {
+    return await ctx.db
+      .query("columns")
+      .filter((q) => q.eq(q.field("boardId"), args.boardId))
+      .collect()
   },
 })
