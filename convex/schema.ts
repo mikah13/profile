@@ -18,5 +18,4 @@ export default defineSchema({
     position: v.number(),
     columnId: v.id("columns"),
   }),
-  
 })
