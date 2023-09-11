@@ -29,7 +29,6 @@ function KanbanBoardView(props: { params: { slug: Id<"boards"> } }) {
           return (
             <BoardColumn
               column={column}
-
               key={idx}
             />
           )

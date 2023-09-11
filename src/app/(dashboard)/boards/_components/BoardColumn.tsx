@@ -1,7 +1,7 @@
 "use client"
 import { Doc } from "@/../convex/_generated/dataModel"
 import { Button } from "@/components/ui/button"
-import React from "react"
+import React, { useState } from "react"
 import { getCardFromColumn } from "../../../../../convex/card"
 import { api } from "@/../convex/_generated/api"
 import { useMutation, useQuery } from "convex/react"
@@ -40,6 +40,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { useForm } from "react-hook-form"
 import { Textarea } from "@/components/ui/textarea"
+import { SiRedhatopenshift } from "react-icons/si"
+import { useToast } from "@/components/ui/use-toast"
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -72,7 +74,13 @@ function ColumnHeader({
   )
 }
 
-function AddTaskButton({ column }: { column: Doc<"columns"> }) {
+function AddTaskButton({
+  column,
+  newPosition,
+}: {
+  column: Doc<"columns">
+  newPosition: number
+}) {
   const { title, _id, boardId } = column
   const mutation = useMutation(api.card.create)
   const form = useForm<z.infer<typeof formSchema>>({
@@ -83,16 +91,38 @@ function AddTaskButton({ column }: { column: Doc<"columns"> }) {
     },
   })
 
+  const [open, setOpen] = useState(false)
+  const { toast } = useToast()
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
+    mutation({
+      title: values.title,
+      description: values.description,
+      columnId: _id,
+      boardId: boardId,
+      position: newPosition,
+    }).then((result) => {
+      if (result) {
+        setOpen(false)
+        toast({
+          title: "A new task has been added",
+          description: `${result.title} has been added to ${title}`,
+        })
+        form.reset()
+      } else {
+        setOpen(false)
+        toast({
+          title: "Something wrong happened",
+          description: `No task has been created`,
+        })
+      }
+    })
   }
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger>
         <Button
+          onClick={() => setOpen(true)}
           variant="outline"
           className="flex w-full space-x-2 border-dashed "
         >
@@ -163,10 +193,11 @@ function BoardColumn({ column }: Props) {
   const cards = useQuery(api.card.getCardFromColumn, {
     columnId: column._id,
   })?.sort((a, b) => a.position - b.position)
+  const cardsLength = cards ? cards.length : 0
   return (
     <div className="col-span-1 mx-auto flex w-full  max-w-[350px] flex-col gap-y-4">
-      <ColumnHeader column={column} tasksNumber={cards ? cards.length : 0} />
-      <AddTaskButton column={column} />
+      <ColumnHeader column={column} tasksNumber={cardsLength} />
+      <AddTaskButton column={column} newPosition={cardsLength} />
       {cards?.map((card) => <TaskCard card={card} key={card._id} />)}
     </div>
   )

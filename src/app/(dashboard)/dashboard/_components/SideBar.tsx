@@ -20,7 +20,6 @@ const DashboardSidebar = ({ links }: { links: DashboardSidebarLink[] }) => {
         <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
           Dashboard
         </h2>
-        {pathname}
         <div className="space-y-1">
           {links.map((link, index) => {
             return (
