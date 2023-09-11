@@ -22,8 +22,9 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+      "@convex/_generated": ["./convex/_generated"],
       "contentlayer/generated": ["./.contentlayer/generated/"],
-      "@vercel/analytics/react":["./node_modules/@vercel/analytics/dist/react"]
+      "@vercel/analytics/react": ["./node_modules/@vercel/analytics/dist/react"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
