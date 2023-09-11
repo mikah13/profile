@@ -18,8 +18,13 @@ export const NAV_BAR_LINKS: AppBarLink[] = [
 export const DASHBOARD_SIDEBAR_LINKS: DashboardSidebarLink[] = [
   {
     icon: "keyboard",
-    href: "/dashboard/admin",
-    label: "Admin",
+    href: "/dashboard/",
+    label: "Overview",
+  },
+  {
+    icon: "keyboard",
+    href: "/boards",
+    label: "Kanban Board",
   },
   // {
   //   icon: "keyboard",
