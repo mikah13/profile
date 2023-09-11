@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import React from "react"
 import { getCardFromColumn } from "../../../../../convex/card"
 import { api } from "@/../convex/_generated/api"
-import { useQuery } from "convex/react"
+import { useMutation, useQuery } from "convex/react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   Card,
@@ -14,9 +14,39 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+} from "@/components/ui/dialog"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import { CheckIcon, PlusCircledIcon } from "@radix-ui/react-icons"
 import { formatDate } from "../../../../lib/utils"
+import { zodResolver } from "@hookform/resolvers/zod"
+import * as z from "zod"
+import { useForm } from "react-hook-form"
+import { Textarea } from "@/components/ui/textarea"
+
+const formSchema = z.object({
+  title: z.string().min(2, {
+    message: "Title must be at least 2 characters.",
+  }),
+  description: z.string().optional(),
+})
 type Props = {
   column: Doc<"columns">
 }
@@ -42,11 +72,74 @@ function ColumnHeader({
   )
 }
 
-function AddTaskButton() {
+function AddTaskButton({ column }: { column: Doc<"columns"> }) {
+  const { title, _id, boardId } = column
+  const mutation = useMutation(api.card.create)
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      title: "",
+      description: "",
+    },
+  })
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values)
+  }
+
   return (
-    <Button variant="outline" className="flex w-full space-x-2 border-dashed ">
-      <span>Add Task</span> <PlusCircledIcon className="mr-2 h-4 w-4" />
-    </Button>
+    <Dialog>
+      <DialogTrigger>
+        <Button
+          variant="outline"
+          className="flex w-full space-x-2 border-dashed "
+        >
+          <span>Add Task</span> <PlusCircledIcon className="mr-2 h-4 w-4" />
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[500px]">
+        <DialogHeader>
+          <DialogTitle>Create new task</DialogTitle>
+          <DialogDescription>Add your new task to {title}</DialogDescription>
+        </DialogHeader>
+        <div className="grid gap-4 py-4">
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <FormField
+                control={form.control}
+                name="title"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Title*</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Title" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="description"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Description</FormLabel>
+                    <FormControl>
+                      <Textarea placeholder="Task description" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button type="submit">Submit</Button>
+            </form>
+          </Form>
+        </div>
+      </DialogContent>
+    </Dialog>
   )
 }
 function TaskCard({ card }: { card: Doc<"cards"> }) {
@@ -73,7 +166,7 @@ function BoardColumn({ column }: Props) {
   return (
     <div className="col-span-1 mx-auto flex w-full  max-w-[350px] flex-col gap-y-4">
       <ColumnHeader column={column} tasksNumber={cards ? cards.length : 0} />
-      <AddTaskButton />
+      <AddTaskButton column={column} />
       {cards?.map((card) => <TaskCard card={card} key={card._id} />)}
     </div>
   )
