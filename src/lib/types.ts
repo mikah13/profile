@@ -51,3 +51,4 @@ export type DashboardSidebarLink = {
   href: string
   label: string
 }
+
