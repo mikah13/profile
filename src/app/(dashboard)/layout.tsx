@@ -20,7 +20,9 @@ export default async function DashboardLayout({
         <div className="fixed inset-0 right-auto top-[3.8125rem] z-20 hidden w-[19rem] overflow-y-auto pb-10 pl-8 pr-6 lg:block">
           <DashboardSidebar links={DASHBOARD_SIDEBAR_LINKS} />
         </div>
-        <main className="flex flex-col lg:pl-[19.5rem]">{children}</main>
+        <main className="section flex flex-col lg:pl-[19.5rem]">
+          {children}
+        </main>
       </div>
       <DashboardFooter />
     </section>

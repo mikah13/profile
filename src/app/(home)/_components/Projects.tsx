@@ -27,24 +27,13 @@ const PROJECTS_ARRAY = [
     imageAltText: "Mike Hoang Dev Thumbnail",
     stack: [
       {
-        color: "text-[#3178C6]",
-        component: SiTypescript,
+        label: "NextJS",
       },
       {
-        color: "text-[#000000] dark:text-white",
-        component: SiNextdotjs,
+        label: "TypeScript",
       },
       {
-        color: "text-[#06B6D4]",
-        component: SiTailwindcss,
-      },
-      {
-        color: "text-[#2D3748] dark:text-[#7b93bd]",
-        component: SiPrisma,
-      },
-      {
-        color: "text-[#000000] dark:text-white",
-        component: SiPlanetscale,
+        label: "Prisma",
       },
     ],
   },
@@ -59,12 +48,10 @@ const PROJECTS_ARRAY = [
     imageAltText: "Ford Heritage Vault Thumbnail",
     stack: [
       {
-        color: "text-[#F7DF1E]",
-        component: SiJavascript,
+        label: "JavaScript",
       },
       {
-        color: "text-[#06B6D4]",
-        component: SiTailwindcss,
+        label: "Tailwind CSS",
       },
     ],
   },
@@ -79,16 +66,13 @@ const PROJECTS_ARRAY = [
     imageAltText: "Surrey Online Heritage Search Thumbnail",
     stack: [
       {
-        color: "text-[#61DAFB]",
-        component: SiReact,
+        label: "ReactJS",
       },
       {
-        color: "text-[#339933]",
-        component: SiNodedotjs,
+        label: "NodeJS",
       },
       {
-        color: "text-[#007FFF]",
-        component: SiMui,
+        label: "Material UI",
       },
     ],
   },
@@ -103,12 +87,10 @@ const PROJECTS_ARRAY = [
     imageAltText: "Archives of Ontario Thumbnail",
     stack: [
       {
-        color: "text-[#F7DF1E]",
-        component: SiJavascript,
+        label: "JavaScript",
       },
       {
-        color: "text-[#7952B3]",
-        component: SiBootstrap,
+        label: "Bootstrap",
       },
     ],
   },
@@ -123,31 +105,28 @@ const PROJECTS_ARRAY = [
     imageAltText: "Language Picker Thumbnail",
     stack: [
       {
-        color: "text-[#61DAFB]",
-        component: SiReact,
+        label: "ReactJS",
       },
       {
-        color: "text-[#339933]",
-        component: SiNodedotjs,
+        label: "NodeJS",
       },
     ],
   },
   {
     title: "Skrtble",
     subtitle: "Personal project",
-    description: "My own adapted implmentation of skribbl.io using Express.js and Web Socket",
+    description:
+      "My own adapted implmentation of skribbl.io using Express.js and Web Socket",
     sourceURL: "https://github.com/mikah13/S-k-r-t-b-l-e",
     siteURL: "",
     imageURL: "/images/skrtble.png",
     imageAltText: "Skrtble  Thumbnail",
     stack: [
       {
-        color: "text-[#61DAFB]",
-        component: SiReact,
+        label: "ReactJS",
       },
       {
-        color: "text-[#339933]",
-        component: SiNodedotjs,
+        label: "NodeJS",
       },
     ],
   },

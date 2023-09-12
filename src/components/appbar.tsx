@@ -14,7 +14,7 @@ const Appbar = async ({ dashboard = false }: { dashboard?: boolean }) => {
   const user = await getCurrentUser()
   const links = NAV_BAR_LINKS
   return (
-    <div className="supports-backdrop-blur:bg-white/60 fixed top-0 z-40 w-full flex-none bg-white/95 px-4 text-zinc-900 backdrop-blur transition-colors duration-500 dark:border-zinc-50/[0.06] dark:bg-transparent dark:text-white lg:z-50 lg:border-b lg:border-zinc-900/10">
+    <div className="supports-backdrop-blur:bg-white/60 sticky top-0 z-40 w-full flex-none bg-white/95 px-4 text-zinc-900 backdrop-blur transition-colors duration-500 dark:border-zinc-50/[0.06] dark:bg-transparent dark:text-white lg:z-50 lg:border-b lg:border-zinc-900/10">
       <div className="max-w-8xl mx-auto">
         <div className=" flex justify-between border-b border-zinc-900/10 py-4 dark:border-zinc-300/10  lg:border-0">
           <div className="relative flex items-center rounded px-2 py-1">

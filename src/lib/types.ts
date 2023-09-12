@@ -1,6 +1,5 @@
 import { Icons } from "@/lib/icons"
 
-
 export type ProjectCardType = {
   title: string
   subtitle: string
@@ -10,8 +9,8 @@ export type ProjectCardType = {
   imageURL: string
   imageAltText: string
   stack?: {
-    color: string
-    component: any
+
+    label?: string
   }[]
 }
 export type Post = {
@@ -51,4 +50,3 @@ export type DashboardSidebarLink = {
   href: string
   label: string
 }
-

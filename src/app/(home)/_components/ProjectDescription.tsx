@@ -2,6 +2,7 @@ import React from "react"
 import { Separator } from "@/components/ui/separator"
 import { ProjectCardType } from "@/lib/types"
 import { cn } from "@/lib/utils"
+import { Badge } from "@/components/ui/badge"
 type Props = {
   data: ProjectCardType
 }
@@ -18,17 +19,18 @@ function ProjectDescription({ data }: Props) {
     stack,
   } = data
   return (
-    <div>
+    <div className="mt-3">
+      <p className="mt-2 h-[3.5rem] text-sm tracking-tight">{description}</p>
       <div className="">
         {stack && (
-          <div className="my-1 flex space-x-2 text-center text-2xl">
+          <div className="mt-2 flex text-center text-2xl flex-wrap">
             {stack.map((Icon, index) => {
-              return <Icon.component className={cn(Icon.color)} key={index} />
+              if(Icon.label) return <Badge variant="default" className="mr-2 mb-1 tracking-tighter">{Icon.label}</Badge>
+              return null
             })}
           </div>
         )}
       </div>
-      <p className="mt-2 h-[3.5rem] text-sm">{description}</p>
     </div>
   )
 }

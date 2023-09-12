@@ -38,7 +38,7 @@ export default function RootLayout({
 
           <div className="relative   text-zinc-700  dark:text-zinc-400">
 
-            <ScrollProgress />
+            {/* <ScrollProgress /> */}
             {children}
             <Toaster />
           </div>
