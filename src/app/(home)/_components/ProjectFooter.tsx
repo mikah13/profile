@@ -1,23 +1,22 @@
-import { Separator } from '@/components/ui/separator'
-import { ProjectCardType } from '@/lib/types'
-import React from 'react'
-import { cn } from "@/lib/utils";
-import { HiExternalLink, HiCode } from "react-icons/hi"
-
+import { Separator } from "@/components/ui/separator"
+import { ProjectCardType } from "@/lib/types"
+import React from "react"
+import { cn } from "@/lib/utils"
+import { ExternalLink, Code2 } from "lucide-react"
 type Props = {
   data: ProjectCardType
 }
 const ProjectFooter = ({ data }: Props) => {
-      const {
-        title,
-        subtitle,
-        description,
-        sourceURL,
-        siteURL,
-        imageURL = "",
-        imageAltText,
-        stack,
-      } = data
+  const {
+    title,
+    subtitle,
+    description,
+    sourceURL,
+    siteURL,
+    imageURL = "",
+    imageAltText,
+    stack,
+  } = data
   return (
     <div className="w-full">
       <Separator className="my-2 dark:bg-white" />
@@ -32,7 +31,7 @@ const ProjectFooter = ({ data }: Props) => {
               : "pointer-events-none text-stone-300 dark:text-stone-700"
           )}
         >
-          <HiCode /> Source Code
+          <Code2 className="h-4 w-4" /> Source Code
         </a>
         <Separator orientation="vertical" className=" h-full dark:bg-white" />
         <a
@@ -45,7 +44,7 @@ const ProjectFooter = ({ data }: Props) => {
               : "pointer-events-none text-stone-300 dark:text-stone-700"
           )}
         >
-          <HiExternalLink />
+          <ExternalLink className="h-4 w-4" />
           Visit Site
         </a>
       </div>

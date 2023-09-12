@@ -41,7 +41,6 @@ const BlogSearchButton = ({posts}: Props) => {
     return () => document.removeEventListener("keydown", down)
   }, [])
 
-  console.log(posts)
   return (
     <>
       <Button

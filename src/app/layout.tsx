@@ -36,9 +36,9 @@ export default function RootLayout({
             </div>
           )} */}
 
-          <div className="relative bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]  text-zinc-700 dark:bg-[linear-gradient(to_right,#a0a0a09_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] dark:text-zinc-400">
+          <div className="relative   text-zinc-700  dark:text-zinc-400">
 
-            <ScrollProgress />
+            {/* <ScrollProgress /> */}
             {children}
             <Toaster />
           </div>

@@ -12,8 +12,6 @@ export const metadata: Metadata = {
   description: "Mike Hoang - Software Developer",
 }
 
-
-
 export default async function BlogPage() {
   const posts = allPosts
     .filter((post) => post.published)
@@ -61,7 +59,7 @@ export default async function BlogPage() {
               )}
               {post.date && (
                 <p className="text-sm text-muted-foreground">
-                  {formatDate(post.date)}
+                  {formatDate(post.date)} · {post.readingTime?.text}
                 </p>
               )}
               <Link href={post.slug} className="absolute inset-0">

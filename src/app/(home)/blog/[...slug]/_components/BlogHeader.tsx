@@ -13,7 +13,6 @@ type Props = {
 }
 
 const BlogHeader = ({ date, title, authors, image, readingTime }: Props) => {
-  console.log(readingTime)
   return (
     <div>
       {date && (

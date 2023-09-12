@@ -75,7 +75,6 @@ const Blog = async ({ params }: PostPageProps) => {
   const authors = post.authors.map((author) =>
     allAuthors.find(({ slug }) => slug === `/author/${author}`)
   )
-  console.log(post)
   return (
     <article className="relative gap-4 xl:mt-6 xl:grid xl:grid-cols-7">
       <div className="col-span-1 text-center">

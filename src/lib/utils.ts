@@ -1,6 +1,7 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { useRouter } from "next/router"
+import { format } from "date-fns"
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
@@ -35,4 +36,8 @@ export function formatDate(input: string | number) {
   return n
 }
 
+export function formatDateddmmmyyyy(input: string | number) {
+  const date = new Date(input)
+  return format(date, "dd MMM yyyy")
+}
 export function getInitials(name: string) {}

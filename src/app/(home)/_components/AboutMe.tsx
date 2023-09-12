@@ -2,50 +2,51 @@
 import React from "react"
 
 import { Button } from "@/components/ui/button"
-import { ChevronsDown } from "lucide-react"
+
 import {
-  AiFillLinkedin,
-  AiOutlineGithub,
-  AiOutlineMail,
-  AiOutlineFileText,
-} from "react-icons/ai"
+  Mail,
+  FileText,
+  ChevronsDown,
+  MapPinIcon,
+  LucideIcon,
+  LinkedinIcon,
+  GithubIcon,
+} from "lucide-react"
 import { Separator } from "@/components/ui/separator"
-import { FaLocationDot } from "react-icons/fa6"
 import { scrollTo } from "@/lib/utils"
-import { IconType } from "react-icons/lib"
 type Props = {}
 type LINKS = {
   link: string
   label: string
-  icon: IconType
+  icon: LucideIcon
 }
 const SOCIAL_MEDIA_LINKS: LINKS[] = [
   {
     link: "https://www.linkedin.com/in/mike-hoang-2907/",
     label: "LinkedIn",
-    icon: AiFillLinkedin,
+    icon: LinkedinIcon,
   },
   {
     link: "https://github.com/mikah13",
     label: "GitHub",
-    icon: AiOutlineGithub,
+    icon: GithubIcon,
   },
   {
     link: "mailto:anhminhhoang13@gmail.com",
     label: "Email",
-    icon: AiOutlineMail,
+    icon: Mail,
   },
   {
     link: "https://silver-arluene-38.tiiny.site/",
     label: "Resume",
-    icon: AiOutlineFileText,
+    icon: FileText,
   },
 ]
 
 const AboutMe = (props: Props) => {
   return (
     <section id="about-me" className="relative flex flex-col justify-center">
-      <div className="absolute left-0  h-full w-full  transform rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
+      <div className="absolute left-0  h-full max-h-[600px] w-full  transform rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
       <div className="z-10 w-full max-w-5xl items-center justify-between text-sm drop-shadow-2xl lg:flex">
         <div className="w-full rounded-lg bg-white px-6 py-8 shadow-xl ring-1 ring-zinc-900/5 dark:bg-zinc-800">
           {/* Introduction  */}
@@ -60,7 +61,7 @@ const AboutMe = (props: Props) => {
 
           <div className="my-5 flex items-center space-x-1 text-lg">
             <span className="text-rose-500">
-              <FaLocationDot />
+              <MapPinIcon />
             </span>
             <p> Vancouver, B.C</p>
           </div>
@@ -104,8 +105,8 @@ const AboutMe = (props: Props) => {
           {/* Social Media Links */}
         </div>
       </div>
-      <div id="cta" className="text-center">
-        <Button onClick={(_) => scrollTo("#projects")} className="mt-10 ">
+      <div id="cta" className="z-10 text-center">
+        <Button onClick={(_) => scrollTo("#projects")} className="mt-10">
           <ChevronsDown strokeWidth={2.25} className="mr-2 h-4 w-4" />
           <span>Explore !!!</span>
         </Button>
