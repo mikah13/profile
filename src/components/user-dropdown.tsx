@@ -15,7 +15,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
-import { FaSignOutAlt } from "react-icons/fa"
+import { LogOut } from "lucide-react"
 import { Icons } from "@/lib/icons"
 const UserDropdown = ({
   user,
@@ -65,7 +65,7 @@ const UserDropdown = ({
           className="text-red-500 hover:cursor-pointer focus:bg-destructive focus:text-white"
           onClick={() => signOut()}
         >
-          <FaSignOutAlt className="mr-2 h-4 w-4" />
+          <LogOut className="mr-2 h-4 w-4" />
           <span>Logout</span>
         </DropdownMenuItem>
       </DropdownMenuContent>

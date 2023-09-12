@@ -28,7 +28,6 @@ function KanbanBoardView(props: { params: { slug: Id<"boards"> } }) {
   const columns = useQuery(api.column.getColumnFromBoard, {
     boardId,
   })
-  console.log(board)
   if (!board) {
     return null
   }

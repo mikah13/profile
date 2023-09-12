@@ -14,15 +14,13 @@ export default async function DashboardLayout({
   const user = await getCurrentUser()
   if (!user) redirect("/")
   return (
-    <section>
+    <section className="overflow-x-hidden">
       <Appbar dashboard={true} />
-      <div className=" container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)]  lg:grid-cols-[240px_minmax(0,1fr)] ">
-        <div className="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 overflow-y-auto border-r lg:sticky lg:block">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8">
+        <div className="fixed inset-0 right-auto top-[3.8125rem] z-20 hidden w-[19rem] overflow-y-auto pb-10 pl-8 pr-6 lg:block">
           <DashboardSidebar links={DASHBOARD_SIDEBAR_LINKS} />
         </div>
-        <main className="flex w-screen  flex-col overflow-hidden p-2 lg:w-full ">
-          {children}
-        </main>
+        <main className="flex flex-col lg:pl-[19.5rem]">{children}</main>
       </div>
       <DashboardFooter />
     </section>

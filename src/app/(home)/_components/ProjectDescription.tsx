@@ -1,9 +1,7 @@
 import React from "react"
 import { Separator } from "@/components/ui/separator"
-import { HiExternalLink, HiCode } from "react-icons/hi"
 import { ProjectCardType } from "@/lib/types"
 import { cn } from "@/lib/utils"
-
 type Props = {
   data: ProjectCardType
 }

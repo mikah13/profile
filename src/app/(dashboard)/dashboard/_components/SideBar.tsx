@@ -13,7 +13,6 @@ const DashboardSidebar = ({ links }: { links: DashboardSidebarLink[] }) => {
     return pathname.endsWith(path)
   }
 
-  if (!links?.length) return null
   return (
     <div className="space-y-4 py-4">
       <div className="px-3 py-2">

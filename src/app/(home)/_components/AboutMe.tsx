@@ -2,43 +2,44 @@
 import React from "react"
 
 import { Button } from "@/components/ui/button"
-import { ChevronsDown } from "lucide-react"
+
 import {
-  AiFillLinkedin,
-  AiOutlineGithub,
-  AiOutlineMail,
-  AiOutlineFileText,
-} from "react-icons/ai"
+  Mail,
+  FileText,
+  ChevronsDown,
+  MapPinIcon,
+  LucideIcon,
+  LinkedinIcon,
+  GithubIcon,
+} from "lucide-react"
 import { Separator } from "@/components/ui/separator"
-import { FaLocationDot } from "react-icons/fa6"
 import { scrollTo } from "@/lib/utils"
-import { IconType } from "react-icons/lib"
 type Props = {}
 type LINKS = {
   link: string
   label: string
-  icon: IconType
+  icon: LucideIcon
 }
 const SOCIAL_MEDIA_LINKS: LINKS[] = [
   {
     link: "https://www.linkedin.com/in/mike-hoang-2907/",
     label: "LinkedIn",
-    icon: AiFillLinkedin,
+    icon: LinkedinIcon,
   },
   {
     link: "https://github.com/mikah13",
     label: "GitHub",
-    icon: AiOutlineGithub,
+    icon: GithubIcon,
   },
   {
     link: "mailto:anhminhhoang13@gmail.com",
     label: "Email",
-    icon: AiOutlineMail,
+    icon: Mail,
   },
   {
     link: "https://silver-arluene-38.tiiny.site/",
     label: "Resume",
-    icon: AiOutlineFileText,
+    icon: FileText,
   },
 ]
 
@@ -60,7 +61,7 @@ const AboutMe = (props: Props) => {
 
           <div className="my-5 flex items-center space-x-1 text-lg">
             <span className="text-rose-500">
-              <FaLocationDot />
+              <MapPinIcon />
             </span>
             <p> Vancouver, B.C</p>
           </div>
@@ -104,7 +105,7 @@ const AboutMe = (props: Props) => {
           {/* Social Media Links */}
         </div>
       </div>
-      <div id="cta" className="text-center z-10">
+      <div id="cta" className="z-10 text-center">
         <Button onClick={(_) => scrollTo("#projects")} className="mt-10">
           <ChevronsDown strokeWidth={2.25} className="mr-2 h-4 w-4" />
           <span>Explore !!!</span>

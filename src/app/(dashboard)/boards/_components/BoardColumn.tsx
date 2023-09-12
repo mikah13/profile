@@ -40,7 +40,6 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { useForm } from "react-hook-form"
 import { Textarea } from "@/components/ui/textarea"
-import { SiRedhatopenshift } from "react-icons/si"
 import { useToast } from "@/components/ui/use-toast"
 
 const formSchema = z.object({
