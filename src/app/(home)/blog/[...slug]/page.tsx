@@ -102,19 +102,7 @@ const Blog = async ({ params }: PostPageProps) => {
           {post.tags ? <BlogTag tags={post.tags} /> : null}
         </div>
       </div>
-      {/* <Link
-        href="/blog"
-        className={cn(
-          buttonVariants({ variant: "ghost" }),
-          "absolute left-[-200px] top-14 hidden xl:inline-flex"
-        )}
-      >
-        <ChevronLeft className="mr-2 h-4 w-4" />
-        See all posts
-      </Link>
-      <div className="absolute right-[-200px] top-14  hidden text-sm xl:block ">
-        <div className="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-10"></div>
-      </div> */}
+ 
     </article>
   )
 }

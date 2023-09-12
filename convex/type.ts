@@ -10,7 +10,7 @@ export const Boards = {
       v.literal("Cancelled")
     )
   ),
-  prority: v.optional(
+  priority: v.optional(
     v.union(v.literal("Low"), v.literal("Medium"), v.literal("High"))
   ),
   startDate: v.optional(v.string()),

@@ -80,6 +80,7 @@ import {
 import { format } from "date-fns"
 import { Textarea } from "@/components/ui/textarea"
 import type { User } from "next-auth"
+import { Badge } from "@/components/ui/badge"
 type Props = {}
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -92,7 +93,8 @@ const formSchema = z.object({
   endDate: z.date(),
 })
 function BoardCard({ board }: { board: Doc<"boards"> }) {
-  const { _id, title, _creationTime } = board
+  const { _id, title, _creationTime, startDate, endDate, priority, status } =
+    board
   const columnAndCard = useQuery(api.board.getBoardColumnTask, {
     boardId: _id,
   })
@@ -100,10 +102,11 @@ function BoardCard({ board }: { board: Doc<"boards"> }) {
   const columns = columnAndCard?.columns
 
   return (
-    <div key={_id.toString()}>
+    <div key={_id.toString()} className="tracking-tighter">
       <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-x-2">
+        <CardHeader className="flex flex-row items-center justify-between space-x-2 p-4">
           <div className="space-y-1 ">
+            <Badge variant="secondary">{status}</Badge>
             <CardTitle className="text-lg">
               <Link href={`/boards/${_id}`}>{title}</Link>
             </CardTitle>
@@ -137,7 +140,8 @@ function BoardCard({ board }: { board: Doc<"boards"> }) {
             </DropdownMenu>
           </div>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-4">
+          <div></div>
           <div className="flex space-x-4 text-sm text-muted-foreground">
             <div className="flex items-center space-x-2">
               <span className="flex h-2 w-2  rounded-full bg-sky-500" />
@@ -147,6 +151,9 @@ function BoardCard({ board }: { board: Doc<"boards"> }) {
               <span className="flex h-2 w-2  rounded-full bg-sky-500" />
               <span> {columns?.length} column(s)</span>
             </div>
+            <div className="flex items-center space-x-2 ">
+              <Badge>{priority} </Badge>
+            </div>
             {/* <div>Created {formatDate(_creationTime)}</div> */}
           </div>{" "}
         </CardContent>
@@ -155,7 +162,7 @@ function BoardCard({ board }: { board: Doc<"boards"> }) {
   )
 }
 
-function NewBoardButton({ userId }: { userId: string }) {
+function NewBoardButton({ user }: { user: User }) {
   const mutation = useMutation(api.board.createBoardTemplate)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -173,7 +180,7 @@ function NewBoardButton({ userId }: { userId: string }) {
   function onSubmit(values: z.infer<typeof formSchema>) {
     mutation({
       title: values.title,
-      authorId: userId,
+      authorId: user.toString(),
       status: values.status,
       priority: values.priority,
       description: values.description,
@@ -182,6 +189,7 @@ function NewBoardButton({ userId }: { userId: string }) {
     }).then((result) => {
       if (result) {
         setOpen(false)
+        form.reset()
         toast({
           title: "New project has been ceated",
         })
@@ -393,20 +401,19 @@ function NewBoardButton({ userId }: { userId: string }) {
 function KanbanBoard({ user }: { user: User }) {
   // const createAdventure = useMutation(api.board.createAdventure)
   const boards = useQuery(api.board.get)
-
   return !boards ? null : (
     <>
       {" "}
       <PageHeader className="page-header px-0 pb-8">
         <PageHeaderHeading className="">Project lists</PageHeaderHeading>
         <PageHeaderDescription>
-          <NewBoardButton userId={user.id} />
+          <NewBoardButton user={user} />
         </PageHeaderDescription>
       </PageHeader>
       <div className=" items-start justify-center gap-6 rounded-lg md:grid lg:grid-cols-2 xl:grid-cols-3">
-        {/* {boards.map((board) => (
+        {boards.map((board) => (
           <BoardCard board={board} key={board._id} />
-        ))} */}
+        ))}
       </div>
     </>
   )

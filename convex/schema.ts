@@ -38,4 +38,11 @@ export default defineSchema({
     authorId: v.string(),
     content: v.string(),
   }),
+  notifications: defineTable({
+    userId: v.string(),
+    title: v.string(),
+    description: v.string(),
+    read: v.boolean(),
+    cta: v.string(),
+  }),
 })
