@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "npx prisma generate && npx contentlayer build --clearCache && next build",
+    "build": "npx prisma generate && npx convex deploy && npx contentlayer build --clearCache && next build",
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate"
@@ -29,8 +29,6 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.4",
     "@tanstack/react-table": "^8.9.3",
-    "@types/react": "18.2.20",
-    "@types/react-dom": "18.2.7",
     "@vercel/analytics": "^1.0.2",
     "ai": "^2.2.12",
     "autoprefixer": "10.4.15",
@@ -40,8 +38,6 @@
     "contentlayer": "^0.3.4",
     "convex": "^1.2.1",
     "date-fns": "^2.30.0",
-    "eslint": "8.47.0",
-    "eslint-config-next": "13.4.16",
     "framer-motion": "^10.16.4",
     "lucide-react": "^0.268.0",
     "mdast-util-to-string": "^4.0.0",
@@ -75,8 +71,12 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.10",
+    "@types/react": "18.2.20",
+    "@types/react-dom": "18.2.7",
     "@types/node": "^20.5.1",
+    "@tailwindcss/typography": "^0.5.10",
+    "eslint": "8.47.0",
+    "eslint-config-next": "13.4.16",
     "prettier": "3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4",
     "prisma": "^5.2.0",
