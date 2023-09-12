@@ -88,8 +88,8 @@ const formSchema = z.object({
   description: z.string().optional(),
   status: z.nativeEnum(BoardStatus),
   priority: z.nativeEnum(Priority),
-  startDate: z.date().optional(),
-  endDate: z.date().optional(),
+  startDate: z.date(),
+  endDate: z.date(),
 })
 function BoardCard({ board }: { board: Doc<"boards"> }) {
   const { _id, title, _creationTime } = board
@@ -174,6 +174,11 @@ function NewBoardButton({ userId }: { userId: string }) {
     mutation({
       title: values.title,
       authorId: userId,
+      status: values.status,
+      priority: values.priority,
+      description: values.description,
+      startDate: values.startDate.toString(),
+      endDate: values.endDate.toString(),
     }).then((result) => {
       if (result) {
         setOpen(false)
@@ -347,7 +352,7 @@ function NewBoardButton({ userId }: { userId: string }) {
                             disabled={(date: Date) => {
                               if (
                                 form.getValues() &&
-                                form.getValues().startDate
+                                form.getValues().startDate !== undefined
                               ) {
                                 return date < form.getValues().startDate
                               }
@@ -366,7 +371,7 @@ function NewBoardButton({ userId }: { userId: string }) {
                 name="description"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Title*</FormLabel>
+                    <FormLabel>Description</FormLabel>
                     <FormControl>
                       <Textarea
                         {...field}

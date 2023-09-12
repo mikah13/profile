@@ -1,5 +1,6 @@
 import { mutation, query } from "./_generated/server"
 import { v } from "convex/values"
+import { Boards } from "./type"
 
 enum DEFAULT_COLUMNS {
   todo = "To Do",
@@ -9,7 +10,7 @@ enum DEFAULT_COLUMNS {
   archived = "Archived",
 }
 export const createBoardTemplate = mutation({
-  args: { title: v.string(), authorId: v.string() },
+  args: Boards,
   handler: async (ctx, args) => {
     const board = await ctx.db.insert("boards", {
       title: args.title,

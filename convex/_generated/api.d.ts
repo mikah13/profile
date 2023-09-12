@@ -17,6 +17,7 @@ import type {
 import type * as board from "../board";
 import type * as column from "../column";
 import type * as task from "../task";
+import type * as type from "../type";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -30,6 +31,7 @@ declare const fullApi: ApiFromModules<{
   board: typeof board;
   column: typeof column;
   task: typeof task;
+  type: typeof type;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,
