@@ -15,8 +15,8 @@ import type {
   FunctionReference,
 } from "convex/server";
 import type * as board from "../board";
-import type * as card from "../card";
 import type * as column from "../column";
+import type * as task from "../task";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -28,8 +28,8 @@ import type * as column from "../column";
  */
 declare const fullApi: ApiFromModules<{
   board: typeof board;
-  card: typeof card;
   column: typeof column;
+  task: typeof task;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,

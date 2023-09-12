@@ -41,7 +41,7 @@ export const getBoardById = query({
   },
 })
 
-export const getBoardColumnCard = query({
+export const getBoardColumnTask = query({
   args: { boardId: v.string() },
   handler: async (ctx, args) => {
     const board = await ctx.db
@@ -54,10 +54,10 @@ export const getBoardColumnCard = query({
       .filter((q) => q.eq(q.field("boardId"), args.boardId))
       .collect()
 
-    const cards = await ctx.db
-      .query("cards")
+    const tasks = await ctx.db
+      .query("tasks")
       .filter((q) => q.eq(q.field("boardId"), args.boardId))
       .collect()
-    return { cards, columns }
+    return { tasks, columns }
   },
 })

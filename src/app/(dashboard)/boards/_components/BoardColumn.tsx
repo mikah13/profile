@@ -2,7 +2,7 @@
 import { Doc } from "@/../convex/_generated/dataModel"
 import { Button } from "@/components/ui/button"
 import React, { useState } from "react"
-import { getCardFromColumn } from "../../../../../convex/card"
+
 import { api } from "@/../convex/_generated/api"
 import { useMutation, useQuery } from "convex/react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -41,6 +41,7 @@ import * as z from "zod"
 import { useForm } from "react-hook-form"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/components/ui/use-toast"
+import { getTaskFromColumn } from '../../../../../convex/task';
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -81,7 +82,7 @@ function AddTaskButton({
   newPosition: number
 }) {
   const { title, _id, boardId } = column
-  const mutation = useMutation(api.card.create)
+  const mutation = useMutation(api.task.create)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -171,8 +172,8 @@ function AddTaskButton({
     </Dialog>
   )
 }
-function TaskCard({ card }: { card: Doc<"cards"> }) {
-  const { title, description, position, _creationTime } = card
+function TaskCard({ task }: { task: Doc<"tasks"> }) {
+  const { title, description, position, _creationTime } = task
   return (
     <Card className="cursor-pointer bg-slate-100 p-4 tracking-tight dark:bg-slate-900">
       <CardHeader className="p-0">
@@ -189,15 +190,15 @@ function TaskCard({ card }: { card: Doc<"cards"> }) {
   )
 }
 function BoardColumn({ column }: Props) {
-  const cards = useQuery(api.card.getCardFromColumn, {
+  const tasks = useQuery(api.task.getTaskFromColumn, {
     columnId: column._id,
   })?.sort((a, b) => a.position - b.position)
-  const cardsLength = cards ? cards.length : 0
+  const tasksLength = tasks ? tasks.length : 0
   return (
     <div className="col-span-1 mx-auto flex w-full  max-w-[350px] flex-col gap-y-4">
-      <ColumnHeader column={column} tasksNumber={cardsLength} />
-      <AddTaskButton column={column} newPosition={cardsLength} />
-      {cards?.map((card) => <TaskCard card={card} key={card._id} />)}
+      <ColumnHeader column={column} tasksNumber={tasksLength} />
+      <AddTaskButton column={column} newPosition={tasksLength} />
+      {tasks?.map((task) => <TaskCard task={task} key={task._id} />)}
     </div>
   )
 }

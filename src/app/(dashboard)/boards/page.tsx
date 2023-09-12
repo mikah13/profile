@@ -32,7 +32,6 @@ import {
 import { Separator } from "@/components/ui/separator"
 import { HeartIcon } from "lucide-react"
 import { formatDate, formatDateddmmmyyyy } from "@/lib/utils"
-import { getCardFromBoard } from "../../../../convex/card"
 import {
   PageHeader,
   PageHeaderDescription,
@@ -77,7 +76,7 @@ function BoardCard({ board }: { board: Doc<"boards"> }) {
   const columnAndCard = useQuery(api.board.getBoardColumnCard, {
     boardId: _id,
   })
-  const cards = columnAndCard?.cards
+  const tasks = columnAndCard?.tasks
   const columns = columnAndCard?.columns
 
   return (
@@ -122,7 +121,7 @@ function BoardCard({ board }: { board: Doc<"boards"> }) {
           <div className="flex space-x-4 text-sm text-muted-foreground">
             <div className="flex items-center space-x-2">
               <span className="flex h-2 w-2  rounded-full bg-sky-500" />
-              <span> {cards?.length} task(s)</span>
+              <span> {tasks?.length} task(s)</span>
             </div>
             <div className="flex items-center space-x-2 ">
               <span className="flex h-2 w-2  rounded-full bg-sky-500" />
