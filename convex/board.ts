@@ -1,16 +1,6 @@
 import { mutation, query } from "./_generated/server"
 import { v } from "convex/values"
 
-export const createTask = mutation({
-  args: { title: v.string(), authorId: v.string() },
-  handler: async (ctx, args) => {
-    const taskId = await ctx.db.insert("boards", {
-      title: args.title,
-      authorId: args.authorId,
-    })
-    // do something with `taskId`
-  },
-})
 const DEFAULT_COLUMNS = ["To Do", "In Progress", "In Review", "Completed"]
 export const createBoardTemplate = mutation({
   args: { title: v.string(), authorId: v.string() },
@@ -18,7 +8,7 @@ export const createBoardTemplate = mutation({
     const board = await ctx.db.insert("boards", {
       title: args.title,
       authorId: args.authorId,
-      description: "New board"
+      description: "New board",
     })
 
     DEFAULT_COLUMNS.forEach((title, i) => {
@@ -29,9 +19,7 @@ export const createBoardTemplate = mutation({
       })
     })
 
-    return ctx.db.get(board);
-
-    // do something with `taskId`
+    return ctx.db.get(board)
   },
 })
 
@@ -39,5 +27,37 @@ export const get = query({
   args: {},
   handler: async (ctx) => {
     return await ctx.db.query("boards").collect()
+  },
+})
+
+export const getBoardById = query({
+  args: { boardId: v.string() },
+  handler: async (ctx, args) => {
+    const board = await ctx.db
+      .query("boards")
+      .filter((q) => q.eq(q.field("_id"), args.boardId))
+      .unique()
+    return board
+  },
+})
+
+export const getBoardColumnCard = query({
+  args: { boardId: v.string() },
+  handler: async (ctx, args) => {
+    const board = await ctx.db
+      .query("boards")
+      .filter((q) => q.eq(q.field("_id"), args.boardId))
+      .unique()
+
+    const columns = await ctx.db
+      .query("columns")
+      .filter((q) => q.eq(q.field("boardId"), args.boardId))
+      .collect()
+
+    const cards = await ctx.db
+      .query("cards")
+      .filter((q) => q.eq(q.field("boardId"), args.boardId))
+      .collect()
+    return { cards, columns }
   },
 })

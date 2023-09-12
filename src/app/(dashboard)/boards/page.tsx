@@ -31,7 +31,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Separator } from "@/components/ui/separator"
 import { HeartIcon } from "lucide-react"
-import { formatDate } from "@/lib/utils"
+import { formatDate, formatDateddmmmyyyy } from "@/lib/utils"
 import { getCardFromBoard } from "../../../../convex/card"
 import {
   PageHeader,
@@ -63,6 +63,7 @@ import { getCurrentUser } from "@/lib/session"
 import { useToast } from "@/components/ui/use-toast"
 import { useSession } from "next-auth/react"
 import { Input } from "@/components/ui/input"
+import { redirect } from "next/navigation"
 
 type Props = {}
 const formSchema = z.object({
@@ -73,9 +74,12 @@ const formSchema = z.object({
 })
 function BoardCard({ board }: { board: Doc<"boards"> }) {
   const { _id, title, _creationTime } = board
+  const columnAndCard = useQuery(api.board.getBoardColumnCard, {
+    boardId: _id,
+  })
+  const cards = columnAndCard?.cards
+  const columns = columnAndCard?.columns
 
-  const cards = useQuery(api.card.getCardFromBoard, { boardId: _id })
-  const columns = useQuery(api.column.getColumnFromBoard, { boardId: _id })
   return (
     <div key={_id.toString()}>
       <Card>
@@ -84,7 +88,9 @@ function BoardCard({ board }: { board: Doc<"boards"> }) {
             <CardTitle className="text-lg">
               <Link href={`/boards/${_id}`}>{title}</Link>
             </CardTitle>
-            <CardDescription>{formatDate(_creationTime)}</CardDescription>
+            <CardDescription>
+              {formatDateddmmmyyyy(_creationTime)}
+            </CardDescription>
           </div>
           <div className="flex items-center  rounded-md bg-secondary text-secondary-foreground">
             <DropdownMenu>
@@ -130,9 +136,8 @@ function BoardCard({ board }: { board: Doc<"boards"> }) {
   )
 }
 
-function NewBoardButton() {
+function NewBoardButton({ userId }: { userId: string }) {
   const mutation = useMutation(api.board.createBoardTemplate)
-  const { data: session } = useSession()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -145,13 +150,13 @@ function NewBoardButton() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     mutation({
       title: values.title,
-      authorId: session?.user.id || "",
+      authorId: userId,
     }).then((result) => {
       if (result) {
         setOpen(false)
-           toast({
-             title: "New project has been ceated",
-           })
+        toast({
+          title: "New project has been ceated",
+        })
       } else {
         setOpen(false)
         toast({
@@ -190,7 +195,6 @@ function NewBoardButton() {
                 )}
               />
 
-            
               <Button type="submit">Submit</Button>
             </form>
           </Form>
@@ -202,17 +206,15 @@ function NewBoardButton() {
 function KanbanBoard({}: Props) {
   // const createAdventure = useMutation(api.board.createAdventure)
   const boards = useQuery(api.board.get)
-  const mutation = useMutation(api.board.createBoardTemplate)
+  const { data: session } = useSession()
+  if (!session) redirect("/")
   return !boards ? null : (
     <>
       {" "}
       <PageHeader className="page-header pb-8">
-        <PageHeaderHeading className="hidden md:block">
-          Project lists
-        </PageHeaderHeading>
-        <PageHeaderHeading className="md:hidden">Examples</PageHeaderHeading>
+        <PageHeaderHeading className="">Project lists</PageHeaderHeading>
         <PageHeaderDescription>
-          <NewBoardButton />
+          <NewBoardButton userId={session.user.id} />
         </PageHeaderDescription>
       </PageHeader>
       <div className=" items-start justify-center gap-6 rounded-lg md:grid lg:grid-cols-2 xl:grid-cols-3">
