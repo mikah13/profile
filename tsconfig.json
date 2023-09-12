@@ -27,6 +27,6 @@
       "@vercel/analytics/react": ["./node_modules/@vercel/analytics/dist/react"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/content/blog/create-my-first-slack-chat-bot.mdx"],
   "exclude": ["node_modules"]
 }
