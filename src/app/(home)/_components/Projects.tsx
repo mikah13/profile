@@ -1,18 +1,6 @@
 import React from "react"
 import ProjectCard from "./ProjectCard"
 
-import {
-  SiJavascript,
-  SiTailwindcss,
-  SiReact,
-  SiMui,
-  SiNodedotjs,
-  SiBootstrap,
-  SiTypescript,
-  SiNextdotjs,
-  SiPrisma,
-  SiPlanetscale,
-} from "react-icons/si"
 
 type Props = {}
 const PROJECTS_ARRAY = [
