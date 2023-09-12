@@ -1,7 +1,13 @@
 import { mutation, query } from "./_generated/server"
 import { v } from "convex/values"
 
-const DEFAULT_COLUMNS = ["To Do", "In Progress", "In Review", "Completed"]
+enum DEFAULT_COLUMNS {
+  todo = "To Do",
+  progress = "In Progress",
+  review = "In Review",
+  done = "Done",
+  archived = "Archived",
+}
 export const createBoardTemplate = mutation({
   args: { title: v.string(), authorId: v.string() },
   handler: async (ctx, args) => {
@@ -10,12 +16,11 @@ export const createBoardTemplate = mutation({
       authorId: args.authorId,
       description: "New board",
     })
-
-    DEFAULT_COLUMNS.forEach((title, i) => {
-      const newColumn = ctx.db.insert("columns", {
-        title: title,
+    Object.values(DEFAULT_COLUMNS).forEach(async (value, index) => {
+      await ctx.db.insert("columns", {
+        title: value,
         boardId: board,
-        position: i,
+        position: index,
       })
     })
 

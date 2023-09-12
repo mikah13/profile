@@ -43,7 +43,7 @@ export default defineSchema({
     boardId: v.id("boards"),
     tags: v.optional(v.array(v.id("tags"))),
     prority: v.optional(
-      v.union(v.literal("low"), v.literal("medium"), v.literal("high"))
+      v.union(v.literal("Low"), v.literal("Medium"), v.literal("High"))
     ),
     dueDate: v.optional(v.string()),
     assignee: v.optional(v.array(v.string())),
