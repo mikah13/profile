@@ -15,14 +15,8 @@ import type {
   FunctionReference,
 } from "convex/server";
 import type * as board from "../board";
-import type * as boards_mutations from "../boards/mutations";
-import type * as boards_queries from "../boards/queries";
 import type * as column from "../column";
-import type * as columns_mutations from "../columns/mutations";
-import type * as columns_queries from "../columns/queries";
 import type * as task from "../task";
-import type * as tasks_mutations from "../tasks/mutations";
-import type * as tasks_queries from "../tasks/queries";
 import type * as type from "../type";
 
 /**
@@ -35,14 +29,8 @@ import type * as type from "../type";
  */
 declare const fullApi: ApiFromModules<{
   board: typeof board;
-  "boards/mutations": typeof boards_mutations;
-  "boards/queries": typeof boards_queries;
   column: typeof column;
-  "columns/mutations": typeof columns_mutations;
-  "columns/queries": typeof columns_queries;
   task: typeof task;
-  "tasks/mutations": typeof tasks_mutations;
-  "tasks/queries": typeof tasks_queries;
   type: typeof type;
 }>;
 export declare const api: FilterApi<

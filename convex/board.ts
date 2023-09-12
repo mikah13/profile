@@ -1,16 +1,14 @@
-import {  mutation, query,  } from "./_generated/server"
+import { mutation, query } from "./_generated/server"
 import { v } from "convex/values"
-import { Boards } from "./type"
-import { ColumnTitle } from '../src/lib/types';
-
+import { Boards, ColumnTitle } from "./type"
 
 export const createBoardTemplate = mutation({
   args: Boards,
   handler: async (ctx, args) => {
-    console.log(args)
     const board = await ctx.db.insert("boards", {
-    ...args
+      ...args,
     })
+    console.log(board, args)
     Object.values(ColumnTitle).forEach(async (value, index) => {
       await ctx.db.insert("columns", {
         title: value,

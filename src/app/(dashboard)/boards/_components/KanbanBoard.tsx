@@ -92,6 +92,12 @@ const formSchema = z.object({
   startDate: z.date(),
   endDate: z.date(),
 })
+
+const PriortyBadgeCard = {
+  High: "bg-red-100 dark:bg-red-600 text-red-500 dark:text-white",
+  Medium: "bg-yellow-100 dark:bg-yellow-600 text-yellow-500 dark:text-white",
+  Low: "bg-green-100 dark:bg-green-600 text-green-500 dark:text-white",
+}
 function BoardCard({ board }: { board: Doc<"boards"> }) {
   const { _id, title, _creationTime, startDate, endDate, priority, status } =
     board
@@ -103,7 +109,7 @@ function BoardCard({ board }: { board: Doc<"boards"> }) {
 
   return (
     <div key={_id.toString()} className="tracking-tighter">
-      <Card>
+      <Card className="cursor-pointer shadow-md hover:shadow-xl dark:shadow-md dark:shadow-indigo-500/50 dark:hover:shadow-indigo-500">
         <CardHeader className="flex flex-row items-center justify-between space-x-2 p-4">
           <div className="space-y-1 ">
             <Badge variant="secondary">{status}</Badge>
@@ -143,6 +149,16 @@ function BoardCard({ board }: { board: Doc<"boards"> }) {
         <CardContent className="p-4">
           <div></div>
           <div className="flex space-x-4 text-sm text-muted-foreground">
+            {priority && (
+              <div className="flex items-center space-x-2 ">
+                <Badge
+                  variant="outline"
+                  className={`${PriortyBadgeCard[priority]} w-16 justify-center text-center`}
+                >
+                  {priority}
+                </Badge>
+              </div>
+            )}
             <div className="flex items-center space-x-2">
               <span className="flex h-2 w-2  rounded-full bg-sky-500" />
               <span> {tasks?.length} task(s)</span>
@@ -151,9 +167,7 @@ function BoardCard({ board }: { board: Doc<"boards"> }) {
               <span className="flex h-2 w-2  rounded-full bg-sky-500" />
               <span> {columns?.length} column(s)</span>
             </div>
-            <div className="flex items-center space-x-2 ">
-              <Badge>{priority} </Badge>
-            </div>
+
             {/* <div>Created {formatDate(_creationTime)}</div> */}
           </div>{" "}
         </CardContent>
@@ -398,6 +412,7 @@ function NewBoardButton({ user }: { user: User }) {
     </Dialog>
   )
 }
+
 function KanbanBoard({ user }: { user: User }) {
   // const createAdventure = useMutation(api.board.createAdventure)
   const boards = useQuery(api.board.get)
@@ -410,7 +425,7 @@ function KanbanBoard({ user }: { user: User }) {
           <NewBoardButton user={user} />
         </PageHeaderDescription>
       </PageHeader>
-      <div className=" items-start justify-center gap-6 rounded-lg md:grid lg:grid-cols-2 xl:grid-cols-3">
+      <div className=" items-start justify-center gap-4 rounded-lg md:grid lg:grid-cols-2 lg:gap-3 xl:grid-cols-3">
         {boards.map((board) => (
           <BoardCard board={board} key={board._id} />
         ))}

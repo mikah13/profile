@@ -1,5 +1,5 @@
 import React from "react"
-import { allPosts, allAuthors } from "contentlayer/generated"
+import { allPosts, allAuthors, Tag } from "contentlayer/generated"
 import { notFound } from "next/navigation"
 import { Mdx } from "@/components/mdx-components"
 import { Metadata } from "next"
@@ -11,9 +11,9 @@ import { getTableOfContents } from "@/lib/toc"
 import BlogHeader from "./_components/BlogHeader"
 import BlogFooter from "./_components/BlogFooter"
 import { BlogTOC } from "./_components/BlogTOC"
-import BlogTag from "./_components/BlogTag"
 import { Separator } from "@/components/ui/separator"
 import BlogSummary from "./_components/BlogSummary"
+import { Badge } from "@/components/ui/badge"
 interface PostPageProps {
   params: {
     slug: string[]
@@ -104,6 +104,21 @@ const Blog = async ({ params }: PostPageProps) => {
       </div>
  
     </article>
+  )
+}
+
+function BlogTag({ tags }: { tags: Tag[] }) {
+  return (
+    <div className="my-4 space-y-4">
+      <p className="text-xl font-medium">Tags</p>
+      <div className="flex flex-wrap space-x-2 ">
+        {tags.map((tag, i) => (
+          <Badge key={i} className="my-1" variant="secondary">
+            {tag.title}
+          </Badge>
+        ))}
+      </div>
+    </div>
   )
 }
 
