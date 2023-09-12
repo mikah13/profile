@@ -47,12 +47,6 @@ export async function generateMetadata({
     authors: post.authors.map((author) => ({
       name: author,
     })),
-    openGraph: {
-      title: post.title,
-      description: post.description,
-      type: "article",
-      url: `${url}/blog/${post.slug}`,
-    },
   }
 }
 
