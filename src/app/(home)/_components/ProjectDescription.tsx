@@ -23,9 +23,18 @@ function ProjectDescription({ data }: Props) {
       <p className="mt-2 h-[3.5rem] text-sm tracking-tight">{description}</p>
       <div className="">
         {stack && (
-          <div className="mt-2 flex text-center text-2xl flex-wrap">
+          <div className="mt-2 flex flex-wrap text-center text-2xl">
             {stack.map((Icon, index) => {
-              if(Icon.label) return <Badge variant="default" className="mr-2 mb-1 tracking-tighter">{Icon.label}</Badge>
+              if (Icon.label)
+                return (
+                  <Badge
+                    key={index}
+                    variant="default"
+                    className="mb-1 mr-2 tracking-tighter"
+                  >
+                    {Icon.label}
+                  </Badge>
+                )
               return null
             })}
           </div>

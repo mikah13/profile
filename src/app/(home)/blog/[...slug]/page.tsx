@@ -1,5 +1,5 @@
 import React from "react"
-import { allPosts, allAuthors } from "contentlayer/generated"
+import { allPosts, allAuthors, Tag } from "contentlayer/generated"
 import { notFound } from "next/navigation"
 import { Mdx } from "@/components/mdx-components"
 import { Metadata } from "next"
@@ -11,9 +11,9 @@ import { getTableOfContents } from "@/lib/toc"
 import BlogHeader from "./_components/BlogHeader"
 import BlogFooter from "./_components/BlogFooter"
 import { BlogTOC } from "./_components/BlogTOC"
-import BlogTag from "./_components/BlogTag"
 import { Separator } from "@/components/ui/separator"
 import BlogSummary from "./_components/BlogSummary"
+import { Badge } from "@/components/ui/badge"
 interface PostPageProps {
   params: {
     slug: string[]
@@ -47,12 +47,6 @@ export async function generateMetadata({
     authors: post.authors.map((author) => ({
       name: author,
     })),
-    openGraph: {
-      title: post.title,
-      description: post.description,
-      type: "article",
-      url: `${url}/blog/${post.slug}`,
-    },
   }
 }
 
@@ -108,20 +102,23 @@ const Blog = async ({ params }: PostPageProps) => {
           {post.tags ? <BlogTag tags={post.tags} /> : null}
         </div>
       </div>
-      {/* <Link
-        href="/blog"
-        className={cn(
-          buttonVariants({ variant: "ghost" }),
-          "absolute left-[-200px] top-14 hidden xl:inline-flex"
-        )}
-      >
-        <ChevronLeft className="mr-2 h-4 w-4" />
-        See all posts
-      </Link>
-      <div className="absolute right-[-200px] top-14  hidden text-sm xl:block ">
-        <div className="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-10"></div>
-      </div> */}
+ 
     </article>
+  )
+}
+
+function BlogTag({ tags }: { tags: Tag[] }) {
+  return (
+    <div className="my-4 space-y-4">
+      <p className="text-xl font-medium">Tags</p>
+      <div className="flex flex-wrap space-x-2 ">
+        {tags.map((tag, i) => (
+          <Badge key={i} className="my-1" variant="secondary">
+            {tag.title}
+          </Badge>
+        ))}
+      </div>
+    </div>
   )
 }
 

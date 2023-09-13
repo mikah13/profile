@@ -1,22 +1,30 @@
 import { mutation, query } from "./_generated/server"
 import { v } from "convex/values"
+import { Boards, ColumnTitle } from "./type"
+import { createColumn } from "./column"
+import { createNotification } from "./notification"
 
-const DEFAULT_COLUMNS = ["To Do", "In Progress", "In Review", "Completed"]
 export const createBoardTemplate = mutation({
-  args: { title: v.string(), authorId: v.string() },
+  args: Boards,
   handler: async (ctx, args) => {
     const board = await ctx.db.insert("boards", {
-      title: args.title,
-      authorId: args.authorId,
-      description: "New board",
+      ...args,
     })
 
-    DEFAULT_COLUMNS.forEach((title, i) => {
-      const newColumn = ctx.db.insert("columns", {
-        title: title,
+    Object.values(ColumnTitle).forEach(async (value, index) => {
+      await createColumn(ctx, {
+        title: value,
         boardId: board,
-        position: i,
+        position: index,
       })
+    })
+    const newBoard = await ctx.db.get(board)
+    createNotification(ctx, {
+      title: `New project has been created`,
+      description: `Project ${newBoard?.title} has been initiated`,
+      cta: `/boards/${board}`,
+      read: false,
+      userId: args.authorId,
     })
 
     return ctx.db.get(board)
@@ -41,7 +49,7 @@ export const getBoardById = query({
   },
 })
 
-export const getBoardColumnCard = query({
+export const getBoardColumnTask = query({
   args: { boardId: v.string() },
   handler: async (ctx, args) => {
     const board = await ctx.db
@@ -54,10 +62,10 @@ export const getBoardColumnCard = query({
       .filter((q) => q.eq(q.field("boardId"), args.boardId))
       .collect()
 
-    const cards = await ctx.db
-      .query("cards")
+    const tasks = await ctx.db
+      .query("tasks")
       .filter((q) => q.eq(q.field("boardId"), args.boardId))
       .collect()
-    return { cards, columns }
+    return { tasks, columns }
   },
 })

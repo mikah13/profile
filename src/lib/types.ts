@@ -9,7 +9,6 @@ export type ProjectCardType = {
   imageURL: string
   imageAltText: string
   stack?: {
-
     label?: string
   }[]
 }
@@ -49,4 +48,25 @@ export type DashboardSidebarLink = {
   icon?: keyof typeof Icons
   href: string
   label: string
+}
+
+export enum ColumnTitle {
+  todo = "To Do",
+  progress = "In Progress",
+  review = "In Review",
+  done = "Done",
+  archived = "Archived",
+}
+
+export enum BoardStatus {
+  planning = "Planning",
+  progress = "In Progress",
+  paused = "Paused",
+  done = "Done",
+  cancelled = "Cancelled",
+}
+export enum Priority {
+  low = "Low",
+  medium = "Medium",
+  high = "High",
 }

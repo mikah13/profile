@@ -1,30 +1,30 @@
 import { query, mutation } from "./_generated/server"
 import { v } from "convex/values"
 
-export const getCardFromColumn = query({
+export const getTaskFromColumn = query({
   args: {
     columnId: v.string(),
   },
   handler: async (ctx, args) => {
-    const cards = await ctx.db
-      .query("cards")
+    const tasks = await ctx.db
+      .query("tasks")
       .filter((q) => q.eq(q.field("columnId"), args.columnId))
       .collect()
 
-    return cards
+    return tasks
   },
 })
-export const getCardFromBoard = query({
+export const getTaskFromBoard = query({
   args: {
     boardId: v.string(),
   },
   handler: async (ctx, args) => {
-    const cards = await ctx.db
-      .query("cards")
+    const tasks = await ctx.db
+      .query("tasks")
       .filter((q) => q.eq(q.field("boardId"), args.boardId))
       .collect()
 
-    return cards
+    return tasks
   },
 })
 export const create = mutation({
@@ -36,7 +36,7 @@ export const create = mutation({
     boardId: v.id("boards"),
   },
   handler: async (ctx, args) => {
-    const card = await ctx.db.insert("cards", {
+    const task = await ctx.db.insert("tasks", {
       title: args.title,
       description: args.description,
       position: args.position,
@@ -44,6 +44,6 @@ export const create = mutation({
       boardId: args.boardId,
     })
     // do something with `taskId`
-    return ctx.db.get(card)
+    return ctx.db.get(task)
   },
 })

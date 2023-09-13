@@ -5,7 +5,7 @@ type Props = {
   tags: Tag[]
 }
 
-function BlogTag({ tags }: Props) {
+function BlogTag({ tags }: {tags: Tag[]}) {
   return (
     <div className="my-4 space-y-4">
       <p className="text-xl font-medium">Tags</p>
