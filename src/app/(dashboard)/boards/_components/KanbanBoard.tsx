@@ -8,7 +8,6 @@ import {
   StarIcon,
 } from "@radix-ui/react-icons"
 import { useMutation, useQuery } from "convex/react"
-import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { api } from "@/../convex/_generated/api"
 import Link from "next/link"
@@ -94,9 +93,9 @@ const formSchema = z.object({
 })
 
 const PriortyBadgeCard = {
-  High: "bg-red-100 dark:bg-red-600 text-red-500 dark:text-white",
-  Medium: "bg-yellow-100 dark:bg-yellow-600 text-yellow-500 dark:text-white",
-  Low: "bg-green-100 dark:bg-green-600 text-green-500 dark:text-white",
+  High: "bg-red-100 dark:bg-red-500 text-red-500 dark:text-white",
+  Medium: "bg-yellow-100 dark:bg-yellow-500 text-yellow-500 dark:text-white",
+  Low: "bg-green-100 dark:bg-green-500 text-green-500 dark:text-white",
 }
 function BoardCard({ board }: { board: Doc<"boards"> }) {
   const { _id, title, _creationTime, startDate, endDate, priority, status } =
@@ -109,7 +108,7 @@ function BoardCard({ board }: { board: Doc<"boards"> }) {
 
   return (
     <div key={_id.toString()} className="tracking-tighter">
-      <Card className="cursor-pointer shadow-md hover:shadow-xl dark:shadow-md dark:shadow-indigo-500/50 dark:hover:shadow-indigo-500">
+      <Card className="cursor-pointer shadow-sm hover:shadow-xl dark:shadow-md dark:shadow-indigo-500/50 dark:hover:shadow-indigo-500">
         <CardHeader className="flex flex-row items-center justify-between space-x-2 p-4">
           <div className="space-y-1 ">
             <Badge variant="secondary">{status}</Badge>

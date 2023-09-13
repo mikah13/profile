@@ -1,6 +1,8 @@
 import { mutation, query } from "./_generated/server"
 import { v } from "convex/values"
 import { Boards, ColumnTitle } from "./type"
+import { createColumn } from "./column"
+import { createNotification } from "./notification"
 
 export const createBoardTemplate = mutation({
   args: Boards,
@@ -8,13 +10,21 @@ export const createBoardTemplate = mutation({
     const board = await ctx.db.insert("boards", {
       ...args,
     })
-    console.log(board, args)
+
     Object.values(ColumnTitle).forEach(async (value, index) => {
-      await ctx.db.insert("columns", {
+      await createColumn(ctx, {
         title: value,
         boardId: board,
         position: index,
       })
+    })
+    const newBoard = await ctx.db.get(board)
+    createNotification(ctx, {
+      title: `New project has been created`,
+      description: `Project ${newBoard?.title} has been initiated`,
+      cta: `/boards/${board}`,
+      read: false,
+      userId: args.authorId,
     })
 
     return ctx.db.get(board)

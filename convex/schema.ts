@@ -1,21 +1,10 @@
 import { defineSchema, defineTable } from "convex/server"
 import { v } from "convex/values"
-import { Boards } from "./type"
+import { Boards, Columns, Notifications } from "./type"
 
 export default defineSchema({
   boards: defineTable(Boards),
-  columns: defineTable({
-    title: v.union(
-      v.literal("To Do"),
-      v.literal("In Progress"),
-      v.literal("In Review"),
-      v.literal("Done"),
-      v.literal("Archived")
-    ),
-    description: v.optional(v.string()),
-    position: v.number(),
-    boardId: v.id("boards"),
-  }),
+  columns: defineTable(Columns),
   tasks: defineTable({
     title: v.string(),
     description: v.optional(v.string()),
@@ -38,11 +27,5 @@ export default defineSchema({
     authorId: v.string(),
     content: v.string(),
   }),
-  notifications: defineTable({
-    userId: v.string(),
-    title: v.string(),
-    description: v.string(),
-    read: v.boolean(),
-    cta: v.string(),
-  }),
+  notifications: defineTable(Notifications),
 })

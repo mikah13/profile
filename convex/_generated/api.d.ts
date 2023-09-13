@@ -16,6 +16,7 @@ import type {
 } from "convex/server";
 import type * as board from "../board";
 import type * as column from "../column";
+import type * as notification from "../notification";
 import type * as task from "../task";
 import type * as type from "../type";
 
@@ -30,6 +31,7 @@ import type * as type from "../type";
 declare const fullApi: ApiFromModules<{
   board: typeof board;
   column: typeof column;
+  notification: typeof notification;
   task: typeof task;
   type: typeof type;
 }>;

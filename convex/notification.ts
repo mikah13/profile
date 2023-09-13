@@ -1,10 +1,10 @@
 import { mutation, query } from "./_generated/server"
 import { v } from "convex/values"
-import { Columns } from "./type"
+import {  Notifications } from "./type"
 export const get = query({
   args: {},
   handler: async (ctx) => {
-    return await ctx.db.query("columns").collect()
+    return await ctx.db.query("notifications").collect()
   },
 })
 
@@ -22,12 +22,12 @@ export const getColumnFromBoard = query({
   },
 })
 
-export const createColumn = mutation({
-  args: Columns,
+export const createNotification = mutation({
+  args: Notifications,
   handler: async (ctx, args) => {
-    const column = await ctx.db.insert("columns", {
+    const item = await ctx.db.insert("notifications", {
       ...args,
     })
-    return column
+    return item
   },
 })

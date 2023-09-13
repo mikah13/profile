@@ -21,7 +21,26 @@ export const Boards = {
   comment: v.optional(v.id("comments")),
 }
 
+export const Columns = {
+  title: v.union(
+    v.literal("To Do"),
+    v.literal("In Progress"),
+    v.literal("In Review"),
+    v.literal("Done"),
+    v.literal("Archived")
+  ),
+  description: v.optional(v.string()),
+  position: v.number(),
+  boardId: v.id("boards"),
+}
 
+export const Notifications = {
+  userId: v.string(),
+  title: v.string(),
+  description: v.string(),
+  read: v.boolean(),
+  cta: v.string(),
+}
 export enum ColumnTitle {
   todo = "To Do",
   progress = "In Progress",
