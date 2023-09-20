@@ -17,7 +17,7 @@ const BlogSummary = async ({ content }: Props) => {
     messages: [
       {
         role: "user",
-        content: `Summarize this blog in 3 sentences: \n\n "${content}"`,
+        content: `Summarize this blog in 3 sentences with the following content: \n\n "${content}"`,
       },
     ],
   })
