@@ -1,14 +1,35 @@
 import React from "react"
 import ProjectCard from "./ProjectCard"
 
-
 type Props = {}
 const PROJECTS_ARRAY = [
+  {
+    title: "Tab Booster",
+    subtitle: "Personal project",
+    description:
+      "A Chrome extension as a tab manager built to keep track of the usage time, categorised by AI",
+    sourceURL: "https://github.com/mikah13/tabbooster",
+    siteURL:
+      "https://chromewebstore.google.com/detail/tab-booster/egmmpojeccmdlnbooedjanemdkkbhoeg",
+    imageURL: "/images/tabbooster.png",
+    imageAltText: "Tab Booster Thumbnail",
+    stack: [
+      {
+        label: "TypeScript",
+      },
+      {
+        label: "OpenAI",
+      },
+      {
+        label: "Convex",
+      },
+    ],
+  },
   {
     title: "mike-hoang-dev",
     subtitle: "Personal project",
     description:
-      "My personal portfolio website, where I explore and experiment with new technologies",
+      "My personal website, where I explore and experiment with new technologies",
     siteURL: "https://mike-hoang-dev.vercel.app/",
     sourceURL: "https://github.com/mikah13/profile",
     imageURL: "/images/personal.png",
