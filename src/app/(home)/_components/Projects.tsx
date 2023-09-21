@@ -7,7 +7,7 @@ const PROJECTS_ARRAY = [
     title: "Tab Booster",
     subtitle: "Personal project",
     description:
-      "A Chrome extension as a tab manager built to keep track of the usage time, categorised by AI",
+      "A Chrome extension categorizes & tracks time on web tab using OpenAI.",
     sourceURL: "https://github.com/mikah13/tabbooster",
     siteURL:
       "https://chromewebstore.google.com/detail/tab-booster/egmmpojeccmdlnbooedjanemdkkbhoeg",
@@ -21,7 +21,7 @@ const PROJECTS_ARRAY = [
         label: "OpenAI",
       },
       {
-        label: "Convex",
+        label: "Chrome API",
       },
     ],
   },
@@ -112,24 +112,6 @@ const PROJECTS_ARRAY = [
     siteURL: "https://mikah13.github.io/language-picker/",
     imageURL: "/images/languagepicker.png",
     imageAltText: "Language Picker Thumbnail",
-    stack: [
-      {
-        label: "ReactJS",
-      },
-      {
-        label: "NodeJS",
-      },
-    ],
-  },
-  {
-    title: "Skrtble",
-    subtitle: "Personal project",
-    description:
-      "My own adapted implmentation of skribbl.io using Express.js and Web Socket",
-    sourceURL: "https://github.com/mikah13/S-k-r-t-b-l-e",
-    siteURL: "",
-    imageURL: "/images/skrtble.png",
-    imageAltText: "Skrtble  Thumbnail",
     stack: [
       {
         label: "ReactJS",
