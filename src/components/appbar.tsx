@@ -38,7 +38,7 @@ const Appbar = async ({ dashboard = false }: { dashboard?: boolean }) => {
               <div className="flex flex-row space-x-2">
                 {dashboard && <NotificationBox />}
                 <ModeToggle />
-                <UserDropdown user={user} />
+                {/* <UserDropdown user={user} /> */}
               </div>
             </nav>
           </div>

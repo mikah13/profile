@@ -1,14 +1,35 @@
 import React from "react"
 import ProjectCard from "./ProjectCard"
 
-
 type Props = {}
 const PROJECTS_ARRAY = [
+  {
+    title: "Tab Booster",
+    subtitle: "Personal project",
+    description:
+      "A Chrome extension categorizes & tracks time on web tab using OpenAI.",
+    sourceURL: "https://github.com/mikah13/tabbooster",
+    siteURL:
+      "https://chromewebstore.google.com/detail/tab-booster/egmmpojeccmdlnbooedjanemdkkbhoeg",
+    imageURL: "/images/tabbooster.png",
+    imageAltText: "Tab Booster Thumbnail",
+    stack: [
+      {
+        label: "TypeScript",
+      },
+      {
+        label: "OpenAI",
+      },
+      {
+        label: "Chrome API",
+      },
+    ],
+  },
   {
     title: "mike-hoang-dev",
     subtitle: "Personal project",
     description:
-      "My personal portfolio website, where I explore and experiment with new technologies",
+      "My personal website, where I explore and experiment with new technologies",
     siteURL: "https://mike-hoang-dev.vercel.app/",
     sourceURL: "https://github.com/mikah13/profile",
     imageURL: "/images/personal.png",
@@ -91,24 +112,6 @@ const PROJECTS_ARRAY = [
     siteURL: "https://mikah13.github.io/language-picker/",
     imageURL: "/images/languagepicker.png",
     imageAltText: "Language Picker Thumbnail",
-    stack: [
-      {
-        label: "ReactJS",
-      },
-      {
-        label: "NodeJS",
-      },
-    ],
-  },
-  {
-    title: "Skrtble",
-    subtitle: "Personal project",
-    description:
-      "My own adapted implmentation of skribbl.io using Express.js and Web Socket",
-    sourceURL: "https://github.com/mikah13/S-k-r-t-b-l-e",
-    siteURL: "",
-    imageURL: "/images/skrtble.png",
-    imageAltText: "Skrtble  Thumbnail",
     stack: [
       {
         label: "ReactJS",
