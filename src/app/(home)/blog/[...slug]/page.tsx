@@ -89,7 +89,7 @@ const Blog = async ({ params }: PostPageProps) => {
           authors={authors}
           readingTime={post.readingTime?.text}
         />
-        <BlogSummary content={post.body.raw.toString()} />
+        {/* <BlogSummary content={post.body.raw.toString()} /> */}
         <Mdx code={post.body.code} />
 
         <hr className="mt-12" />
@@ -102,7 +102,6 @@ const Blog = async ({ params }: PostPageProps) => {
           {post.tags ? <BlogTag tags={post.tags} /> : null}
         </div>
       </div>
- 
     </article>
   )
 }
