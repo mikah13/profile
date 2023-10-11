@@ -22,12 +22,6 @@ const PROJECTS_ARRAY = [
       {
         label: "Pillow",
       },
-      {
-        label: "Typescript",
-      },
-      {
-        label: "Python",
-      },
     ],
   },
   {
