@@ -4,6 +4,33 @@ import ProjectCard from "./ProjectCard"
 type Props = {}
 const PROJECTS_ARRAY = [
   {
+    title: "iConvert",
+    subtitle: "Personal project",
+    description:
+      "A free-to-use tool for converting file formats using Pillow, FastAPI and Next.js",
+    sourceURL: "https://github.com/mikah13/file-converter-web",
+    siteURL: "https://iconvert.vercel.app/",
+    imageURL: "/images/iconvert.png",
+    imageAltText: "iConvert Thumbnail",
+    stack: [
+      {
+        label: "FastAPI",
+      },
+      {
+        label: "Next.js",
+      },
+      {
+        label: "Pillow",
+      },
+      {
+        label: "Typescript",
+      },
+      {
+        label: "Python",
+      },
+    ],
+  },
+  {
     title: "Tab Booster",
     subtitle: "Personal project",
     description:
@@ -100,24 +127,6 @@ const PROJECTS_ARRAY = [
       },
       {
         label: "Bootstrap",
-      },
-    ],
-  },
-  {
-    title: "Language Picker",
-    subtitle: "Personal project",
-    description:
-      "A side project to help people to decide which programming language to learn",
-    sourceURL: "https://github.com/mikah13/language-picker",
-    siteURL: "https://mikah13.github.io/language-picker/",
-    imageURL: "/images/languagepicker.png",
-    imageAltText: "Language Picker Thumbnail",
-    stack: [
-      {
-        label: "ReactJS",
-      },
-      {
-        label: "NodeJS",
       },
     ],
   },
