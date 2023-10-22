@@ -38,7 +38,7 @@ const PROJECTS_ARRAY = [
         label: "FastAPI",
       },
       {
-        label: "Next.js",
+        label: "Postgres",
       },
       {
         label: "Pillow",
