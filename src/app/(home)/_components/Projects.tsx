@@ -4,6 +4,27 @@ import ProjectCard from "./ProjectCard"
 type Props = {}
 const PROJECTS_ARRAY = [
   {
+    title: "UptoTech",
+    subtitle: "Personal project",
+    description:
+      "A web scraping project to fetch all the latest blog posts from top tech companies",
+    siteURL: "https://uptotech.vercel.app/",
+    sourceURL: "https://github.com/mikah13/uptotech",
+    imageURL: "/images/uptotech.png",
+    imageAltText: "UptoTech Thumbnail",
+    stack: [
+      {
+        label: "NextJS",
+      },
+      {
+        label: "NodeJS",
+      },
+      {
+        label: "Cheerio",
+      },
+    ],
+  },
+  {
     title: "iConvert",
     subtitle: "Personal project",
     description:
@@ -46,27 +67,7 @@ const PROJECTS_ARRAY = [
       },
     ],
   },
-  {
-    title: "mike-hoang-dev",
-    subtitle: "Personal project",
-    description:
-      "My personal website, where I explore and experiment with new technologies",
-    siteURL: "https://mike-hoang-dev.vercel.app/",
-    sourceURL: "https://github.com/mikah13/profile",
-    imageURL: "/images/personal.png",
-    imageAltText: "Mike Hoang Dev Thumbnail",
-    stack: [
-      {
-        label: "NextJS",
-      },
-      {
-        label: "TypeScript",
-      },
-      {
-        label: "Prisma",
-      },
-    ],
-  },
+
   {
     title: "Ford Heritage Vault",
     subtitle: "Work project",
